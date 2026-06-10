@@ -23,7 +23,7 @@
 1. Supervisor selects skill(s) from `docs/agent/SKILLS_INDEX.md` **before** Builder starts
 2. Builder invokes skills in process order (document results in slice report)
 3. **No broad repo scan** unless `TOKEN_SAVIOR_WORKFLOW` approves a scoped path list
-4. Default stack: Token Savior → domain review → A11y (if UI) → Build → Release Safety
+4. Default stack: Token Savior → domain review → A11y (if UI) → Build → Runtime QA (major sprint / RC / push) → Release Safety
 
 ---
 
@@ -51,12 +51,13 @@
                           └────────┬─────────┘
                                    ▼
                           ┌──────────────────┐
-                          │ npm run build    │
+                          │ lint + build     │
+                          │ serve out (QA)   │
                           │ local commit     │
                           └────────┬─────────┘
                                    ▼
                           ┌──────────────────┐
-                          │ GitHub push      │  ◄── only when approved + SSH OK
+                          │ GitHub push      │  ◄── only when approved + SSH OK + Runtime QA
                           └────────┬─────────┘
                                    ▼
                           ┌──────────────────┐
@@ -116,8 +117,17 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && node -v'
 Before build:
 
 ```bash
+rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npm run lint'
 rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npm run build'
 ```
+
+Before push recommendation (static export — not `next start`):
+
+```bash
+rtk npx serve out -l 3110
+```
+
+See `skills/RUNTIME_QA.md`. **Do not use port 3100** (Metabase). `/var/www/raeservice/landing/` must remain untouched unless deploy is approved.
 
 ---
 
