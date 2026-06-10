@@ -1,0 +1,493 @@
+# RAE Next.js Project Rules
+
+## Project Context
+
+Project Path:
+
+/home/rae_admin/rae-nextjs-main/
+
+Repository:
+
+numtip/rae-nextjs-main
+
+GitHub is the Source of Truth.
+
+This project uses:
+
+* Next.js App Router
+* TypeScript
+* Tailwind CSS
+* Static Export
+* Node 20
+* GitHub-based workflow
+
+---
+
+# Agent Behavior
+
+Before making any code change:
+
+1. Read relevant project documents.
+2. Read previous QA reports.
+3. Read architecture documents.
+4. Summarize the implementation plan briefly.
+5. Then begin work.
+
+Never start editing immediately.
+
+---
+
+# Token Governance
+
+Minimize token consumption.
+
+Prefer:
+
+* updating existing reports
+* updating existing architecture docs
+* updating existing skills
+
+Avoid:
+
+* duplicate reports
+* duplicate architecture documents
+* unnecessary markdown files
+* long log dumps
+
+Always summarize findings.
+
+Never paste large build logs.
+
+---
+
+# Terminal Rules
+
+Every terminal command MUST start with:
+
+rtk
+
+Examples:
+
+rtk git status
+
+rtk npm run build
+
+rtk docker ps
+
+Never omit rtk.
+
+---
+
+# Git Governance
+
+GitHub is the Source of Truth.
+
+Before any recommendation:
+
+Verify:
+
+* current branch
+* git status
+* ahead count
+* behind count
+
+Before push recommendation:
+
+Verify:
+
+* QA reports
+* release readiness
+* rollback path
+
+Never push unless explicitly requested.
+
+Never deploy unless explicitly requested.
+
+---
+
+# Next.js Rules
+
+Use App Router.
+
+Default to:
+
+React Server Components (RSC)
+
+Use:
+
+"use client"
+
+ONLY when required for:
+
+* useState
+* useEffect
+* browser APIs
+* event handlers
+
+Prefer server-side rendering and async server components.
+
+---
+
+# TypeScript Rules
+
+Use strict TypeScript.
+
+Avoid:
+
+* any
+* unnecessary type assertions
+
+Prefer:
+
+* explicit types
+* reusable interfaces
+* shared type definitions
+
+---
+
+# Tailwind Rules
+
+Use Tailwind CSS only.
+
+Mobile-first always.
+
+Prefer:
+
+* utility classes
+* reusable UI patterns
+
+Avoid:
+
+* inline styles
+* arbitrary values unless necessary
+* duplicated utility chains
+
+---
+
+# Styling Rules
+
+Design direction:
+
+* UTCC quality
+* Vercel quality
+* Premium institutional website
+
+Principles:
+
+* mobile-first
+* accessibility-aware
+* clean spacing
+* performance-first
+* modern institutional design
+
+Avoid:
+
+* flashy effects
+* gaming UI
+* excessive animation
+
+---
+
+# Data Fetching Rules
+
+Prefer:
+
+Server-side data fetching
+
+Use:
+
+* async server components
+* static generation
+
+Avoid:
+
+* client-side fetching unless required
+
+---
+
+# Static Export Rules
+
+Project uses:
+
+output: "export"
+
+Never use:
+
+next start
+
+Preview with:
+
+rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx serve out -l 3110'
+
+Port 3100 is reserved for Metabase.
+
+Never use port 3100.
+
+Use:
+
+3110
+
+for QA preview.
+
+---
+
+# QA Governance
+
+Build success does NOT mean release readiness.
+
+Never recommend push or deploy based only on:
+
+* lint pass
+* build pass
+* export success
+
+---
+
+# Mandatory QA Gates
+
+For:
+
+* major sprint
+* release candidate
+* deployment candidate
+* push candidate
+
+Run:
+
+1. Lint
+2. Build
+3. Runtime QA
+4. Locale QA
+5. Visual QA
+6. Mobile QA
+7. Release Readiness Review
+
+Only after all gates pass:
+
+READY FOR GITHUB PUSH
+
+may be recommended.
+
+---
+
+# Runtime QA
+
+Required for:
+
+* major sprint
+* release candidate
+* push candidate
+
+Must verify:
+
+/th/
+
+/en/
+
+Expected:
+
+HTTP 200
+
+and page shell rendering.
+
+---
+
+# Locale QA
+
+Verify:
+
+* html lang
+* canonical
+* hreflang
+* og locale
+* metadata
+
+Required locales:
+
+* th
+* en
+
+---
+
+# Visual QA
+
+Verify:
+
+* hero
+* navigation
+* CTA blocks
+* footer
+* layout consistency
+
+Capture screenshots when possible.
+
+---
+
+# Mobile QA
+
+Verify:
+
+* responsive layout
+* touch targets
+* navigation
+* overflow issues
+
+No horizontal scrolling.
+
+---
+
+# Accessibility Rules
+
+Verify:
+
+* html lang
+* semantic landmarks
+* navigation labels
+* touch target sizing
+
+Prefer accessibility-friendly solutions.
+
+---
+
+# SEO Rules
+
+Verify:
+
+* metadata
+* canonical
+* hreflang
+* sitemap
+* robots
+* open graph
+
+Never leave locale metadata inconsistent.
+
+---
+
+# Reporting Rules
+
+For significant work:
+
+Create or update:
+
+docs/reports/
+
+Include:
+
+* objective
+* actions
+* results
+* risks
+* recommendations
+
+Keep reports concise.
+
+---
+
+# Documentation Rules
+
+Update documentation whenever:
+
+* architecture changes
+* workflow changes
+* governance changes
+* deployment process changes
+
+Documentation is part of the deliverable.
+
+---
+
+# Release Governance
+
+Status progression:
+
+Development
+
+↓
+
+QA
+
+↓
+
+Release Candidate
+
+↓
+
+Release Readiness Review
+
+↓
+
+GitHub Push
+
+↓
+
+Deploy Review
+
+↓
+
+Production Deploy
+
+Never skip stages.
+
+---
+
+# Deployment Governance
+
+Before deploy:
+
+Verify:
+
+* QA reports
+* release readiness review
+* rollback plan
+* environment assumptions
+
+Production deployment requires explicit approval.
+
+---
+
+# KPI Governance
+
+Placeholder KPI values are acceptable during development.
+
+Before production:
+
+Require:
+
+* data owner approval
+
+or
+
+* live KPI integration
+
+Never present placeholder KPI values as real data.
+
+---
+
+# Scope Discipline
+
+Make the smallest change necessary.
+
+Avoid:
+
+* unrelated refactors
+* broad rewrites
+* unnecessary dependency changes
+
+Stay within task scope.
+
+---
+
+# Final Output Format
+
+Always report:
+
+* summary
+* files changed
+* lint status
+* build status
+* QA status
+* risks
+* next recommendation
+
+Keep responses concise and actionable.
