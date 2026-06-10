@@ -3,6 +3,7 @@
 **Project:** RAE Next.js Main  
 **Path:** `/home/rae_admin/rae-nextjs-main/`  
 **Status:** RC2 Slice 4 — **build hook + data-owner governance**  
+**Upstream:** Research Data Center (university system) — see `RESEARCH_DATA_CENTER_INTEGRATION_PLAN.md`  
 **Governance:** `docs/agent/AGENCY_AGENTS_POLICY.md` · `docs/architecture/VISUAL_GOVERNANCE.md`
 
 ---
@@ -27,8 +28,8 @@ No API calls, env secrets, or build-time fetch today. Values ship in the static 
 
 | Option | Mechanism | Fit for `output: "export"` | Risk |
 |--------|-----------|---------------------------|------|
-| **A. Build-time JSON fetch** | CI or pre-build script fetches public JSON → writes `data/kpiSnapshot.json` | **Best** — values baked into static HTML at build | Requires scheduled rebuild; source must be public or CI-only creds |
-| **B. Checked-in snapshot file** | Human or ops updates `data/kpiSnapshot.json` on cadence | **Good** — no runtime dependency | Stale data if update process slips |
+| **A. Build-time JSON fetch** | CI script fetches from **Research Data Center API** → writes `data/kpiSnapshot.json` | **Best** — values baked into static HTML at build; authoritative source | Requires API readiness + CI secrets |
+| **B. Checked-in snapshot file** | Human or ops updates `data/kpiSnapshot.json` on cadence | **Good** — zero dependency; works today | Stale data if update process slips; interim until Option A |
 | **C. Client-side fetch** | Browser calls API after page load | Works but **not ideal** for static export | CORS, flash of placeholder, secrets in client forbidden |
 | **D. Metabase embed/API** | Direct query to Metabase on port 3100 | **Poor** — wrong service boundary; auth complexity | Secrets, VPS coupling, not static-friendly |
 | **E. CMS / headless field** | Future CMS numeric fields | Future sprint | Out of scope now |
@@ -37,11 +38,18 @@ No API calls, env secrets, or build-time fetch today. Values ship in the static 
 
 ## Recommended safest source format (static export)
 
-**Primary recommendation: Option A or B — build-time snapshot as typed JSON.**
+**Primary recommendation: Option A — build-time fetch from Research Data Center.**
+**Interim fallback: Option B — checked-in snapshot, which is currently in place.**
 
 ```
-data/kpiSnapshot.json   ← generated or manually updated
-data/kpiImpact.ts       ← imports snapshot; maps to KpiMetric[]
+Research Data Center (future API)
+        │
+        ▼
+data-integration/rdc-adapter.ts  ◄── build-time CI script (future)
+        │
+        ▼
+data/kpiSnapshot.json   ← generated (CI) or manually updated (interim)
+data/loadKpiSnapshot.ts ← imports snapshot; maps to KpiMetric[]
 ```
 
 ### Snapshot contract (RC2 Slices 1–4)
@@ -131,22 +139,26 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 
 | Step | Status | Notes |
 |------|--------|-------|
-| 1. Data-owner sign-off on metric definitions | **Open** | Required before `kpiSnapshot.json` goes live |
+| 1. Data-owner sign-off on metric definitions | **Open** | Required before real values go live |
 | 2. Publish snapshot contract | **Done (RC2 Slice 1)** | Schema + validator + example |
 | 3. KPI snapshot loader | **Done (RC2 Slice 2)** | `data/loadKpiSnapshot.ts` — typed import + conversion helpers |
 | 4. Wire loader into KPI UI | **Done (RC2 Slice 3)** | `KpiImpactStrip` imports `getSnapshotKpiMetrics()` — no visual change |
 | 5. Build hook `npm run kpi:validate` | **Done (RC2 Slice 4)** | Runs automatically via `prebuild` before every `npm run build` |
 | 6. Data-owner workflow doc | **Done (RC2 Slice 4)** | `docs/architecture/KPI_DATA_OWNER_WORKFLOW.md` — guides non-developer edits |
-| 7. Optional `npm run kpi:sync` (CI) | **Future** | Option A fetch; CI-only secrets |
-| 8. Notice copy when `status: verified` | **Future** | Soften/remove placeholder notice |
-| 9. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
-| 10. Deploy | **Approval only** | `DEPLOYMENT.md` |
+| 7. Research Data Center integration blueprint | **Done (RC2 Alignment)** | `docs/architecture/RESEARCH_DATA_CENTER_INTEGRATION_PLAN.md` |
+| 8. RDC API contract negotiation | **Not started** | Requires RDC team — endpoints, auth, schema |
+| 9. RDC adapter implementation | **Not started** | `data-integration/rdc-adapter.ts` — build-time fetch |
+| 10. CI `npm run kpi:sync` script | **Not started** | Optional fetch shim before production API |
+| 11. Notice copy when `status: verified` | **Future** | Soften/remove placeholder notice |
+| 12. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
+| 13. Deploy | **Approval only** | `DEPLOYMENT.md` |
 
 **RC2 Slice 1:** contract only — schema + validator + example.  
 **RC2 Slice 2:** production `kpiSnapshot.json` committed + `loadKpiSnapshot.ts` typed loader.  
 **RC2 Slice 3:** `KpiImpactStrip` imports `getSnapshotKpiMetrics()` — snapshot wired into UI.  
 **RC2 Slice 4:** `npm run kpi:validate` + `prebuild` hook + data-owner workflow documented.  
-**Next:** live API integration (Option A), notice copy when `status: verified`.
+**RC2 Alignment:** Research Data Center identified as upstream source — blueprint documented.  
+**Next:** RDC API contract negotiation with data-owner and RDC team.
 
 ---
 
@@ -157,9 +169,11 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 - `data/kpiSnapshot.json` — production snapshot file (RC2 Slice 2)  
 - `components/home/KpiImpactStrip.tsx` — render + `data-kpi-*` attributes  
 - `scripts/validate-kpi-snapshot.ts` — CLI validator (validates both snapshot files by default)  
+- `docs/architecture/RESEARCH_DATA_CENTER_INTEGRATION_PLAN.md` — upstream integration blueprint  
 - `docs/architecture/KPI_DATA_OWNER_WORKFLOW.md` — data-owner update guide (RC2 Slice 4)  
 - `docs/reports/RC2_RUNTIME_QA_WITNESS.md` — RC2 Slice 1 runtime QA  
 - `docs/reports/RC2_SLICE2_KPI_SNAPSHOT_LOADER_QA.md` — RC2 Slice 2 QA  
 - `docs/reports/RC2_SLICE3_KPI_UI_WIRING_QA.md` — RC2 Slice 3 QA  
 - `docs/reports/RC2_SLICE4_KPI_BUILD_HOOK_QA.md` — RC2 Slice 4 QA  
+- `docs/reports/RC2_RESEARCH_DATA_CENTER_ALIGNMENT.md` — RC2 alignment note  
 - `docs/reports/SPRINT2_WEEK2_RUNTIME_QA.md` — runtime QA reference
