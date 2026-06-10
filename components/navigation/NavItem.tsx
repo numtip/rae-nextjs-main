@@ -10,9 +10,10 @@ type Props = {
   locale: Locale;
   path: string;
   label: string;
+  onNavigate?: () => void;
 };
 
-export default function NavItem({ locale, path, label }: Props) {
+export default function NavItem({ locale, path, label, onNavigate }: Props) {
   const pathname = usePathname() || "/";
   const active = isNavActive(pathname, locale, path);
 
@@ -21,6 +22,7 @@ export default function NavItem({ locale, path, label }: Props) {
       href={withLocale(locale, path)}
       className={active ? "is-active" : undefined}
       aria-current={active ? "page" : undefined}
+      onClick={onNavigate}
     >
       {label}
     </Link>

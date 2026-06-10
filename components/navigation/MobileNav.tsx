@@ -52,6 +52,7 @@ export default function MobileNav({ locale, ariaLabel }: Props) {
                     locale={locale}
                     path={item.path}
                     label={item.label[locale]}
+                    onNavigate={close}
                   />
                 </li>
               ))}
