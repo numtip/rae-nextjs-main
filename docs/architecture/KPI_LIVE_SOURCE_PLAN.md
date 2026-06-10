@@ -2,7 +2,7 @@
 
 **Project:** RAE Next.js Main  
 **Path:** `/home/rae_admin/rae-nextjs-main/`  
-**Status:** RC2 Slice 3 — **loader wired into KPI UI**; still static checked-in snapshot  
+**Status:** RC2 Slice 4 — **build hook + data-owner governance**  
 **Governance:** `docs/agent/AGENCY_AGENTS_POLICY.md` · `docs/architecture/VISUAL_GOVERNANCE.md`
 
 ---
@@ -44,7 +44,7 @@ data/kpiSnapshot.json   ← generated or manually updated
 data/kpiImpact.ts       ← imports snapshot; maps to KpiMetric[]
 ```
 
-### Snapshot contract (RC2 Slice 1)
+### Snapshot contract (RC2 Slices 1–4)
 
 | Artifact | Path |
 |----------|------|
@@ -54,11 +54,13 @@ data/kpiImpact.ts       ← imports snapshot; maps to KpiMetric[]
 | Production file | `data/kpiSnapshot.json` — committed with placeholder values |
 | Typed loader | `data/loadKpiSnapshot.ts` — build-time import + `snapshotToKpiMetrics` helper |
 | Wired into UI | `components/home/KpiImpactStrip.tsx` — imports `getSnapshotKpiMetrics()` from loader |
+| Data-owner workflow | `docs/architecture/KPI_DATA_OWNER_WORKFLOW.md` |
+| Build hook | `npm run kpi:validate` runs automatically before every build via `prebuild` |
 
 **Validate (default validates both production + example):**
 
 ```bash
-rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi-snapshot.ts'
+rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npm run kpi:validate'
 ```
 
 **Validate a single file:**
@@ -88,7 +90,7 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 
 - **No secrets** in repo or client bundle
 - Fetch credentials only in CI (GitHub Actions secrets) if Option A
-- Build should fail loudly if snapshot invalid; validator runs as standalone CLI check
+- Build fails if snapshot invalid — `prebuild` hook runs `npm run kpi:validate` automatically
 - `KpiImpactStrip` keeps `data-kpi-source` / `data-kpi-status` attributes for QA
 
 ---
@@ -133,16 +135,18 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 | 2. Publish snapshot contract | **Done (RC2 Slice 1)** | Schema + validator + example |
 | 3. KPI snapshot loader | **Done (RC2 Slice 2)** | `data/loadKpiSnapshot.ts` — typed import + conversion helpers |
 | 4. Wire loader into KPI UI | **Done (RC2 Slice 3)** | `KpiImpactStrip` imports `getSnapshotKpiMetrics()` — no visual change |
-| 5. Build hook `npm run kpi:validate` | **Future** | Run `npx tsx scripts/validate-kpi-snapshot.ts` before build |
-| 6. Optional `npm run kpi:sync` (CI) | **Future** | Option A fetch; CI-only secrets |
-| 7. Notice copy when `status: verified` | **Future** | Soften/remove placeholder notice |
-| 8. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
-| 9. Deploy | **Approval only** | `DEPLOYMENT.md` |
+| 5. Build hook `npm run kpi:validate` | **Done (RC2 Slice 4)** | Runs automatically via `prebuild` before every `npm run build` |
+| 6. Data-owner workflow doc | **Done (RC2 Slice 4)** | `docs/architecture/KPI_DATA_OWNER_WORKFLOW.md` — guides non-developer edits |
+| 7. Optional `npm run kpi:sync` (CI) | **Future** | Option A fetch; CI-only secrets |
+| 8. Notice copy when `status: verified` | **Future** | Soften/remove placeholder notice |
+| 9. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
+| 10. Deploy | **Approval only** | `DEPLOYMENT.md` |
 
 **RC2 Slice 1:** contract only — schema + validator + example.  
 **RC2 Slice 2:** production `kpiSnapshot.json` committed + `loadKpiSnapshot.ts` typed loader.  
 **RC2 Slice 3:** `KpiImpactStrip` imports `getSnapshotKpiMetrics()` — snapshot wired into UI.  
-**Next:** data-owner sign-off, build hook, live API integration.
+**RC2 Slice 4:** `npm run kpi:validate` + `prebuild` hook + data-owner workflow documented.  
+**Next:** live API integration (Option A), notice copy when `status: verified`.
 
 ---
 
@@ -153,5 +157,9 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 - `data/kpiSnapshot.json` — production snapshot file (RC2 Slice 2)  
 - `components/home/KpiImpactStrip.tsx` — render + `data-kpi-*` attributes  
 - `scripts/validate-kpi-snapshot.ts` — CLI validator (validates both snapshot files by default)  
+- `docs/architecture/KPI_DATA_OWNER_WORKFLOW.md` — data-owner update guide (RC2 Slice 4)  
 - `docs/reports/RC2_RUNTIME_QA_WITNESS.md` — RC2 Slice 1 runtime QA  
+- `docs/reports/RC2_SLICE2_KPI_SNAPSHOT_LOADER_QA.md` — RC2 Slice 2 QA  
+- `docs/reports/RC2_SLICE3_KPI_UI_WIRING_QA.md` — RC2 Slice 3 QA  
+- `docs/reports/RC2_SLICE4_KPI_BUILD_HOOK_QA.md` — RC2 Slice 4 QA  
 - `docs/reports/SPRINT2_WEEK2_RUNTIME_QA.md` — runtime QA reference

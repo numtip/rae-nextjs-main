@@ -8,8 +8,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "npm run kpi:validate",
     "start": "next start",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "kpi:validate": "tsx scripts/validate-kpi-snapshot.ts"
   },
   "dependencies": {
     "next": "16.2.4",
@@ -24,6 +26,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "tailwindcss": "4.2.4",
+    "tsx": "^4.22.4",
     "typescript": "5.9.3"
   }
 }
