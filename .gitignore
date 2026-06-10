@@ -6,3 +6,5 @@ out/
 *.log
 .DS_Store
 *.proxy-artifact/
+_extract-from-maps.mjs
+_recovered-dev-scaffold/

@@ -64,30 +64,20 @@ Also documented: spacing scale, typography hierarchy, CTA rules, card rules, mob
 
 ---
 
-## Not in scope (deferred)
+## Week 3 follow-up (completed)
 
-- KPI/impact section component implementation
-- Visual redesign of section content
-- Production deploy or push
-- Inner page pattern governance
-- Figma / design tool sync
-
----
-
-## Risks
-
-| Risk | Severity | Mitigation |
-|------|----------|------------|
-| KPI pattern documented but not built | Low | Marked reserved in visual system doc |
-| `--color-text-muted` (#4A5F56) differs from locked neutral (#4C4C4C) | Low | Both documented; neutral gray for new meta/KPI use |
-| Section components live outside `components/home/` | Low | Week 3 may consolidate; renderer already centralizes order |
-| Untracked scaffold files in repo root | Low | Not committed; cleanup in separate task |
+| Task | Status |
+|------|--------|
+| Pin Node 20 (`.nvmrc`, `engines`) | Done |
+| KPI / impact strip | Done — `KpiImpactStrip`, `data/kpiImpact.ts` |
+| Consolidate homepage components | Done — all under `components/home/` |
+| Neutral gray alignment | Done — `--muted` → `--neutral-gray` |
+| Scaffold gitignore | Done — `_extract-from-maps.mjs`, `_recovered-dev-scaffold/` |
 
 ---
 
-## Next recommendation (Week 3)
+## Next recommendation
 
-1. Implement KPI/impact strip using reserved pattern in `HOMEPAGE_VISUAL_SYSTEM.md`.
-2. Consolidate homepage section components under `components/home/`.
-3. Add visual regression checklist against governance doc before any redesign pass.
-4. Push local commits to `origin/main` when deploy window opens.
+1. Add visual regression checklist against governance doc before redesign pass.
+2. Push local commits to `origin/main` when deploy window opens.
+3. Wire KPI metrics to live data source when available.

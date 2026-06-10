@@ -13,7 +13,7 @@
 | Shared tokens (`tokens.css`) | Production deploy |
 | Navigation / footer shell | New brand colors |
 | Mobile nav behavior | CMS / content migration |
-| Documentation of patterns | KPI section implementation |
+| Documentation of patterns | Production deploy |
 
 ---
 
@@ -35,7 +35,7 @@ These three colors are **immutable** for Sprint 1. Do not substitute, approximat
 | `--maejo-green-muted` | `#0A7A52` | Hero gradient endpoint |
 | `--maejo-green-light` | `#E8F5EF` | Backgrounds, badges |
 | `--maejo-gold-dark` | `#E6C800` | Gold hover |
-| `--color-text-muted` | `#4A5F56` | Green-tinted secondary (existing) |
+| `--color-text-muted` | `#4C4C4C` | Alias of neutral gray (via `--muted`) |
 
 ### Prohibited
 

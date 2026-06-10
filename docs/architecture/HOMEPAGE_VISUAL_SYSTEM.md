@@ -15,6 +15,7 @@
 | Quick access services | `quick-links` | `QuickLinks` | `.section-heading`, `.grid-two`, `.card-panel`, `.panel-list` |
 | Research showcase | `services-overview` | `ServicesOverview` | `.grid-three`, `.card-panel` |
 | Research gateway CTA | `research-systems-cta` | `ResearchSystemsCTA` | `.cta-strip`, `.cta-button` |
+| KPI / impact | `kpi-impact` | `KpiImpactStrip` | `.kpi-strip`, `.grid-four`, `.kpi-card`, `.kpi-value` |
 | News / announcements | `news-highlights` | `NewsHighlights` | `.grid-three`, `.news-card-meta`, `.news-category` |
 | Documents utility CTA | `documents-cta` | `DocumentsCTA` | `.cta-strip` |
 | Green office utility | `green-office` | `GreenOfficeSection` | `.greenoffice-section` |
@@ -86,26 +87,22 @@ Renderer: `components/home/HomeSectionRenderer.tsx` · Registry: `data/home-sect
 
 ---
 
-## 5. KPI / impact pattern (reserved)
+## 5. KPI / impact pattern
 
-**Status:** Not yet implemented on homepage. Reserved for Sprint 1 Week 3+.
+**Purpose:** Institutional impact metrics in a scannable four-up strip.
 
-**Planned structure:**
+| Element | Class | Rule |
+|---------|-------|------|
+| Container | `.kpi-strip` | Standard `.section-block` rhythm |
+| Grid | `.grid-four` | 4 → 2 (≤ 57.5rem) → 1 (≤ 48rem) |
+| Card | `.kpi-card` | Centered, `.card-panel`-like surface |
+| Highlight | `.kpi-card-highlight` | Gold top border — **one metric only** |
+| Value | `.kpi-value` | Large numeral, `--maejo-green` |
+| Label | `.kpi-label` | `--neutral-gray`, weight 600 |
+| Context | `.kpi-context` | Optional, `--muted` |
 
-```
-.section-block.kpi-strip
-  └── .grid-three | .grid-four
-        └── .kpi-card
-              ├── .kpi-value   (large numeral, --maejo-green)
-              ├── .kpi-label   (body, --neutral-gray)
-              └── .kpi-context (optional, --muted)
-```
-
-**Rules when added:**
-
-- Values use `--maejo-green` or `--maejo-green-strong` only — no new primaries.
-- Gold accent limited to one highlight metric per strip.
-- Mobile: single column, min touch target 2.75rem on any linked KPI.
+**Data:** `data/kpiImpact.ts` · **Component:** `components/home/KpiImpactStrip.tsx`  
+**Anchor:** `#impact-metrics`
 
 ---
 
@@ -227,8 +224,11 @@ Derived greens (`--maejo-green-strong`, `--maejo-green-light`, `--maejo-green-mu
 
 ```
 app/[locale]/(site)/page.tsx          → metadata + HomeSectionRenderer
+components/home/                      → Hero, QuickLinks, ServicesOverview, ResearchSystemsCTA,
+                                        KpiImpactStrip, NewsHighlights, DocumentsCTA, GreenOfficeSection
 components/home/HomeSectionRenderer.tsx
 data/home-sections.ts
+data/kpiImpact.ts
 app/tokens.css
 app/globals.css
 components/layout/SiteShell.tsx

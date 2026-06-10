@@ -73,7 +73,10 @@ components/
 │   ├── FooterContact.tsx  # Org contact block
 │   └── FooterLinks.tsx    # Homepage anchor links
 └── home/
-    └── HomeSectionRenderer.tsx  # Ordered homepage sections
+    ├── HomeSectionRenderer.tsx  # Ordered homepage sections
+    ├── Hero.tsx · QuickLinks.tsx · ServicesOverview.tsx
+    ├── ResearchSystemsCTA.tsx · KpiImpactStrip.tsx
+    └── NewsHighlights.tsx · DocumentsCTA.tsx · GreenOfficeSection.tsx
 ```
 
 ---

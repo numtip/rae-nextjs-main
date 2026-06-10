@@ -439,6 +439,52 @@
   background: var(--maejo-green-light);
 }
 
+/* ─── KPI / Impact ───────────────────────────────────────────────────── */
+
+.grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.875rem;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.125rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.kpi-card-highlight {
+  border-top: 3px solid var(--maejo-gold);
+}
+
+.kpi-value {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--maejo-green);
+  line-height: 1.2;
+}
+
+.kpi-card-highlight .kpi-value {
+  color: var(--maejo-green-strong);
+}
+
+.kpi-label {
+  margin: 0.375rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--neutral-gray);
+}
+
+.kpi-context {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 /* ─── Footer ─────────────────────────────────────────────────────────── */
 
 .site-footer {
@@ -777,7 +823,8 @@
 /* ─── Responsive (mobile-first) ──────────────────────────────────────── */
 
 @media (max-width: 57.5rem) {
-  .grid-three {
+  .grid-three,
+  .grid-four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -820,7 +867,8 @@
   }
 
   .grid-two,
-  .grid-three {
+  .grid-three,
+  .grid-four {
     grid-template-columns: 1fr;
   }
 

@@ -4,6 +4,7 @@ export type HomeSectionId =
   | "quick-links"
   | "services-overview"
   | "research-systems-cta"
+  | "kpi-impact"
   | "news-highlights"
   | "documents-cta"
   | "green-office";
@@ -19,6 +20,7 @@ export const homeSections: HomeSectionDef[] = [
   { id: "quick-links", anchor: "quick-links", group: "intro" },
   { id: "services-overview", anchor: "services-overview", group: "services" },
   { id: "research-systems-cta", anchor: "research-gateway", group: "services" },
+  { id: "kpi-impact", anchor: "impact-metrics", group: "content" },
   { id: "news-highlights", anchor: "news-highlights", group: "content" },
   { id: "documents-cta", anchor: "forms-documents", group: "utility" },
   { id: "green-office", anchor: "green-office", group: "utility" },

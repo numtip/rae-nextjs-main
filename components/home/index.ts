@@ -1,0 +1,9 @@
+export { default as DocumentsCTA } from "./DocumentsCTA";
+export { default as GreenOfficeSection } from "./GreenOfficeSection";
+export { default as Hero } from "./Hero";
+export { default as HomeSectionRenderer } from "./HomeSectionRenderer";
+export { default as KpiImpactStrip } from "./KpiImpactStrip";
+export { default as NewsHighlights } from "./NewsHighlights";
+export { default as QuickLinks } from "./QuickLinks";
+export { default as ResearchSystemsCTA } from "./ResearchSystemsCTA";
+export { default as ServicesOverview } from "./ServicesOverview";

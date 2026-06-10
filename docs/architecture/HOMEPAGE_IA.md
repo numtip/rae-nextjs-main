@@ -16,9 +16,10 @@ Homepage content is driven by a declarative registry — not hard-coded JSX orde
 | 2 | `quick-links` | `#quick-links` | intro | `QuickLinks` |
 | 3 | `services-overview` | `#services-overview` | services | `ServicesOverview` |
 | 4 | `research-systems-cta` | `#research-gateway` | services | `ResearchSystemsCTA` |
-| 5 | `news-highlights` | `#news-highlights` | content | `NewsHighlights` |
-| 6 | `documents-cta` | `#forms-documents` | utility | `DocumentsCTA` |
-| 7 | `green-office` | `#green-office` | utility | `GreenOfficeSection` |
+| 5 | `kpi-impact` | `#impact-metrics` | content | `KpiImpactStrip` |
+| 6 | `news-highlights` | `#news-highlights` | content | `NewsHighlights` |
+| 7 | `documents-cta` | `#forms-documents` | utility | `DocumentsCTA` |
+| 8 | `green-office` | `#green-office` | utility | `GreenOfficeSection` |
 
 ---
 
@@ -33,7 +34,7 @@ Homepage content is driven by a declarative registry — not hard-coded JSX orde
 │  Services Overview → Research Systems CTA │
 ├─────────────────────────────────────────┤
 │  CONTENT                                │
-│  News Highlights                        │
+│  KPI Impact → News Highlights           │
 ├─────────────────────────────────────────┤
 │  UTILITY                                │
 │  Documents CTA → Green Office           │
@@ -54,6 +55,7 @@ HomeSectionRenderer (maps id → component)
         ├── data/quickLinks.ts
         ├── data/servicesOverview.ts
         ├── data/cta.ts (research systems)
+        ├── data/kpiImpact.ts
         ├── data/newsHighlights.ts + news-registry.ts
         ├── data/cta.ts (documents)
         └── data/greenOffice.ts
@@ -73,6 +75,7 @@ Each section component reads its own data module. The registry controls **order 
 | `#quick-links` | Quick Links |
 | `#services-overview` | Services Overview |
 | `#research-gateway` | Research Systems CTA |
+| `#impact-metrics` | KPI Impact Strip |
 | `#news-highlights` | News Highlights |
 | `#forms-documents` | Documents CTA |
 | `#green-office` | Green Office |

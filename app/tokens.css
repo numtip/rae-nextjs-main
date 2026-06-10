@@ -18,7 +18,7 @@
   --color-bg: #f6f8f7;
   --color-bg-elevated: #ffffff;
   --color-text: #0f1f18;
-  --color-text-muted: #4a5f56;
+  --color-text-muted: #4c4c4c;
   --color-line: #d4e0da;
   --color-line-strong: #b8cfc4;
 
@@ -61,7 +61,7 @@
   --bg: var(--color-bg);
   --surface: var(--color-surface);
   --text: var(--color-text);
-  --muted: var(--color-text-muted);
+  --muted: var(--neutral-gray);
   --primary: var(--maejo-green);
   --primary-strong: var(--maejo-green-strong);
   --accent: var(--maejo-gold);
