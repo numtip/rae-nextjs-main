@@ -15,7 +15,7 @@
 | Hero | `hero` | `Hero` | `.hero-section`, `.hero-kicker`, `.hero-title`, `.hero-text`, `.hero-actions` |
 | Quick access services | `quick-links` | `QuickLinks` | `.section-heading`, `.grid-two`, `.card-panel`, `.panel-list` |
 | Research showcase | `services-overview` | `ServicesOverview` | `.grid-three`, `.card-panel` |
-| Research gateway CTA | `research-systems-cta` | `ResearchSystemsCTA` | `.cta-strip`, `.cta-button` |
+| Research gateway CTA | `research-systems-cta` | `ResearchSystemsCTA` | `.research-systems-cta-strip`, `.cta-button-row` |
 | KPI / impact | `kpi-impact` | `KpiImpactStrip` | `.kpi-strip`, `.grid-four`, `.kpi-card`, `.kpi-value` |
 | News / announcements | `news-highlights` | `NewsHighlights` | `.grid-three`, `.news-card-meta`, `.news-category` |
 | Documents utility CTA | `documents-cta` | `DocumentsCTA` | `.documents-cta-strip`, `.cta-button-row` |
@@ -126,6 +126,7 @@ Renderer: `components/home/HomeSectionRenderer.tsx` · Registry: `data/home-sect
 |---------|-------|------|
 | Container | `.cta-strip` | Grid 2-col; stacks ≤ 57.5rem |
 | Documents variant | `.documents-cta-strip` | Extra padding; `h2.cta-title`; full-width button ≤ 48rem |
+| Research systems variant | `.research-systems-cta-strip` | Same utility CTA pattern as documents |
 | Accent | `border-left: 4px solid --maejo-gold` | Required |
 | Background | `--maejo-green-light` | Institutional tint |
 | Button | `.cta-button.cta-button-row` | Green fill, chevron, `aria-label` with title |
