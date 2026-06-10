@@ -381,6 +381,25 @@
   background: var(--primary-strong);
 }
 
+.cta-button-row {
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.cta-button-chevron {
+  font-size: 0.9rem;
+}
+
+.documents-cta-strip {
+  padding: 1.125rem 1.25rem;
+  gap: 1rem;
+}
+
+.documents-cta-strip .cta-strip-body {
+  display: grid;
+  gap: 0.375rem;
+}
+
 /* ─── Cards & Grids ──────────────────────────────────────────────────── */
 
 .grid-two {
@@ -530,9 +549,52 @@
   font-size: 0.95rem;
 }
 
-.greenoffice-section {
+.greenoffice-section,
+.greenoffice-utility-section {
   border-left: 5px solid var(--maejo-green);
   background: var(--maejo-green-light);
+}
+
+.greenoffice-utility-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.greenoffice-utility-kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--maejo-green-strong);
+  font-weight: 700;
+}
+
+.greenoffice-utility-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: var(--nav-touch-min);
+  margin-top: 0.25rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.greenoffice-utility-cta:hover {
+  color: var(--primary-strong);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.greenoffice-utility-chevron {
+  flex-shrink: 0;
+  color: var(--maejo-green-muted);
+  font-size: 0.9rem;
 }
 
 /* ─── KPI / Impact ───────────────────────────────────────────────────── */
@@ -994,6 +1056,10 @@
 
   .cta-strip {
     grid-template-columns: 1fr;
+  }
+
+  .documents-cta-section .cta-button-row {
+    width: 100%;
   }
 }
 

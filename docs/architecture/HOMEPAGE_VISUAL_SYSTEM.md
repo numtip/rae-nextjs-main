@@ -18,8 +18,8 @@
 | Research gateway CTA | `research-systems-cta` | `ResearchSystemsCTA` | `.cta-strip`, `.cta-button` |
 | KPI / impact | `kpi-impact` | `KpiImpactStrip` | `.kpi-strip`, `.grid-four`, `.kpi-card`, `.kpi-value` |
 | News / announcements | `news-highlights` | `NewsHighlights` | `.grid-three`, `.news-card-meta`, `.news-category` |
-| Documents utility CTA | `documents-cta` | `DocumentsCTA` | `.cta-strip` |
-| Green office utility | `green-office` | `GreenOfficeSection` | `.greenoffice-section` |
+| Documents utility CTA | `documents-cta` | `DocumentsCTA` | `.documents-cta-strip`, `.cta-button-row` |
+| Green office utility | `green-office` | `GreenOfficeSection` | `.greenoffice-utility-section`, `.greenoffice-utility-cta` |
 | Footer hub | — | `SiteFooter` | `.site-footer`, `.footer-links` |
 
 Renderer: `components/home/HomeSectionRenderer.tsx` · Registry: `data/home-sections.ts`
@@ -125,9 +125,19 @@ Renderer: `components/home/HomeSectionRenderer.tsx` · Registry: `data/home-sect
 | Element | Class | Rule |
 |---------|-------|------|
 | Container | `.cta-strip` | Grid 2-col; stacks ≤ 57.5rem |
+| Documents variant | `.documents-cta-strip` | Extra padding; `h2.cta-title`; full-width button ≤ 48rem |
 | Accent | `border-left: 4px solid --maejo-gold` | Required |
 | Background | `--maejo-green-light` | Institutional tint |
-| Button | `.cta-button` | Green fill, white text, min-height `--nav-touch-min` |
+| Button | `.cta-button.cta-button-row` | Green fill, chevron, `aria-label` with title |
+
+### Green office utility (supporting)
+
+| Element | Class | Rule |
+|---------|-------|------|
+| Container | `.greenoffice-utility-section` | Green left border; utility kicker — not hero |
+| Kicker | `.greenoffice-utility-kicker` | “Utility” / “ส่วนเสริม” |
+| CTA | `.greenoffice-utility-cta` | Link to `greenOffice.path` |
+| Data | `data/greenOffice.ts` | `path` field explicit |
 
 **CTA hierarchy:**
 
@@ -195,7 +205,7 @@ All homepage cards use `.card-panel`:
 
 **Variants:**
 
-- `.greenoffice-section` — left green border + green-light background
+- `.greenoffice-utility-section` — utility kicker + CTA; left green border + green-light background
 - News cards — add `.news-category` badge in meta row
 
 **Do not:** invent new card border colors or primary fills outside brand tokens.
