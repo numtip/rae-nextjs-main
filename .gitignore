@@ -8,3 +8,4 @@ out/
 *.proxy-artifact/
 _extract-from-maps.mjs
 _recovered-dev-scaffold/
+tsconfig.tsbuildinfo
