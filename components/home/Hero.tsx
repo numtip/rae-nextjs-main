@@ -8,17 +8,21 @@ export default function Hero({ locale }: { locale: Locale }) {
   const base = withLocale(locale, "/");
 
   return (
-    <section className="hero-section section-block" id="hero">
-      <p className="hero-kicker">{h.kicker}</p>
-      <h2 className="hero-title">{h.title}</h2>
-      <p className="hero-text">{h.text}</p>
-      <div className="hero-actions">
-        <Link className="btn-link btn-link-primary" href={`${base}${h.primaryCta.hash}`}>
-          {h.primaryCta.label}
-        </Link>
-        <Link className="btn-link btn-link-secondary" href={`${base}${h.secondaryCta.hash}`}>
-          {h.secondaryCta.label}
-        </Link>
+    <section className="hero-section section-block" id="hero" aria-labelledby="hero-title">
+      <div className="hero-inner">
+        <p className="hero-kicker">{h.kicker}</p>
+        <h2 id="hero-title" className="hero-title">
+          {h.title}
+        </h2>
+        <p className="hero-text">{h.text}</p>
+        <div className="hero-actions">
+          <Link className="btn-link btn-link-primary" href={`${base}${h.primaryCta.hash}`}>
+            {h.primaryCta.label}
+          </Link>
+          <Link className="btn-link btn-link-secondary" href={`${base}${h.secondaryCta.hash}`}>
+            {h.secondaryCta.label}
+          </Link>
+        </div>
       </div>
     </section>
   );
