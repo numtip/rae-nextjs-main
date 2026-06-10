@@ -11,9 +11,9 @@ export default function Hero({ locale }: { locale: Locale }) {
     <section className="hero-section section-block" id="hero" aria-labelledby="hero-title">
       <div className="hero-inner">
         <p className="hero-kicker">{h.kicker}</p>
-        <h2 id="hero-title" className="hero-title">
+        <h1 id="hero-title" className="hero-title">
           {h.title}
-        </h2>
+        </h1>
         <p className="hero-text">{h.text}</p>
         <div className="hero-actions">
           <Link className="btn-link btn-link-primary" href={`${base}${h.primaryCta.hash}`}>

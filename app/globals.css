@@ -475,6 +475,50 @@
   font-size: 0.9rem;
 }
 
+/* Services overview — homepage service cards */
+.services-grid {
+  gap: 1rem;
+}
+
+.service-card {
+  border-left: 4px solid var(--maejo-green);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.service-card .panel-text {
+  flex: 1;
+}
+
+.service-card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: var(--nav-touch-min);
+  margin-top: 0.25rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.service-card-cta:hover {
+  color: var(--primary-strong);
+  background: var(--maejo-green-light);
+}
+
+.service-card-chevron {
+  flex-shrink: 0;
+  color: var(--maejo-green-muted);
+  font-size: 0.9rem;
+}
+
 .section-heading {
   margin: 0 0 0.625rem;
   font-size: 1.2rem;

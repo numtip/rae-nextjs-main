@@ -18,6 +18,15 @@
 
 ---
 
+## Skill-first rule
+
+1. Supervisor selects skill(s) from `docs/agent/SKILLS_INDEX.md` **before** Builder starts
+2. Builder invokes skills in process order (document results in slice report)
+3. **No broad repo scan** unless `TOKEN_SAVIOR_WORKFLOW` approves a scoped path list
+4. Default stack: Token Savior → domain review → A11y (if UI) → Build → Release Safety
+
+---
+
 ## Standard flow
 
 ```
@@ -126,6 +135,8 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npm run build'
 
 ## References
 
+- `docs/agent/SKILLS_INDEX.md`
+- `docs/agent/skills/` — reusable execution skills
 - `docs/agent/AGENCY_AGENTS_POLICY.md`
 - `docs/reports/SPRINT2_WEEK1_PLAN.md`
 - `docs/architecture/HOMEPAGE_VISUAL_SYSTEM.md`

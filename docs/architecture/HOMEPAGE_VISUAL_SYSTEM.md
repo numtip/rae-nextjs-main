@@ -60,15 +60,24 @@ Renderer: `components/home/HomeSectionRenderer.tsx` · Registry: `data/home-sect
 
 ## 3. Research showcase pattern
 
-**Purpose:** Surface core service areas as scannable cards (no inline CTA).
+**Purpose:** Surface core service areas as scannable cards with clear service CTAs.
 
-| Element | Rule |
-|---------|------|
-| Layout | `.grid-three` — 3 → 2 (≤ 57.5rem) → 1 (≤ 48rem) |
-| Card | `.card-panel` with `.panel-title` + `.panel-text` |
-| Copy tone | Title 1.06rem; body `--muted` at 0.95rem |
+| Element | Class | Rule |
+|---------|-------|------|
+| Layout | `.grid-three.services-grid` | 3 → 2 (≤ 57.5rem) → 1 (≤ 48rem) |
+| Card | `.service-card` | Green left accent (matches `.quick-link-card`) |
+| Body | `.panel-title` + `.panel-text` | Title 1.06rem; body `--muted` |
+| CTA | `.service-card-cta` | Touch min 2.75rem; chevron affordance |
 
 **Anchor:** `#services-overview`
+
+### Heading model (Sprint 2)
+
+| Page | Primary `h1` |
+|------|----------------|
+| Homepage | `.hero-title` in `Hero` |
+| Inner pages | Page content (`PageSimple`, `NewsArticleBody`, etc.) |
+| Header brand | `<p class="brand-title">` — not a heading |
 
 ---
 

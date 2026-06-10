@@ -19,9 +19,9 @@ export default function SiteHeader({ locale }: Props) {
     <header className="site-header">
       <PageContainer className="header-inner">
         <div className="brand-block">
-          <h1 className="brand-title">
+          <p className="brand-title">
             <Link href={withLocale(locale, "/")}>{b.title}</Link>
-          </h1>
+          </p>
           <p className="brand-subtitle">{b.subtitle}</p>
         </div>
         <div className="header-tools-row">
