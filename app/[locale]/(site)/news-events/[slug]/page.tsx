@@ -6,6 +6,8 @@ import { newsRegistry, parseNewsSlug, publishedNewsIndices, slugForNewsIndex } f
 import { isLocale } from "@/lib/locale";
 import { localizeNews } from "@/lib/news-i18n";
 import { withLocale } from "@/lib/paths";
+import { buildPageMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return publishedNewsIndices().map((index) => ({
@@ -15,16 +17,34 @@ export function generateStaticParams() {
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale: loc } = await params;
   if (!isLocale(loc)) return {};
   const idx = parseNewsSlug(slug);
-  if (idx === null) return { title: newsListUi[loc].listingTitle };
+  if (idx === null) {
+    return buildPageMetadata({
+      locale: loc,
+      segment: "news-events",
+      title: newsListUi[loc].listingTitle,
+      description: newsListUi[loc].listingSub,
+    });
+  }
   const record = newsRegistry[idx];
-  if (record.status !== "published") return { title: newsListUi[loc].listingTitle };
+  if (record.status !== "published") {
+    return buildPageMetadata({
+      locale: loc,
+      segment: "news-events",
+      title: newsListUi[loc].listingTitle,
+      description: newsListUi[loc].listingSub,
+    });
+  }
   const v = localizeNews(record, loc);
-  const suffix = loc === "th" ? "ข่าวและกิจกรรม" : "News & events";
-  return { title: `${v.title} · ${suffix}` };
+  return buildPageMetadata({
+    locale: loc,
+    segment: `news-events/${slug}`,
+    title: v.title,
+    description: v.summary,
+  });
 }
 
 export default async function NewsArticlePage({ params }: Props) {

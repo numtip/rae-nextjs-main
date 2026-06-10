@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
-import HtmlLang from "@/components/HtmlLang";
 import { isLocale } from "@/lib/locale";
 import { ORG_NAME_EN, ORG_NAME_TH } from "@/lib/org-names";
+import "../globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: true,
+});
 
 export function generateStaticParams() {
   return [{ locale: "th" }, { locale: "en" }];
@@ -38,9 +46,12 @@ export default async function LocaleLayout({
   if (!isLocale(locale)) notFound();
 
   return (
-    <>
-      <HtmlLang locale={locale} />
-      {children}
-    </>
+    <html
+      className={`${inter.variable} h-full antialiased`}
+      lang={locale}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
   );
 }
