@@ -2,7 +2,7 @@
 
 **Project:** RAE Next.js Main  
 **Path:** `/home/rae_admin/rae-nextjs-main/`  
-**Status:** RC2 Slice 1 — **snapshot contract defined**; loader not wired  
+**Status:** RC2 Slice 2 — **snapshot contract + typed loader**; not yet wired into UI  
 **Governance:** `docs/agent/AGENCY_AGENTS_POLICY.md` · `docs/architecture/VISUAL_GOVERNANCE.md`
 
 ---
@@ -51,9 +51,16 @@ data/kpiImpact.ts       ← imports snapshot; maps to KpiMetric[]
 | JSON Schema | `data/kpiSnapshot.schema.json` |
 | Example (reference) | `data/kpiSnapshot.example.json` |
 | Validator | `scripts/validate-kpi-snapshot.ts` |
-| Production file (Slice 2+) | `data/kpiSnapshot.json` — not committed until data-owner supplies values |
+| Production file | `data/kpiSnapshot.json` — committed with placeholder values |
+| Typed loader | `data/loadKpiSnapshot.ts` — build-time import + `snapshotToKpiMetrics` helper |
 
-**Validate:**
+**Validate (default validates both production + example):**
+
+```bash
+rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi-snapshot.ts'
+```
+
+**Validate a single file:**
 
 ```bash
 rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi-snapshot.ts data/kpiSnapshot.example.json'
@@ -80,7 +87,7 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 
 - **No secrets** in repo or client bundle
 - Fetch credentials only in CI (GitHub Actions secrets) if Option A
-- Build should fail loudly if snapshot invalid once loader is wired (Slice 2)
+- Build should fail loudly if snapshot invalid; validator runs as standalone CLI check
 - `KpiImpactStrip` keeps `data-kpi-source` / `data-kpi-status` attributes for QA
 
 ---
@@ -123,20 +130,25 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 |------|--------|-------|
 | 1. Data-owner sign-off on metric definitions | **Open** | Required before `kpiSnapshot.json` goes live |
 | 2. Publish snapshot contract | **Done (RC2 Slice 1)** | Schema + validator + example |
-| 3. KPI snapshot loader in `data/kpiImpact.ts` | **RC2 Slice 2** | Import validated snapshot at build time |
-| 4. Build hook `npm run kpi:validate` | **RC2 Slice 2** | Run validator before build |
+| 3. KPI snapshot loader | **Done (RC2 Slice 2)** | `data/loadKpiSnapshot.ts` — typed import + conversion helpers |
+| 4. Build hook `npm run kpi:validate` | **Future** | Run `npx tsx scripts/validate-kpi-snapshot.ts` before build |
 | 5. Optional `npm run kpi:sync` (CI) | **Future** | Option A fetch; CI-only secrets |
 | 6. Notice copy when `status: verified` | **RC2 Slice 2+** | Soften/remove placeholder notice |
 | 7. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
 | 8. Deploy | **Approval only** | `DEPLOYMENT.md` |
 
-**RC2 Slice 1:** contract only — `kpiImpact.ts` still uses inline placeholders until Slice 2 loader.
+**RC2 Slice 1:** contract only — schema + validator + example.  
+**RC2 Slice 2:** production `kpiSnapshot.json` committed + `loadKpiSnapshot.ts` typed loader.  
+**Next:** wire loader into `KpiImpactStrip` and/or `kpiImpact.ts`. `kpiImpact.ts` still uses inline placeholders until wiring is wired.
 
 ---
 
 ## Related
 
-- `data/kpiImpact.ts` — current placeholder registry
-- `components/home/KpiImpactStrip.tsx` — render + `data-kpi-*` attributes
+- `data/kpiImpact.ts` — current placeholder registry  
+- `data/loadKpiSnapshot.ts` — typed snapshot loader (RC2 Slice 2)  
+- `data/kpiSnapshot.json` — production snapshot file (RC2 Slice 2)  
+- `components/home/KpiImpactStrip.tsx` — render + `data-kpi-*` attributes  
+- `scripts/validate-kpi-snapshot.ts` — CLI validator (validates both snapshot files by default)  
+- `docs/reports/RC2_RUNTIME_QA_WITNESS.md` — RC2 Slice 1 runtime QA  
 - `docs/reports/SPRINT2_WEEK2_RUNTIME_QA.md` — runtime QA reference
-- `docs/agent/skills/RUNTIME_QA.md` — verification skill

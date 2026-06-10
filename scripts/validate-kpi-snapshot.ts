@@ -194,16 +194,13 @@ export function validateKpiSnapshot(raw: unknown): { ok: true; snapshot: KpiSnap
   };
 }
 
-function main(): void {
-  const fileArg = process.argv[2];
-  const filePath = resolve(process.cwd(), fileArg ?? "data/kpiSnapshot.json");
-
+function validateOne(filePath: string): boolean {
   let text: string;
   try {
     text = readFileSync(filePath, "utf8");
   } catch {
     console.error(`KPI_VALIDATE: FAIL — cannot read ${filePath}`);
-    process.exit(1);
+    return false;
   }
 
   let parsed: unknown;
@@ -212,14 +209,14 @@ function main(): void {
   } catch (e) {
     console.error(`KPI_VALIDATE: FAIL — invalid JSON in ${filePath}`);
     console.error(String(e));
-    process.exit(1);
+    return false;
   }
 
   const result = validateKpiSnapshot(parsed);
   if (!result.ok) {
     console.error(`KPI_VALIDATE: FAIL — ${filePath}`);
     for (const err of result.errors) console.error(`  - ${err}`);
-    process.exit(1);
+    return false;
   }
 
   console.log(`KPI_VALIDATE: PASS — ${filePath}`);
@@ -227,6 +224,31 @@ function main(): void {
   console.log(`  source: ${result.snapshot.source}`);
   console.log(`  status: ${result.snapshot.status}`);
   console.log(`  metrics: ${result.snapshot.metrics.length}`);
+  return true;
+}
+
+function main(): void {
+  const fileArg = process.argv[2];
+
+  if (fileArg) {
+    // Validate a single file
+    const filePath = resolve(process.cwd(), fileArg);
+    if (!validateOne(filePath)) process.exit(1);
+  } else {
+    // Default: validate both production snapshot and example
+    const root = process.cwd();
+    const prod = resolve(root, "data/kpiSnapshot.json");
+    const example = resolve(root, "data/kpiSnapshot.example.json");
+
+    const prodOk = validateOne(prod);
+    const exampleOk = validateOne(example);
+
+    if (!prodOk || !exampleOk) {
+      console.error("KPI_VALIDATE: one or more files FAILED");
+      process.exit(1);
+    }
+    console.log("KPI_VALIDATE: ALL PASS");
+  }
 }
 
 main();
