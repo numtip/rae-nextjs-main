@@ -68,6 +68,7 @@ Renderer: `components/home/HomeSectionRenderer.tsx` · Registry: `data/home-sect
 | Card | `.service-card` | Green left accent (matches `.quick-link-card`) |
 | Body | `.panel-title` + `.panel-text` | Title 1.06rem; body `--muted` |
 | CTA | `.service-card-cta` | Touch min 2.75rem; chevron affordance |
+| Path | `ServiceCard.path` in `data/servicesOverview.ts` | Explicit per card — not array index |
 
 **Anchor:** `#services-overview`
 
@@ -87,11 +88,12 @@ Renderer: `components/home/HomeSectionRenderer.tsx` · Registry: `data/home-sect
 
 | Element | Class | Rule |
 |---------|-------|------|
-| Grid | `.grid-three` | Same responsive breakpoints as showcase |
-| Meta row | `.news-card-meta` | Category badge + `<time>` |
+| Grid | `.grid-three.news-grid` | Same responsive breakpoints as showcase |
+| Card | `.news-card` | Gold left accent (news differentiation) |
+| Meta row | `.news-card-meta` | Flex row: category badge + `<time>` |
 | Category | `.news-category` | Green-light pill, uppercase |
-| Read more | `.news-card-more a` | Primary link |
-| Index link | `.news-index-link` | Below grid, view-all |
+| Read more | `.news-card-cta` | Touch min 2.75rem; chevron; `aria-label` with title |
+| Index link | `.news-index-cta` | Below grid, view-all CTA row |
 
 **Anchor:** `#news-highlights`
 

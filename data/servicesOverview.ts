@@ -18,15 +18,18 @@ export const serviceCards: Record<Locale, ServiceCard[]> = {
       title: "บริการวิจัย",
       text:
         "สนับสนุนแผนงานวิจัย การบริหารทุน การติดตามและประเมินผล และการเผยแพร่ผลงานให้เกิดการใช้ประโยชน์",
+      path: "/research-services/",
     },
     {
       title: "บริการวิชาการ",
       text:
         "บริการวิชาการแก่ภายนอก ความร่วมมือ การถ่ายทอดองค์ความรู้ และการอบรม/ที่ปรึกษาทางวิชาการ",
+      path: "/academic-services/",
     },
     {
       title: "ระบบวิจัย",
       text: "ทางเข้าระบบสารสนเทศด้านงานวิจัย รายงาน และข้อมูลประกอบการบริหาร",
+      path: "/research-systems/",
     },
   ],
   en: [
@@ -34,15 +37,18 @@ export const serviceCards: Record<Locale, ServiceCard[]> = {
       title: "Research services",
       text:
         "Support for research planning, fund administration, monitoring and evaluation, and dissemination for impact.",
+      path: "/research-services/",
     },
     {
       title: "Academic services",
       text:
         "External academic services, partnerships, knowledge transfer, and training or advisory engagements.",
+      path: "/academic-services/",
     },
     {
       title: "Research systems",
       text: "Access to information systems for research administration, reporting, and decision support.",
+      path: "/research-systems/",
     },
   ],
 };

@@ -67,4 +67,6 @@ export type PersonnelRecord = {
 export type ServiceCard = {
   title: string;
   text: string;
+  /** Internal route path (locale prefix applied at render) */
+  path: string;
 };
