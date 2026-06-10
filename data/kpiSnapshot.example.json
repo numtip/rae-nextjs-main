@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1",
+  "generatedAt": "2026-06-10T08:00:00.000Z",
+  "source": "placeholder",
+  "status": "pending-live-source",
+  "metrics": [
+    {
+      "id": "research-projects",
+      "value": "120+",
+      "labelTh": "โครงการวิจัยที่สนับสนุน",
+      "labelEn": "Research projects supported",
+      "contextTh": "รอบปีงบประมาณล่าสุด",
+      "contextEn": "Latest fiscal cycle"
+    },
+    {
+      "id": "publications-outputs",
+      "value": "85",
+      "labelTh": "ผลงานตีพิมพ์/เผยแพร่",
+      "labelEn": "Publications & outputs",
+      "contextTh": "บทความ รายงาน และสื่อความรู้",
+      "contextEn": "Articles, reports, and knowledge products",
+      "highlight": true
+    },
+    {
+      "id": "training-outreach",
+      "value": "40+",
+      "labelTh": "กิจกรรมอบรม/ถ่ายทอด",
+      "labelEn": "Training & outreach events",
+      "contextTh": "ภายในและภายนอกมหาวิทยาลัย",
+      "contextEn": "On- and off-campus programmes"
+    },
+    {
+      "id": "partner-organisations",
+      "value": "25",
+      "labelTh": "หน่วยงานพันธมิตร",
+      "labelEn": "Partner organisations",
+      "contextTh": "ความร่วมมือวิชาการและวิจัย",
+      "contextEn": "Academic and research collaboration"
+    }
+  ]
+}

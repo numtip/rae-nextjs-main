@@ -2,7 +2,7 @@
 
 **Project:** RAE Next.js Main  
 **Path:** `/home/rae_admin/rae-nextjs-main/`  
-**Status:** Planning only — **no live wiring in Sprint 2 Week 2 Slice 2**  
+**Status:** RC2 Slice 1 — **snapshot contract defined**; loader not wired  
 **Governance:** `docs/agent/AGENCY_AGENTS_POLICY.md` · `docs/architecture/VISUAL_GOVERNANCE.md`
 
 ---
@@ -44,22 +44,43 @@ data/kpiSnapshot.json   ← generated or manually updated
 data/kpiImpact.ts       ← imports snapshot; maps to KpiMetric[]
 ```
 
-Snapshot schema (proposed):
+### Snapshot contract (RC2 Slice 1)
 
-```json
-{
-  "generatedAt": "ISO-8601",
-  "source": "registry-api | manual | metabase-export",
-  "status": "verified | pending-live-source",
-  "metrics": [
-    { "id": "research-projects", "value": "120+", "labelTh": "...", "labelEn": "...", "highlight": false }
-  ]
-}
+| Artifact | Path |
+|----------|------|
+| JSON Schema | `data/kpiSnapshot.schema.json` |
+| Example (reference) | `data/kpiSnapshot.example.json` |
+| Validator | `scripts/validate-kpi-snapshot.ts` |
+| Production file (Slice 2+) | `data/kpiSnapshot.json` — not committed until data-owner supplies values |
+
+**Validate:**
+
+```bash
+rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi-snapshot.ts data/kpiSnapshot.example.json'
 ```
+
+**Metric IDs (fixed set, order-independent):**
+
+| ID | Maps from current `kpiImpact.ts` |
+|----|----------------------------------|
+| `research-projects` | Research projects supported |
+| `publications-outputs` | Publications & outputs (highlight allowed) |
+| `training-outreach` | Training & outreach events |
+| `partner-organisations` | Partner organisations |
+
+**Root fields:**
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `schemaVersion` | `"1"` | Bump with migration notes only |
+| `generatedAt` | ISO-8601 | Refresh timestamp |
+| `source` | `manual` \| `registry-api` \| `metabase-export` \| `placeholder` | Provenance only — no credentials |
+| `status` | `verified` \| `pending-live-source` | Controls placeholder notice in UI (Slice 2+) |
+| `metrics` | array[4] | Exactly four cards; at most one `highlight: true` |
 
 - **No secrets** in repo or client bundle
 - Fetch credentials only in CI (GitHub Actions secrets) if Option A
-- Build fails loudly if snapshot missing or schema invalid
+- Build should fail loudly if snapshot invalid once loader is wired (Slice 2)
 - `KpiImpactStrip` keeps `data-kpi-source` / `data-kpi-status` attributes for QA
 
 ---
@@ -96,18 +117,20 @@ Snapshot schema (proposed):
 
 ---
 
-## Future implementation steps
+## Implementation steps
 
-1. **Define source of truth** — which RAE registry/report owns each metric (owner sign-off)
-2. **Publish snapshot contract** — JSON schema + validation script (`scripts/validate-kpi-snapshot.ts`)
-3. **Add build hook** — optional `npm run kpi:sync` before `npm run build` (CI only)
-4. **Extend types** — `KpiDataSource`, `KpiDataStatus`; loader in `data/kpiImpact.ts`
-5. **Update notice copy** — remove or soften placeholder text when `status: "verified"`
-6. **QA gate** — `RUNTIME_QA` + `HOMEPAGE_REVIEW` on `impact-metrics` section
-7. **Documentation** — update this plan with chosen source URL and refresh cadence
-8. **Deploy** — separate approval; static copy to staging path per `DEPLOYMENT.md`
+| Step | Status | Notes |
+|------|--------|-------|
+| 1. Data-owner sign-off on metric definitions | **Open** | Required before `kpiSnapshot.json` goes live |
+| 2. Publish snapshot contract | **Done (RC2 Slice 1)** | Schema + validator + example |
+| 3. KPI snapshot loader in `data/kpiImpact.ts` | **RC2 Slice 2** | Import validated snapshot at build time |
+| 4. Build hook `npm run kpi:validate` | **RC2 Slice 2** | Run validator before build |
+| 5. Optional `npm run kpi:sync` (CI) | **Future** | Option A fetch; CI-only secrets |
+| 6. Notice copy when `status: verified` | **RC2 Slice 2+** | Soften/remove placeholder notice |
+| 7. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
+| 8. Deploy | **Approval only** | `DEPLOYMENT.md` |
 
-**Slice 2 delivers this plan only.** Implementation is a future slice after data owner confirmation.
+**RC2 Slice 1:** contract only — `kpiImpact.ts` still uses inline placeholders until Slice 2 loader.
 
 ---
 

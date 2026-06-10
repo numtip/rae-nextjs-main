@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raeservice.mju.ac.th/rae-landing/schemas/kpi-snapshot/v1",
+  "title": "RAE KPI Snapshot",
+  "description": "Build-time snapshot contract for homepage KPI strip. Static-export safe — no secrets, no runtime fetch.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAt", "source", "status", "metrics"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1",
+      "description": "Contract version. Bump only with migration notes in KPI_LIVE_SOURCE_PLAN.md."
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp when snapshot was produced or last refreshed."
+    },
+    "source": {
+      "type": "string",
+      "enum": ["manual", "registry-api", "metabase-export", "placeholder"],
+      "description": "Provenance of values. Never store credentials in this file."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["verified", "pending-live-source"],
+      "description": "verified = data-owner approved; pending-live-source = show placeholder notice in UI."
+    },
+    "metrics": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Exactly four homepage KPI cards in registry order.",
+      "items": { "$ref": "#/$defs/metric" }
+    }
+  },
+  "$defs": {
+    "metricId": {
+      "type": "string",
+      "enum": [
+        "research-projects",
+        "publications-outputs",
+        "training-outreach",
+        "partner-organisations"
+      ]
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "value", "labelTh", "labelEn"],
+      "properties": {
+        "id": { "$ref": "#/$defs/metricId" },
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 32,
+          "description": "Display value e.g. 120+, 85. Not a raw number — formatting is intentional."
+        },
+        "labelTh": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "labelEn": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "contextTh": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "contextEn": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "highlight": {
+          "type": "boolean",
+          "description": "Gold accent card. At most one metric per snapshot may be true."
+        }
+      }
+    }
+  }
+}
