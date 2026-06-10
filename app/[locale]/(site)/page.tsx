@@ -1,10 +1,4 @@
-import DocumentsCTA from "@/components/DocumentsCTA";
-import GreenOfficeSection from "@/components/GreenOfficeSection";
-import Hero from "@/components/Hero";
-import NewsHighlights from "@/components/NewsHighlights";
-import QuickLinks from "@/components/QuickLinks";
-import ResearchSystemsCTA from "@/components/ResearchSystemsCTA";
-import ServicesOverview from "@/components/ServicesOverview";
+import HomeSectionRenderer from "@/components/home/HomeSectionRenderer";
 import { hero } from "@/data/hero";
 import { isLocale } from "@/lib/locale";
 import { buildPageMetadata } from "@/lib/seo";
@@ -30,15 +24,5 @@ export default async function HomePage({ params }: Props) {
   const { locale: l } = await params;
   if (!isLocale(l)) notFound();
 
-  return (
-    <>
-      <Hero locale={l} />
-      <QuickLinks locale={l} />
-      <ServicesOverview locale={l} />
-      <ResearchSystemsCTA locale={l} />
-      <NewsHighlights locale={l} />
-      <DocumentsCTA locale={l} />
-      <GreenOfficeSection locale={l} />
-    </>
-  );
+  return <HomeSectionRenderer locale={l} />;
 }

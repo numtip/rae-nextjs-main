@@ -1,0 +1,77 @@
+/**
+ * RAE Design Tokens — Maejo institutional palette
+ * Maejo Green #005C3B · Maejo Gold #FFDE00
+ */
+
+@theme {
+  /* Brand */
+  --color-maejo-green: #005c3b;
+  --color-maejo-green-strong: #004a2f;
+  --color-maejo-green-muted: #0a7a52;
+  --color-maejo-green-light: #e8f5ef;
+  --color-maejo-gold: #ffde00;
+  --color-maejo-gold-dark: #e6c800;
+
+  /* Neutrals — institutional premium */
+  --color-surface: #ffffff;
+  --color-bg: #f6f8f7;
+  --color-bg-elevated: #ffffff;
+  --color-text: #0f1f18;
+  --color-text-muted: #4a5f56;
+  --color-line: #d4e0da;
+  --color-line-strong: #b8cfc4;
+
+  /* Typography */
+  --font-sans: var(--font-inter), "Segoe UI", Tahoma, "Noto Sans Thai", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing rhythm */
+  --spacing-section: 1.375rem;
+  --spacing-container-x: clamp(1rem, 4vw, 1.5rem);
+  --spacing-container-max: 68.75rem;
+
+  /* Shape */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Elevation */
+  --shadow-sm: 0 4px 12px rgba(0, 92, 59, 0.06);
+  --shadow-md: 0 14px 32px rgba(0, 92, 59, 0.08);
+  --shadow-lg: 0 24px 48px rgba(0, 92, 59, 0.12);
+
+  /* Breakpoints (reference) */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+}
+
+:root {
+  /* Semantic aliases */
+  --maejo-green: #005c3b;
+  --maejo-green-strong: #004a2f;
+  --maejo-green-muted: #0a7a52;
+  --maejo-green-light: #e8f5ef;
+  --maejo-gold: #ffde00;
+  --maejo-gold-dark: #e6c800;
+
+  --bg: var(--color-bg);
+  --surface: var(--color-surface);
+  --text: var(--color-text);
+  --muted: var(--color-text-muted);
+  --primary: var(--maejo-green);
+  --primary-strong: var(--maejo-green-strong);
+  --accent: var(--maejo-gold);
+  --line: var(--color-line);
+  --radius: var(--radius-lg);
+  --shadow: var(--shadow-md);
+
+  --background: var(--bg);
+  --foreground: var(--text);
+
+  --header-height: 4.5rem;
+  --nav-touch-min: 2.75rem;
+  --content-line-height: 1.65;
+  --content-line-height-th: 1.75;
+}
