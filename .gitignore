@@ -9,3 +9,5 @@ out/
 _extract-from-maps.mjs
 _recovered-dev-scaffold/
 tsconfig.tsbuildinfo
+*_password*
+*_credential*
