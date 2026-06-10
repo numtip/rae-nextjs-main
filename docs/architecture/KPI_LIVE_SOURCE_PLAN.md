@@ -2,7 +2,7 @@
 
 **Project:** RAE Next.js Main  
 **Path:** `/home/rae_admin/rae-nextjs-main/`  
-**Status:** RC2 Slice 2 — **snapshot contract + typed loader**; not yet wired into UI  
+**Status:** RC2 Slice 3 — **loader wired into KPI UI**; still static checked-in snapshot  
 **Governance:** `docs/agent/AGENCY_AGENTS_POLICY.md` · `docs/architecture/VISUAL_GOVERNANCE.md`
 
 ---
@@ -53,6 +53,7 @@ data/kpiImpact.ts       ← imports snapshot; maps to KpiMetric[]
 | Validator | `scripts/validate-kpi-snapshot.ts` |
 | Production file | `data/kpiSnapshot.json` — committed with placeholder values |
 | Typed loader | `data/loadKpiSnapshot.ts` — build-time import + `snapshotToKpiMetrics` helper |
+| Wired into UI | `components/home/KpiImpactStrip.tsx` — imports `getSnapshotKpiMetrics()` from loader |
 
 **Validate (default validates both production + example):**
 
@@ -131,15 +132,17 @@ rtk bash -lc 'source ~/.nvm/nvm.sh && nvm use 20 && npx tsx scripts/validate-kpi
 | 1. Data-owner sign-off on metric definitions | **Open** | Required before `kpiSnapshot.json` goes live |
 | 2. Publish snapshot contract | **Done (RC2 Slice 1)** | Schema + validator + example |
 | 3. KPI snapshot loader | **Done (RC2 Slice 2)** | `data/loadKpiSnapshot.ts` — typed import + conversion helpers |
-| 4. Build hook `npm run kpi:validate` | **Future** | Run `npx tsx scripts/validate-kpi-snapshot.ts` before build |
-| 5. Optional `npm run kpi:sync` (CI) | **Future** | Option A fetch; CI-only secrets |
-| 6. Notice copy when `status: verified` | **RC2 Slice 2+** | Soften/remove placeholder notice |
-| 7. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
-| 8. Deploy | **Approval only** | `DEPLOYMENT.md` |
+| 4. Wire loader into KPI UI | **Done (RC2 Slice 3)** | `KpiImpactStrip` imports `getSnapshotKpiMetrics()` — no visual change |
+| 5. Build hook `npm run kpi:validate` | **Future** | Run `npx tsx scripts/validate-kpi-snapshot.ts` before build |
+| 6. Optional `npm run kpi:sync` (CI) | **Future** | Option A fetch; CI-only secrets |
+| 7. Notice copy when `status: verified` | **Future** | Soften/remove placeholder notice |
+| 8. QA gate on `impact-metrics` | **Per release** | `RUNTIME_QA` + `HOMEPAGE_REVIEW` |
+| 9. Deploy | **Approval only** | `DEPLOYMENT.md` |
 
 **RC2 Slice 1:** contract only — schema + validator + example.  
 **RC2 Slice 2:** production `kpiSnapshot.json` committed + `loadKpiSnapshot.ts` typed loader.  
-**Next:** wire loader into `KpiImpactStrip` and/or `kpiImpact.ts`. `kpiImpact.ts` still uses inline placeholders until wiring is wired.
+**RC2 Slice 3:** `KpiImpactStrip` imports `getSnapshotKpiMetrics()` — snapshot wired into UI.  
+**Next:** data-owner sign-off, build hook, live API integration.
 
 ---
 

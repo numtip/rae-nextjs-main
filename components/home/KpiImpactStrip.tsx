@@ -1,5 +1,8 @@
-import { kpiImpactSection, kpiMetrics, kpiStripMeta } from "@/data/kpiImpact";
+import { kpiImpactSection, kpiStripMeta } from "@/data/kpiImpact";
+import { getSnapshotKpiMetrics } from "@/data/loadKpiSnapshot";
 import type { Locale } from "@/lib/locale";
+
+const kpiMetrics = getSnapshotKpiMetrics();
 
 export default function KpiImpactStrip({ locale }: { locale: Locale }) {
   const sec = kpiImpactSection[locale];
