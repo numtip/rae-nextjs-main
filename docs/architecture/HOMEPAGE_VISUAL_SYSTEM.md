@@ -1,9 +1,10 @@
 # Homepage Visual System
 
-**Sprint 1 Week 2** · RAE Next.js Main  
+**Sprint 1 Week 2** · RAE Next.js Main · **Sprint 2:** production prototype (governed)  
 **Scope:** Homepage section patterns only (`/[locale]/`)  
 **CSS source:** `app/tokens.css`, `app/globals.css`  
-**IA reference:** `docs/architecture/HOMEPAGE_IA.md`
+**IA reference:** `docs/architecture/HOMEPAGE_IA.md`  
+**Agent policy:** `docs/agent/AGENCY_AGENTS_POLICY.md`
 
 ---
 

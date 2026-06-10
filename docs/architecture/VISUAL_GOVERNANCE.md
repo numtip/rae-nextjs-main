@@ -1,7 +1,7 @@
 # Visual Governance
 
-**Sprint 1 Week 2** · RAE Next.js Main  
-**Authority:** This document governs all homepage and shared layout visual decisions until Sprint 2 design pass.
+**Sprint 1 Week 2** · RAE Next.js Main · **Sprint 2:** agency agents + homepage prototype  
+**Authority:** This document governs all homepage and shared layout visual decisions. Sprint 2 UI work must comply with agent policy (`docs/agent/AGENCY_AGENTS_POLICY.md`) — no deploy without approval.
 
 ---
 
@@ -163,4 +163,7 @@ Homepage and shell classes are defined in `app/globals.css`. New homepage sectio
 | `DESIGN_SYSTEM.md` | Week 1 token and architecture overview |
 | `HOMEPAGE_IA.md` | Section order and data flow |
 | `HOMEPAGE_VISUAL_SYSTEM.md` | Per-pattern visual spec |
-| `docs/reports/SPRINT1_WEEK2_STATUS.md` | Sprint progress report |
+| `docs/reports/SPRINT1_WEEK2_STATUS.md` | Sprint 1 progress report |
+| `docs/agent/AGENCY_AGENTS_POLICY.md` | Multi-agent guardrails |
+| `docs/agent/AGENT_WORKFLOW.md` | Architect / Builder workflow |
+| `docs/reports/SPRINT2_WEEK1_PLAN.md` | Sprint 2 execution plan |
