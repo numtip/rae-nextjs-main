@@ -25,11 +25,11 @@ export const revalidate = 300; // 5 minutes
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<ProjectDetailResponse | ApiError>> {
   try {
     // ── Validate path parameter ────────────────────────────────────
-    const rawId = params.id;
+    const { id: rawId } = await params;
     const researchId = parseInt(rawId, 10);
 
     if (!rawId || isNaN(researchId) || researchId < 1 || String(researchId) !== rawId) {

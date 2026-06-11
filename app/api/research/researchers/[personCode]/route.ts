@@ -32,11 +32,12 @@ export const revalidate = 300; // 5 minutes
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { personCode: string } }
+  { params }: { params: Promise<{ personCode: string }> }
 ): Promise<NextResponse<ResearcherDetailResponse | ApiError>> {
   try {
     // ── Decode and validate path parameter ────────────────────────
-    const rawParam = decodeURIComponent(params.personCode ?? "").trim();
+    const { personCode: rawPersonCode } = await params;
+    const rawParam = decodeURIComponent(rawPersonCode ?? "").trim();
 
     if (!rawParam) {
       return NextResponse.json(

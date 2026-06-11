@@ -214,6 +214,8 @@ export default function DashboardPage() {
   }, []);
 
   useEffect(() => {
+    // Initial data fetch on mount — standard pattern for client components
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchAll(filters);
   }, [fetchAll, filters]);
 
