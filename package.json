@@ -11,16 +11,19 @@
     "prebuild": "npm run kpi:validate",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
-    "kpi:validate": "tsx scripts/validate-kpi-snapshot.ts"
+    "kpi:validate": "tsx scripts/validate-kpi-snapshot.ts",
+    "smoke:test": "tsx src/__tests__/smoke.ts"
   },
   "dependencies": {
     "next": "16.2.4",
+    "papaparse": "^5.4.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.2.4",
     "@types/node": "20.19.39",
+    "@types/papaparse": "^5.3.14",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "^9",
