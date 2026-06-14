@@ -350,8 +350,14 @@ export default function DashboardPage() {
         </section>
       )}
 
-      {/* ── Budget deep-dive link ─────────────────────────────────── */}
-      <div className="mb-6 text-right">
+      {/* ── Quick navigation links ────────────────────────────────── */}
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <Link
+          href="/dashboard/portfolio"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-maejo-green/30 bg-maejo-green/5 px-4 py-2 text-sm font-medium text-maejo-green transition-colors hover:bg-maejo-green/10 focus:outline-none focus:ring-2 focus:ring-maejo-green/30"
+        >
+          📋 Research Portfolio →
+        </Link>
         <Link
           href="/research/budget"
           className="inline-flex items-center gap-1 text-sm font-medium text-maejo-green hover:text-maejo-green-light focus:outline-none focus:underline"

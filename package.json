@@ -13,7 +13,7 @@
     "lint": "eslint . --max-warnings 0",
     "kpi:validate": "tsx scripts/validate-kpi-snapshot.ts",
     "smoke:test": "tsx src/__tests__/smoke.ts",
-    "test": "tsx src/__tests__/smoke.ts && tsx __tests__/budget-stats.test.ts && tsx __tests__/rdc-budget-normalizer.test.ts && tsx __tests__/rdc-snapshot-export.test.ts && tsx __tests__/rdc-fallback.test.ts && tsx src/__tests__/full-dataset-validation.ts && tsx __tests__/data-quality-audit.ts",
+    "test": "tsx src/__tests__/smoke.ts && tsx __tests__/budget-stats.test.ts && tsx __tests__/rdc-budget-normalizer.test.ts && tsx __tests__/rdc-snapshot-export.test.ts && tsx __tests__/rdc-fallback.test.ts && tsx src/__tests__/full-dataset-validation.ts && tsx __tests__/data-quality-audit.ts && tsx __tests__/portfolio-stats.test.ts",
     "rdc:export": "tsx scripts/export-rdc-budget.ts",
     "rdc:validate": "tsx scripts/validate-rdc-budget-snapshot.ts",
     "rdc:sync": "npm run rdc:export && npm run rdc:validate"
