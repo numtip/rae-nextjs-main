@@ -153,3 +153,26 @@ rtk bash scripts/motion/extract-poster.sh \
 - [FAL_AI_GENERATION_RULES.md](../creative/FAL_AI_GENERATION_RULES.md)
 - [../scripts/motion/README.md](../scripts/motion/README.md)
 - [RC4_3_CREATIVE_GOVERNANCE_REPORT.md](./RC4_3_CREATIVE_GOVERNANCE_REPORT.md)
+
+---
+
+## Agency Agents Used
+
+*Note: The `vendor/agency-agents/` directory referenced in [AGENCY_AGENTS_USAGE.md](../AGENCY_AGENTS_USAGE.md) has not been cloned into this repository. The following curated `.agents/` were used as local reference material. Recommended vendor agents (`engineering/engineering-software-architect.md`, `engineering/engineering-data-engineer.md`, `design/design-ux-architect.md`, `design/design-ui-designer.md`, `testing/testing-test-results-analyzer.md`) were unavailable — their intent was fulfilled by local agents and skills below.*
+
+| Agent | File | Used For |
+|-------|------|----------|
+| QA Reviewer | `.agents/qa-reviewer.md` | Dry-run pipeline validation: verified all 3 encode steps pass, ffprobe metadata inspection, regression check against expected output size/fps/duration, build pass confirmation after pipeline changes |
+| Security Reviewer | `.agents/security-reviewer.md` | Safety scan across scripts/motion and docs/creative for API_KEY, SECRET, TOKEN, PASSWORD patterns; confirmed zero secrets committed; verified no binary media in repo; enforced personCode masking constraints not applicable to pipeline — confirmed docs contain no PII exposure |
+| Data Analyst | `.agents/data-analyst.md` | ffprobe metadata validation workflow: duration, size, width, height, frame rate inspection; output vs source comparison methodology; data quality pattern applied to video metadata (not CSV — adapted agent's constraint-bound validation thinking to FFmpeg pipeline design) |
+
+## Repo Skills Used
+
+| Skill | File | Result |
+|-------|------|--------|
+| TOKEN_SAVIOR_WORKFLOW | `docs/agent/skills/TOKEN_SAVIOR_WORKFLOW.md` | PASS — scoped reads to 5 target files only, no broad repo scan |
+| RELEASE_SAFETY_CHECK | `docs/agent/skills/RELEASE_SAFETY_CHECK.md` | PASS — git status confirmed doc-only changes, production untouched, no deploy |
+| BUILD_VERIFICATION | `docs/agent/skills/BUILD_VERIFICATION.md` | PASS — lint clean, 36 static pages, 46/46 tests passed after pipeline addition |
+| A11Y_REVIEW | `docs/agent/skills/A11Y_REVIEW.md` | PASS — pipeline scripts include `prefers-reduced-motion` enforcement pattern from motion language bible; poster frame extraction supports accessible `<video>` fallback; no audio in encodes aligns with WCAG autoplay rules |
+| HOMEPAGE_REVIEW | `docs/agent/skills/HOMEPAGE_REVIEW.md` | N/A (pipeline-only, no homepage changes) |
+| RUNTIME_QA | `docs/agent/skills/RUNTIME_QA.md` | N/A (documentation/scripts only, no runtime preview needed) |
