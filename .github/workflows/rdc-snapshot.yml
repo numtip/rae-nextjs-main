@@ -1,0 +1,99 @@
+# RDC Budget Snapshot — CI Sync
+#
+# Build-time connector that fetches budget data from the Research Data Center
+# SQL Server, normalizes it through the existing pipeline, and produces a
+# validated BudgetStats snapshot for use in the static site.
+#
+# Source: centerDW.dbo.View_Research (budgetYear 2559–2569 only)
+# Output: data/research/live-budget-2559-2569.json
+# Privacy: No personName, no raw personCode
+#
+# Trigger: workflow_dispatch or weekly schedule
+# Secret required: RDC_SQL_PASSWORD
+#
+# IMPORTANT: This workflow runs independently from the main build/deploy workflow.
+# The main build continues even if RDC is unavailable (fallback to CSV).
+#
+# @see docs/governance/RDC_SNAPSHOT_POLICY.md
+# @see docs/contracts/RDC_CONNECTION_CONTRACT.md
+
+name: RDC Budget Snapshot Sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for manual sync"
+        required: false
+        default: "Manual trigger"
+        type: string
+  schedule:
+    # Weekly: Sunday 06:00 UTC
+    - cron: "0 6 * * 0"
+
+env:
+  NODE_VERSION: "20"
+  RDC_SQL_SERVER: "10.1.254.53"
+  RDC_SQL_PORT: "1433"
+  RDC_SQL_DATABASE: "centerDW"
+  RDC_SQL_USER: "DCResearchUser"
+
+jobs:
+  sync:
+    name: Export & Validate Budget Snapshot
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Export RDC budget snapshot
+        run: npm run rdc:export
+        env:
+          RDC_SQL_PASSWORD: ${{ secrets.RDC_SQL_PASSWORD }}
+          RDC_SQL_SERVER: ${{ env.RDC_SQL_SERVER }}
+          RDC_SQL_PORT: ${{ env.RDC_SQL_PORT }}
+          RDC_SQL_DATABASE: ${{ env.RDC_SQL_DATABASE }}
+          RDC_SQL_USER: ${{ env.RDC_SQL_USER }}
+        continue-on-error: true
+
+      - name: Validate RDC budget snapshot
+        run: npm run rdc:validate
+        continue-on-error: true
+
+      - name: Upload snapshot artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rdc-budget-snapshot
+          path: data/research/live-budget-2559-2569.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Summary
+        run: |
+          echo "## RDC Snapshot Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f data/research/live-budget-2559-2569.json ]; then
+            echo "✅ Snapshot exported successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| File | data/research/live-budget-2559-2569.json |" >> $GITHUB_STEP_SUMMARY
+            echo "| Size | $(stat -c%s data/research/live-budget-2559-2569.json) bytes |" >> $GITHUB_STEP_SUMMARY
+            echo "| Generated | $(date -u) |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ Snapshot not available (RDC may be unreachable)" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "The main build will use the CSV fallback (data/research/a3.csv)." >> $GITHUB_STEP_SUMMARY
+          fi

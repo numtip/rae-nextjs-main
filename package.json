@@ -12,9 +12,14 @@
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "kpi:validate": "tsx scripts/validate-kpi-snapshot.ts",
-    "smoke:test": "tsx src/__tests__/smoke.ts"
+    "smoke:test": "tsx src/__tests__/smoke.ts",
+    "test": "tsx src/__tests__/smoke.ts && tsx __tests__/budget-stats.test.ts && tsx __tests__/rdc-budget-normalizer.test.ts && tsx __tests__/rdc-snapshot-export.test.ts && tsx __tests__/rdc-fallback.test.ts && tsx src/__tests__/full-dataset-validation.ts && tsx __tests__/data-quality-audit.ts",
+    "rdc:export": "tsx scripts/export-rdc-budget.ts",
+    "rdc:validate": "tsx scripts/validate-rdc-budget-snapshot.ts",
+    "rdc:sync": "npm run rdc:export && npm run rdc:validate"
   },
   "dependencies": {
+    "mssql": "^12.5.5",
     "next": "16.2.4",
     "papaparse": "^5.4.1",
     "react": "19.2.4",
@@ -22,6 +27,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.2.4",
+    "@types/mssql": "^12.3.0",
     "@types/node": "20.19.39",
     "@types/papaparse": "^5.3.14",
     "@types/react": "19.2.14",
