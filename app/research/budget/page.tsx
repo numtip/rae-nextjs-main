@@ -6,6 +6,7 @@ import Link from "next/link";
 import BudgetByYearChart from "@/components/research/BudgetByYearChart";
 import FundingTypeBreakdown from "@/components/research/FundingTypeBreakdown";
 import BudgetBreakdownBars from "@/components/research/BudgetBreakdownBars";
+import MiniKpiCards from "@/components/research/MiniKpiCards";
 
 // ─── Local types matching BudgetStats API response ─────────────────
 
@@ -141,6 +142,37 @@ function BudgetPageInner() {
 
   const totalBudget = data?.byType.reduce((s, t) => s + t.budget, 0) ?? 0;
 
+  const miniKpiItems = data
+    ? [
+        {
+          icon: "💰",
+          label: "งบประมาณรวม",
+          value: formatCurrency(totalBudget),
+          valueClassName: "text-maejo-green",
+        },
+        {
+          icon: "📅",
+          label: "ปีงบสูงสุด",
+          value: String(data.summary.highestBudgetYear),
+        },
+        {
+          icon: "🏆",
+          label: "งบปีสูงสุด",
+          value: formatCurrency(data.summary.highestBudgetAmount),
+        },
+        {
+          icon: "📊",
+          label: "งบเฉลี่ย/ปี",
+          value: formatCurrency(data.summary.averageBudgetPerYear),
+        },
+        {
+          icon: "📭",
+          label: "โครงการไร้งบ",
+          value: String(data.summary.zeroBudgetProjects),
+        },
+      ]
+    : [];
+
   return (
     <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       {/* ── Breadcrumb ─────────────────────────────────────────────── */}
@@ -218,64 +250,7 @@ function BudgetPageInner() {
       ) : (
         <>
           {/* ── KPI summary cards ──────────────────────────────────── */}
-          <section
-            className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5"
-            aria-label="ตัวชี้วัดหลัก"
-          >
-            <article className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm">
-              <div className="mb-2 text-xl">💰</div>
-              <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
-                งบประมาณรวม
-              </p>
-              <p className="mt-1 text-lg font-bold text-maejo-green">
-                {formatCurrency(totalBudget)}
-              </p>
-            </article>
-
-            <article className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm">
-              <div className="mb-2 text-xl">📅</div>
-              <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
-                ปีงบสูงสุด
-              </p>
-              <p className="mt-1 text-lg font-bold text-gray-700">
-                {data?.summary.highestBudgetYear ?? "—"}
-              </p>
-            </article>
-
-            <article className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm">
-              <div className="mb-2 text-xl">🏆</div>
-              <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
-                งบปีสูงสุด
-              </p>
-              <p className="mt-1 text-lg font-bold text-gray-700">
-                {data
-                  ? formatCurrency(data.summary.highestBudgetAmount)
-                  : "—"}
-              </p>
-            </article>
-
-            <article className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm">
-              <div className="mb-2 text-xl">📊</div>
-              <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
-                งบเฉลี่ย/ปี
-              </p>
-              <p className="mt-1 text-lg font-bold text-gray-700">
-                {data
-                  ? formatCurrency(data.summary.averageBudgetPerYear)
-                  : "—"}
-              </p>
-            </article>
-
-            <article className="rounded-xl border border-gray-200 bg-white p-4 text-center shadow-sm">
-              <div className="mb-2 text-xl">📭</div>
-              <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
-                โครงการไร้งบ
-              </p>
-              <p className="mt-1 text-lg font-bold text-gray-700">
-                {data?.summary.zeroBudgetProjects ?? "—"}
-              </p>
-            </article>
-          </section>
+          <MiniKpiCards items={miniKpiItems} columns={5} />
 
           {/* ── byYear + byType row ─────────────────────────────────── */}
           <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
