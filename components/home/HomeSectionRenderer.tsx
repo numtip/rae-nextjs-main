@@ -5,6 +5,7 @@ import type { ReactElement } from "react";
 import DocumentsCTA from "./DocumentsCTA";
 import GreenOfficeSection from "./GreenOfficeSection";
 import Hero from "./Hero";
+import { HeroVariantA, HeroVariantB, HeroVariantC } from "./hero/index";
 import KpiImpactStrip from "./KpiImpactStrip";
 import NewsHighlights from "./NewsHighlights";
 import QuickLinks from "./QuickLinks";
@@ -15,8 +16,28 @@ type Props = {
   locale: Locale;
 };
 
+/** Resolve the active motion variant from env */
+function resolveHeroVariant(): "A" | "B" | "C" | null {
+  const enabled = process.env.NEXT_PUBLIC_HERO_MOTION_PREVIEW === "true";
+  if (!enabled) return null;
+  const variant = process.env.NEXT_PUBLIC_HERO_MOTION_VARIANT;
+  if (variant === "B") return "B";
+  if (variant === "C") return "C";
+  return "A";
+}
+
+const motionVariant = resolveHeroVariant();
+
+const variantMap: Record<"A" | "B" | "C", (locale: Locale) => ReactElement> = {
+  A: (locale) => <HeroVariantA locale={locale} />,
+  B: (locale) => <HeroVariantB locale={locale} />,
+  C: (locale) => <HeroVariantC locale={locale} />,
+};
+
 const sectionComponents: Record<HomeSectionId, (locale: Locale) => ReactElement> = {
-  hero: (locale) => <Hero locale={locale} />,
+  hero: motionVariant
+    ? variantMap[motionVariant]
+    : (locale) => <Hero locale={locale} />,
   "quick-links": (locale) => <QuickLinks locale={locale} />,
   "services-overview": (locale) => <ServicesOverview locale={locale} />,
   "research-systems-cta": (locale) => <ResearchSystemsCTA locale={locale} />,

@@ -14,3 +14,6 @@ tsconfig.tsbuildinfo
 data/
 exports/
 vendor/
+# RC4.8A — motion preview assets (generated media, not committed)
+public/assets/motion/
+public/assets/posters/
