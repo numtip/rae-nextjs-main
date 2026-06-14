@@ -19,6 +19,7 @@
     "rdc:sync": "npm run rdc:export && npm run rdc:validate"
   },
   "dependencies": {
+    "@fal-ai/client": "^1.10.1",
     "mssql": "^12.5.5",
     "next": "16.2.4",
     "papaparse": "^5.4.1",
