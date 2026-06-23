@@ -1,0 +1,135 @@
+/**
+ * Landing V6 — Stitch visual parity utilities
+ * These replicate the Tailwind v3 CDN config from the Stitch source.
+ */
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(252, 249, 248, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(191, 201, 192, 0.3);
+  }
+  .dark-glass-panel {
+    background: rgba(49, 48, 48, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(191, 201, 192, 0.2);
+  }
+  .premium-shadow {
+    box-shadow:
+      0 4px 24px -6px rgba(0, 0, 0, 0.05),
+      0 12px 32px -12px rgba(0, 92, 59, 0.05);
+  }
+  .active\:scale-98:active {
+    transform: scale(0.98);
+  }
+}
+
+/**
+ * Stitch V6 Design Tokens — visual parity with the Tailwind v3 CDN config
+ * These are registered via @theme so Tailwind v4 generates the matching utilities.
+ */
+@theme {
+  /* ─── Colors (exact Stitch palette) ───────────────────────────────── */
+  --color-surface-variant: #e5e2e1;
+  --color-surface: #fcf9f8;
+  --color-outline-variant: #bfc9c0;
+  --color-on-background: #1c1b1b;
+  --color-surface-bright: #fcf9f8;
+  --color-on-primary-container: #86d2a8;
+  --color-error: #ba1a1a;
+  --color-inverse-on-surface: #f3f0ef;
+  --color-secondary: #6d5e00;
+  --color-on-secondary-container: #706000;
+  --color-surface-container-highest: #e5e2e1;
+  --color-surface-container-high: #ebe7e7;
+  --color-on-surface-variant: #3f4942;
+  --color-on-error: #ffffff;
+  --color-on-primary-fixed-variant: #005234;
+  --color-inverse-primary: #8ad6ac;
+  --color-tertiary-fixed: #b4f0cf;
+  --color-on-secondary-fixed-variant: #524600;
+  --color-primary-container: #005c3b;
+  --color-on-tertiary-fixed: #002113;
+  --color-on-surface: #1c1b1b;
+  --color-inverse-surface: #313030;
+  --color-on-primary: #ffffff;
+  --color-outline: #6f7a72;
+  --color-background: #fcf9f8;
+  --color-primary-fixed: #a6f3c7;
+  --color-error-container: #ffdad6;
+  --color-tertiary-container: #215a41;
+  --color-surface-container-low: #f6f3f2;
+  --color-on-tertiary: #ffffff;
+  --color-secondary-container: #fddc00;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary-fixed-variant: #155038;
+  --color-primary: #004229;
+  --color-on-secondary-fixed: #211b00;
+  --color-tertiary-fixed-dim: #99d3b3;
+  --color-secondary-fixed-dim: #e3c600;
+  --color-on-secondary: #ffffff;
+  --color-secondary-fixed: #ffe24a;
+  --color-on-error-container: #93000a;
+  --color-surface-container: #f0edec;
+  --color-on-tertiary-container: #95cfb0;
+  --color-surface-dim: #dcd9d9;
+  --color-primary-fixed-dim: #8ad6ac;
+  --color-tertiary: #00422b;
+  --color-surface-tint: #1b6b49;
+  --color-on-primary-fixed: #002112;
+
+  /* ─── Border Radius (exact Stitch values) ─────────────────────────── */
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* ─── Spacing (exact Stitch values) ───────────────────────────────── */
+  --spacing-margin-mobile: 20px;
+  --spacing-container-max: 1280px;
+  --spacing-base: 8px;
+  --spacing-section-gap: 120px;
+  --spacing-margin-desktop: 64px;
+  --spacing-gutter: 24px;
+
+  /* ─── Font Family (exact Stitch values) ───────────────────────────── */
+  --font-label-sm: "JetBrains Mono", monospace;
+  --font-body-md: "Inter", sans-serif;
+  --font-headline-lg-mobile: "Hanken Grotesk", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-display-lg: "Hanken Grotesk", sans-serif;
+  --font-headline-xl: "Hanken Grotesk", sans-serif;
+  --font-headline-lg: "Hanken Grotesk", sans-serif;
+
+  /* ─── Font Size (exact Stitch values) ─────────────────────────────── */
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 1.0;
+  --text-label-sm--letter-spacing: 0.05em;
+  --text-label-sm--font-weight: 500;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.5;
+  --text-body-md--font-weight: 400;
+
+  --text-headline-lg-mobile: 28px;
+  --text-headline-lg-mobile--line-height: 1.3;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
+
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-headline-xl: 48px;
+  --text-headline-xl--line-height: 1.2;
+  --text-headline-xl--letter-spacing: -0.01em;
+  --text-headline-xl--font-weight: 600;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 1.3;
+  --text-headline-lg--font-weight: 600;
+}
