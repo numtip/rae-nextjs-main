@@ -131,6 +131,7 @@ Before any production switch:
 |----------|---------|---------|
 | `NEXT_PUBLIC_SITE_ORIGIN` | `https://raeservice.mju.ac.th` | Absolute URL origin |
 | `NEXT_PUBLIC_SITE_PATH_PREFIX` | `rae-landing` | nginx mount prefix |
+| `NEXT_PUBLIC_ASSET_PREFIX` | (must match `basePath`) | Image/asset prefix when using `basePath`, e.g. `/research-preview` |
 
 Set in `.env.local` for local overrides. Production build uses defaults matching live nginx.
 

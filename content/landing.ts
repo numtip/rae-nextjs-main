@@ -1,4 +1,12 @@
 import type { Locale } from "@/lib/locale";
+import {
+  ORG_NAME_EN,
+  ORG_NAME_TH,
+  ORG_NAV_PRIMARY_EN,
+  ORG_NAV_PRIMARY_TH,
+  ORG_NAV_SECONDARY_EN,
+  ORG_NAV_SECONDARY_TH,
+} from "@/lib/org-names";
 
 export type LandingContent = {
   /** <html lang> override — "th" for Thai, "en" for English */
@@ -114,8 +122,8 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── Nav ─────────────────────────────────────────────────────── */
     nav: {
-      universityName: "มหาวิทยาลัยแม่โจ้",
-      subtitle: "สำนักวิจัยและส่งเสริมวิชาการการเกษตร",
+      universityName: ORG_NAV_PRIMARY_TH,
+      subtitle: ORG_NAV_SECONDARY_TH,
       links: [
         { label: "งานวิจัย", href: "#" },
         { label: "นวัตกรรม", href: "#" },
@@ -128,11 +136,11 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── Hero ────────────────────────────────────────────────────── */
     hero: {
-      kicker: "สำนักวิจัยและส่งเสริมวิชาการการเกษตร",
+      kicker: ORG_NAME_TH,
       titleLine1: "งานวิจัย องค์ความรู้",
       titleLine2Italic: "และผลกระทบเพื่อสังคม",
       paragraph:
-        "ขับเคลื่อนอนาคตเกษตรกรรมด้วยงานวิจัย บริการวิชาการ และการถ่ายทอดองค์ความรู้สู่ชุมชน โดยมหาวิทยาลัยแม่โจ้",
+        `ขับเคลื่อนอนาคตเกษตรกรรมด้วยงานวิจัย บริการวิชาการ และการถ่ายทอดองค์ความรู้สู่ชุมชน โดย${ORG_NAME_TH}`,
       primaryCta: "ดูผลงานของเรา",
       secondaryCta: "บริการวิชาการ",
     },
@@ -149,7 +157,7 @@ export const landing: Record<Locale, LandingContent> = {
     /* ─── RAE at a Glance ────────────────────────────────────────── */
     atAGlance: {
       kicker: "เสาหลักของสถาบัน",
-      title: "RAE ในภาพรวม",
+      title: "ภาพรวมหน่วยงาน",
       pillars: [
         {
           title: "ความเป็นเลิศด้านงานวิจัย",
@@ -170,7 +178,7 @@ export const landing: Record<Locale, LandingContent> = {
     researchToCommunity: {
       title: "จากงานวิจัยสู่ชุมชน",
       paragraph:
-        "พันธกิจของเราไปไกลกว่าการค้นพบ เรามุ่งมั่นให้ทุกความก้าวหน้าในห้องปฏิบัติการแปรเปลี่ยนเป็นแนวทางปฏิบัติที่ยั่งยืนบนพื้นที่จริง นี่คือปรัชญาการextensionของแม่โจ้",
+        "พันธกิจของเราไปไกลกว่าการค้นพบ เรามุ่งมั่นให้ทุกความก้าวหน้าในห้องปฏิบัติการแปรเปลี่ยนเป็นแนวทางปฏิบัติที่ยั่งยืนบนพื้นที่จริง นี่คือปรัชญาการส่งเสริมและถ่ายทอดองค์ความรู้ของสำนักวิจัยและส่งเสริมวิชาการการเกษตร",
       steps: [
         { icon: "science", label: "การค้นพบจากงานวิจัย" },
         { icon: "school", label: "การสังเคราะห์องค์ความรู้" },
@@ -245,7 +253,7 @@ export const landing: Record<Locale, LandingContent> = {
       titleLine1: "จากการค้นพบ",
       titleLine2Italic: "สู่การเปลี่ยนแปลงในชุมชน",
       paragraph:
-        "ขับเคลื่อนอนาคตเกษตรกรรมด้วยงานวิจัย บริการวิชาการ และการถ่ายทอดองค์ความรู้สู่ชุมชน โดยมหาวิทยาลัยแม่โจ้",
+        `ขับเคลื่อนอนาคตเกษตรกรรมด้วยงานวิจัย บริการวิชาการ และการถ่ายทอดองค์ความรู้สู่ชุมชน โดย${ORG_NAME_TH}`,
       badges: ["การมีส่วนร่วมระดับชาติ", "ผลกระทบที่ขับเคลื่อนด้วยข้อมูล"],
     },
 
@@ -281,16 +289,16 @@ export const landing: Record<Locale, LandingContent> = {
           tag: "โครงการชุมชน",
           tagColor: "secondary-container",
           date: "5 ต.ค. 2567",
-          title: "RAE แม่โจ้ร่วมมือกับสหกรณ์ภูมิภาคเพื่อการผลิตที่เพิ่มมูลค่า",
-          text: "ร่วมกับผู้เชี่ยวชาญระดับโลก ณ มหาวิทยาลัยแม่โจ้ ในการประชุมสุดยอดสามวันว่าด้วยการเกษตรที่ปรับตัวต่อสภาพภูมิอากาศ",
+          title: `${ORG_NAME_TH} ร่วมมือกับสหกรณ์ภูมิภาคเพื่อการผลิตที่เพิ่มมูลค่า`,
+          text: `ร่วมกับผู้เชี่ยวชาญระดับโลก ณ ${ORG_NAV_SECONDARY_TH} ในการประชุมสุดยอดสามวันว่าด้วยการเกษตรที่ปรับตัวต่อสภาพภูมิอากาศ`,
         },
       ],
     },
 
     /* ─── Footer ──────────────────────────────────────────────────── */
     footer: {
-      brandName: "Maejo Research RAE",
-      copyright: "© 2567 สำนักวิจัยและส่งเสริมวิชาการการเกษตร มหาวิทยาลัยแม่โจ้ ความแม่นยำในการเติบโต",
+      brandName: ORG_NAME_TH,
+      copyright: `© 2567 ${ORG_NAME_TH} ความแม่นยำในการเติบโต`,
       links: [
         { label: "นโยบายความเป็นส่วนตัว", href: "#" },
         { label: "ข้อกำหนดการวิจัย", href: "#" },
@@ -305,8 +313,8 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── Nav ─────────────────────────────────────────────────────── */
     nav: {
-      universityName: "Maejo University",
-      subtitle: "Research & Extension (RAE)",
+      universityName: ORG_NAV_PRIMARY_EN,
+      subtitle: ORG_NAV_SECONDARY_EN,
       links: [
         { label: "Research", href: "#" },
         { label: "Innovation", href: "#" },
@@ -319,11 +327,11 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── Hero ────────────────────────────────────────────────────── */
     hero: {
-      kicker: "Office of Agricultural Research & Extension",
+      kicker: ORG_NAME_EN,
       titleLine1: "Research, Knowledge,",
       titleLine2Italic: "and Impact for Society",
       paragraph:
-        "Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from Maejo University.",
+        `Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from ${ORG_NAME_EN}.`,
       primaryCta: "Explore Our Work",
       secondaryCta: "Academic Services",
     },
@@ -340,7 +348,7 @@ export const landing: Record<Locale, LandingContent> = {
     /* ─── RAE at a Glance ────────────────────────────────────────── */
     atAGlance: {
       kicker: "Institutional Pillars",
-      title: "RAE at a Glance",
+      title: "At a Glance",
       pillars: [
         {
           title: "Research Excellence",
@@ -361,7 +369,7 @@ export const landing: Record<Locale, LandingContent> = {
     researchToCommunity: {
       title: "From Research to Community",
       paragraph:
-        "Our mandate goes beyond discovery. We ensure that every breakthrough in the lab translates into tangible, sustainable practices on the ground. This is the Maejo extension philosophy.",
+        "Our mandate goes beyond discovery. We ensure that every breakthrough in the lab translates into tangible, sustainable practices on the ground. This is the extension philosophy of the Office of Agricultural Research and Extension.",
       steps: [
         { icon: "science", label: "Research Discovery" },
         { icon: "school", label: "Knowledge Synthesis" },
@@ -436,7 +444,7 @@ export const landing: Record<Locale, LandingContent> = {
       titleLine1: "From Discovery",
       titleLine2Italic: "to Community",
       paragraph:
-        "Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from Maejo University.",
+        `Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from ${ORG_NAME_EN}.`,
       badges: ["National-Level Contribution", "Data-Driven Impact"],
     },
 
@@ -472,17 +480,16 @@ export const landing: Record<Locale, LandingContent> = {
           tag: "Community Project",
           tagColor: "secondary-container",
           date: "Oct 05, 2024",
-          title: "Maejo RAE Partners with Regional Cooperatives for Value-Added Production",
-          text: "Join global experts at Maejo University for a three-day summit on climate-adaptive agriculture.",
+          title: `${ORG_NAME_EN} Partners with Regional Cooperatives for Value-Added Production`,
+          text: `Join global experts at ${ORG_NAV_SECONDARY_EN} for a three-day summit on climate-adaptive agriculture.`,
         },
       ],
     },
 
     /* ─── Footer ──────────────────────────────────────────────────── */
     footer: {
-      brandName: "Maejo Research RAE",
-      copyright:
-        "© 2024 Maejo University Agricultural Research & Extension. Precision in Growth.",
+      brandName: ORG_NAME_EN,
+      copyright: `© 2024 ${ORG_NAME_EN}. Precision in Growth.`,
       links: [
         { label: "Privacy Policy", href: "#" },
         { label: "Terms of Research", href: "#" },

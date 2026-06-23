@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
+import { landingImages } from "@/content/landing-images";
 import { landing } from "@/content/landing";
 import type { Locale } from "@/lib/locale";
 
 type Props = { locale: Locale };
+
+/** Prepend NEXT_PUBLIC_ASSET_PREFIX so images resolve correctly under basePath. */
+const ASSET_BASE = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? "";
+function img(path: string): string {
+  return `${ASSET_BASE}${path}`;
+}
 
 export default function LandingRenderer({ locale }: Props) {
   const c = landing[locale];
@@ -21,15 +28,14 @@ export default function LandingRenderer({ locale }: Props) {
         {/* ─── TopNavBar ───────────────────────────────────────────────── */}
         <nav className="docked full-width top-0 sticky z-50 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/20 flat no shadows transition-all duration-300">
           <div className="max-w-[1280px] mx-auto px-margin-desktop flex items-center justify-between h-20">
-            {/* Brand */}
             <a
               className="flex items-center gap-3 hover:opacity-80 transition-all duration-300 active:scale-98"
               href="#"
             >
               <img
-                alt="Maejo Agricultural Research Logo"
+                alt={`${c.nav.universityName} ${c.nav.subtitle}`}
                 className="h-12 w-auto object-contain"
-                src="/images/logorae3.jpg"
+                src={img(landingImages.logo)}
               />
               <div className="hidden md:flex flex-col">
                 <span className="font-headline-md font-bold text-primary leading-tight tracking-tight">
@@ -40,7 +46,6 @@ export default function LandingRenderer({ locale }: Props) {
                 </span>
               </div>
             </a>
-            {/* Links (Desktop) */}
             <div className="hidden md:flex space-x-8 items-center">
               {c.nav.links.map((link) => (
                 <a
@@ -52,7 +57,6 @@ export default function LandingRenderer({ locale }: Props) {
                 </a>
               ))}
             </div>
-            {/* Actions */}
             <div className="flex items-center space-x-6">
               <div className="hidden md:flex space-x-4">
                 <button className="text-on-surface-variant hover:text-primary transition-colors">
@@ -75,7 +79,7 @@ export default function LandingRenderer({ locale }: Props) {
             <img
               alt=""
               className="w-full h-full object-cover"
-              src="/images/drone4.jpg"
+              src={img(landingImages.heroBackground)}
               style={{ filter: "contrast(1.1) brightness(0.9)" }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
@@ -84,7 +88,7 @@ export default function LandingRenderer({ locale }: Props) {
             <img
               alt=""
               className="w-[800px] h-auto object-contain"
-              src="/images/logorae3.jpg"
+              src={img(landingImages.logo)}
             />
           </div>
           <div className="relative z-10 max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 md:grid-cols-12 gap-gutter pt-20">
@@ -126,9 +130,7 @@ export default function LandingRenderer({ locale }: Props) {
               <div
                 key={metric.label}
                 className={`p-8 flex flex-col items-start justify-center group hover:bg-surface-container-lowest transition-colors duration-500 relative overflow-hidden ${
-                  i === c.metrics.length - 1
-                    ? "col-span-2 md:col-span-1"
-                    : ""
+                  i === c.metrics.length - 1 ? "col-span-2 md:col-span-1" : ""
                 }`}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
@@ -162,13 +164,13 @@ export default function LandingRenderer({ locale }: Props) {
                     <img
                       alt={pillar.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                      src={
-                        i === 0
-                          ? "/images/drone5.jpg"
-                          : i === 1
-                            ? "/images/drone6.jpg"
-                            : "/images/drone4.jpg"
-                      }
+                      src={img(
+                        [
+                          landingImages.pillars.researchExcellence,
+                          landingImages.pillars.academicServices,
+                          landingImages.pillars.communityImpact,
+                        ][i]!
+                      )}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
@@ -218,7 +220,7 @@ export default function LandingRenderer({ locale }: Props) {
                 <img
                   alt={c.researchToCommunity.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                  src="/images/9.jpg"
+                  src={img(landingImages.researchToCommunity)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay"></div>
               </div>
@@ -245,35 +247,27 @@ export default function LandingRenderer({ locale }: Props) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               {/* Feature 1: Large Asymmetric */}
-              {(c.showcase.features[0]?.layout === "overlay" || true) && (
-                <div className="md:col-span-8 group relative rounded-2xl overflow-hidden aspect-[16/10] premium-shadow cursor-pointer">
-                  <img
-                    alt={c.showcase.features[0]?.title ?? ""}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    src="/images/drone6.jpg"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-10 flex flex-col justify-end w-full md:w-3/4">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span
-                        className={`px-3 py-1 font-label-sm text-[10px] uppercase tracking-widest rounded-full ${
-                          c.showcase.features[0]?.tagStyle === "primary"
-                            ? "bg-primary text-white"
-                            : "bg-secondary-container text-on-secondary-container"
-                        }`}
-                      >
-                        {c.showcase.features[0]?.tag}
-                      </span>
-                    </div>
-                    <h3 className="font-headline-lg text-3xl md:text-4xl text-white mb-4 leading-tight group-hover:text-secondary-container transition-colors">
-                      {c.showcase.features[0]?.title}
-                    </h3>
-                    <p className="font-body-md text-white/80 line-clamp-2">
-                      {c.showcase.features[0]?.text}
-                    </p>
+              <div className="md:col-span-8 group relative rounded-2xl overflow-hidden aspect-[16/10] premium-shadow cursor-pointer">
+                <img
+                  alt={c.showcase.features[0]?.title ?? ""}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  src={img(landingImages.showcase.integratedResearch)}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-10 flex flex-col justify-end w-full md:w-3/4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase tracking-widest rounded-full">
+                      {c.showcase.features[0]?.tag}
+                    </span>
                   </div>
+                  <h3 className="font-headline-lg text-3xl md:text-4xl text-white mb-4 leading-tight group-hover:text-secondary-container transition-colors">
+                    {c.showcase.features[0]?.title}
+                  </h3>
+                  <p className="font-body-md text-white/80 line-clamp-2">
+                    {c.showcase.features[0]?.text}
+                  </p>
                 </div>
-              )}
+              </div>
 
               {/* Feature 2: Side Feature */}
               <div className="md:col-span-4 flex flex-col gap-8">
@@ -281,18 +275,12 @@ export default function LandingRenderer({ locale }: Props) {
                   <img
                     alt={c.showcase.features[1]?.title ?? ""}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                    src="/images/drone5.jpg"
+                    src={img(landingImages.showcase.academicServices)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-8 flex flex-col justify-end w-full">
                     <div className="flex items-center gap-3 mb-3">
-                      <span
-                        className={`px-3 py-1 font-label-sm text-[10px] uppercase tracking-widest rounded-full ${
-                          c.showcase.features[1]?.tagStyle === "primary"
-                            ? "bg-primary text-white"
-                            : "bg-secondary-container text-on-secondary-container"
-                        }`}
-                      >
+                      <span className="px-3 py-1 bg-primary text-white font-label-sm text-[10px] uppercase tracking-widest rounded-full">
                         {c.showcase.features[1]?.tag}
                       </span>
                     </div>
@@ -303,94 +291,92 @@ export default function LandingRenderer({ locale }: Props) {
                 </div>
               </div>
 
-              {/* Features 3-5: Standard cards */}
-              {c.showcase.features.slice(2).map((feature, i) => {
-                const isPrimaryBg = feature.bgStyle === "primary";
-                return (
-                  <div
-                    key={feature.title}
-                    className={`md:col-span-4 group ${
-                      isPrimaryBg
-                        ? "bg-primary"
-                        : "bg-surface"
-                    } rounded-2xl overflow-hidden premium-shadow ${
-                      isPrimaryBg ? "" : "border border-outline-variant/10"
-                    } cursor-pointer hover:-translate-y-1 transition-transform duration-300 relative`}
-                  >
-                    <img
-                      alt={feature.title}
-                      className="w-full h-48 object-cover transition-transform duration-1000 group-hover:scale-105"
-                      src={
-                        i === 0
-                          ? "/images/7.jpg"
-                          : i === 1
-                            ? "/images/2.jpg"
-                            : "/images/6.jpg"
-                      }
-                    />
-                    {isPrimaryBg && (
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                    )}
-                    <div
-                      className={`p-8 ${
-                        isPrimaryBg
-                          ? "relative z-10 flex flex-col h-full justify-between"
-                          : ""
-                      }`}
-                    >
-                      <div>
-                        <span
-                          className={`font-label-sm text-[10px] uppercase tracking-widest mb-3 block ${
-                            isPrimaryBg
-                              ? "text-secondary-container"
-                              : "text-primary"
-                          }`}
-                        >
-                          {feature.tag}
-                        </span>
-                        <h3
-                          className={`font-headline-lg text-2xl mb-4 ${
-                            isPrimaryBg ? "text-white" : "text-on-surface"
-                          }`}
-                        >
-                          {feature.title}
-                        </h3>
-                        {feature.text && (
-                          <p
-                            className={`font-body-md mb-6 text-sm ${
-                              isPrimaryBg
-                                ? "text-white/80"
-                                : "text-on-surface-variant"
-                            }`}
-                          >
-                            {feature.text}
-                          </p>
-                        )}
-                      </div>
-                      {feature.cta && (
-                        <span
-                          className={`font-label-sm flex items-center gap-2 group-hover:gap-3 transition-all ${
-                            isPrimaryBg
-                              ? "text-secondary-container"
-                              : "text-primary"
-                          } mt-auto`}
-                        >
-                          {feature.cta}{" "}
-                          <span className="material-symbols-outlined text-[16px]">
-                            arrow_forward
-                          </span>
-                        </span>
-                      )}
-                    </div>
+              {/* Feature 3: Standard */}
+              <div className="md:col-span-4 group bg-surface rounded-2xl overflow-hidden premium-shadow border border-outline-variant/10 cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+                <img
+                  alt={c.showcase.features[2]?.title ?? ""}
+                  className="w-full h-48 object-cover transition-transform duration-1000 group-hover:scale-105"
+                  src={img(landingImages.showcase.knowledgeTransfer)}
+                />
+                <div className="p-8">
+                  <span className="text-primary font-label-sm text-[10px] uppercase tracking-widest mb-3 block">
+                    {c.showcase.features[2]?.tag}
+                  </span>
+                  <h3 className="font-headline-lg text-2xl text-on-surface mb-4">
+                    {c.showcase.features[2]?.title}
+                  </h3>
+                  <p className="font-body-md text-on-surface-variant mb-6 text-sm">
+                    {c.showcase.features[2]?.text}
+                  </p>
+                  <span className="text-primary font-label-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                    {c.showcase.features[2]?.cta}{" "}
+                    <span className="material-symbols-outlined text-[16px]">
+                      arrow_forward
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Feature 4: Standard */}
+              <div className="md:col-span-4 group bg-surface rounded-2xl overflow-hidden premium-shadow border border-outline-variant/10 cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+                <img
+                  alt={c.showcase.features[3]?.title ?? ""}
+                  className="w-full h-48 object-cover transition-transform duration-1000 group-hover:scale-105"
+                  src={img(landingImages.showcase.farmerEngagement)}
+                />
+                <div className="p-8">
+                  <span className="text-primary font-label-sm text-[10px] uppercase tracking-widest mb-3 block">
+                    {c.showcase.features[3]?.tag}
+                  </span>
+                  <h3 className="font-headline-lg text-2xl text-on-surface mb-4">
+                    {c.showcase.features[3]?.title}
+                  </h3>
+                  <p className="font-body-md text-on-surface-variant mb-6 text-sm">
+                    {c.showcase.features[3]?.text}
+                  </p>
+                  <span className="text-primary font-label-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                    {c.showcase.features[3]?.cta}{" "}
+                    <span className="material-symbols-outlined text-[16px]">
+                      arrow_forward
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Feature 5: Primary highlight */}
+              <div className="md:col-span-4 group bg-primary rounded-2xl overflow-hidden premium-shadow cursor-pointer hover:-translate-y-1 transition-transform duration-300 relative">
+                <img
+                  alt={c.showcase.features[4]?.title ?? ""}
+                  className="w-full h-48 object-cover transition-transform duration-1000 group-hover:scale-105"
+                  src={img(landingImages.showcase.communityDevelopment)}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+                <div className="p-8 relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <span className="text-secondary-container font-label-sm text-[10px] uppercase tracking-widest mb-3 block">
+                      {c.showcase.features[4]?.tag}
+                    </span>
+                    <h3 className="font-headline-lg text-2xl text-white mb-4">
+                      {c.showcase.features[4]?.title}
+                    </h3>
+                    <p className="font-body-md text-white/80 mb-6 text-sm">
+                      {c.showcase.features[4]?.text}
+                    </p>
                   </div>
-                );
-              })}
+                  <span className="text-secondary-container font-label-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                    {c.showcase.features[4]?.cta}{" "}
+                    <span className="material-symbols-outlined text-[16px]">
+                      arrow_forward
+                    </span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ─── Knowledge Ecosystem ──────────────────────────────────────── */}
-        <section className="bg-inverse-surface py-[120px] overflow-hidden text-on-primary relative">
+        <section className="bg-[#313030] py-[120px] overflow-hidden text-white relative">
           <div
             className="absolute inset-0 opacity-20"
             style={{
@@ -412,10 +398,7 @@ export default function LandingRenderer({ locale }: Props) {
                 </p>
                 <ul className="space-y-6 mb-10">
                   {c.ecosystem.items.map((item) => (
-                    <li
-                      key={item.label}
-                      className="flex items-center gap-4 text-white/90"
-                    >
+                    <li key={item.label} className="flex items-center gap-4 text-white/90">
                       <span className="material-symbols-outlined text-secondary-container">
                         {item.icon}
                       </span>
@@ -434,7 +417,7 @@ export default function LandingRenderer({ locale }: Props) {
                   <img
                     alt={c.ecosystem.title}
                     className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700"
-                    src="/images/drone4.jpg"
+                    src={img(landingImages.ecosystem)}
                   />
                 </div>
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary rounded-full blur-3xl opacity-50"></div>
@@ -450,7 +433,7 @@ export default function LandingRenderer({ locale }: Props) {
             <img
               alt={c.signature.kicker}
               className="w-full h-full object-cover opacity-60"
-              src="/images/drone5.jpg"
+              src={img(landingImages.signatureBackground)}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
           </div>
@@ -458,9 +441,9 @@ export default function LandingRenderer({ locale }: Props) {
             <div className="flex flex-col items-center text-center">
               <div className="mb-12 opacity-40 hover:opacity-100 transition-opacity duration-700">
                 <img
-                  alt="Maejo Logo"
+                  alt={c.footer.brandName}
                   className="h-16 w-auto grayscale brightness-200"
-                  src="/images/logorae3.jpg"
+                  src={img(landingImages.logo)}
                 />
               </div>
               <span className="font-label-sm text-secondary-container tracking-[0.3em] uppercase mb-6 block">
@@ -476,16 +459,14 @@ export default function LandingRenderer({ locale }: Props) {
                 {c.signature.paragraph}
               </p>
               <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                {c.signature.badges.map((badge) => (
+                {c.signature.badges.map((badge, i) => (
                   <div key={badge} className="flex flex-col items-center">
                     <span className="font-label-sm text-xs uppercase tracking-widest text-white/50 mb-2">
                       {badge}
                     </span>
                     <div
                       className={`h-px w-12 ${
-                        c.signature.badges.indexOf(badge) === 1
-                          ? "bg-secondary-container"
-                          : "bg-primary"
+                        i === 1 ? "bg-secondary-container" : "bg-primary"
                       }`}
                     ></div>
                   </div>
@@ -495,7 +476,7 @@ export default function LandingRenderer({ locale }: Props) {
           </div>
         </section>
 
-        {/* ─── News & Insights / Editorial Briefings ────────────────────── */}
+        {/* ─── News & Insights ────────────────────────────────────────── */}
         <section className="bg-surface-bright py-[120px] overflow-hidden">
           <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
             <div className="mb-16 flex flex-col md:flex-row justify-between items-end gap-8 border-b border-outline-variant/30 pb-8">
@@ -521,7 +502,7 @@ export default function LandingRenderer({ locale }: Props) {
                   <img
                     alt={c.news.featured.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                    src="/images/drone6.jpg"
+                    src={img(landingImages.news.featured)}
                   />
                 </div>
                 <div className="flex items-center gap-4 mb-4">
@@ -547,7 +528,8 @@ export default function LandingRenderer({ locale }: Props) {
                   </span>
                 </div>
               </div>
-              {/* Recent Dispatches List */}
+
+              {/* Recent Dispatches */}
               <div className="lg:col-span-5 flex flex-col gap-0 border-t lg:border-t-0 border-outline-variant/30">
                 {c.news.dispatches.map((dispatch, i) => (
                   <a
@@ -586,11 +568,11 @@ export default function LandingRenderer({ locale }: Props) {
                         <img
                           alt={dispatch.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          src={
+                          src={img(
                             i === 0
-                              ? "/images/drone4.jpg"
-                              : "/images/drone5.jpg"
-                          }
+                              ? landingImages.news.smartExtension
+                              : landingImages.news.precisionAgriculture
+                          )}
                         />
                       </div>
                     )}
@@ -606,9 +588,9 @@ export default function LandingRenderer({ locale }: Props) {
           <div className="max-w-[1280px] mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
             <div className="md:col-span-1 flex flex-col">
               <img
-                alt="Maejo Logomark"
+                alt={c.footer.brandName}
                 className="h-16 w-auto object-contain mb-6"
-                src="/images/logorae3.jpg"
+                src={img(landingImages.logo)}
               />
               <span className="font-headline-lg text-xl font-bold text-primary mb-4 block">
                 {c.footer.brandName}

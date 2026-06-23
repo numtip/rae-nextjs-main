@@ -22,10 +22,12 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+import { ORG_NAME_EN } from "@/lib/org-names";
+
 export const metadata: Metadata = {
-  title: "Maejo Agricultural Research | Cultivating the Future",
+  title: `${ORG_NAME_EN} | Cultivating the Future`,
   description:
-    "Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from Maejo University.",
+    "Empowering the future of agriculture through research excellence, academic services, and dedicated community extension.",
   robots: { index: true, follow: true },
 };
 
