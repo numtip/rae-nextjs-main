@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { getMetadataBase } from "@/lib/site";
+import PreviewBanner from "@/components/PreviewBanner";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,7 +52,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <PreviewBanner />
+        {children}
+      </body>
     </html>
   );
 }
