@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
-/**
- * Dev/server config — authoritative settings live in next.config.mjs
- * (basePath: "/research-preview").
- * output: "export" removed here: static export only applies to the
- * production site build, handled separately via next.config.mjs.
- */
-const nextConfig: NextConfig = {};
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
+const nextConfig: NextConfig = {
+  output: "export",
+  ...(isGitHubPages && {
+    basePath: "/rae-nextjs-main",
+    assetPrefix: "/rae-nextjs-main/",
+  }),
+};
 
 export default nextConfig;
