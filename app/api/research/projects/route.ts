@@ -23,8 +23,7 @@ import { computeProjects, DEFAULT_PROJECTS_PARAMS } from "@/lib/data/aggregates"
 import type { ProjectsQueryParams } from "@/lib/data/aggregates";
 import type { ProjectsResponse, ApiError } from "@/lib/data/models";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 120; // 2 minutes
+export const dynamic = "force-static";
 
 const VALID_SORT_FIELDS = new Set(["researchId", "budgetYear", "totalBudget", "nameTh"]);
 const VALID_ORDER_VALUES = new Set(["asc", "desc"]);

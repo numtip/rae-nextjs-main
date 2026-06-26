@@ -12,8 +12,7 @@ import { loadResearchData, CsvNotFoundError, CsvParseError } from "@/lib/csv/loa
 import { computeFilters } from "@/lib/data/aggregates";
 import type { FiltersResponse, ApiError } from "@/lib/data/models";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 600; // 10 minutes
+export const dynamic = "force-static";
 
 export async function GET(request: NextRequest): Promise<NextResponse<FiltersResponse | ApiError>> {
   try {

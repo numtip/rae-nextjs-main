@@ -26,8 +26,7 @@ import { computeAndWrapBudgetStats } from "@/lib/adapters/budgetStatsAdapter";
 import type { BudgetStatsResponse } from "@/lib/contracts/budgetStats";
 import type { ApiError } from "@/lib/data/models";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 300; // 5 minutes
+export const dynamic = "force-static";
 
 export async function GET(
   request: NextRequest

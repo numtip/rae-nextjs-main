@@ -25,8 +25,7 @@ import { parseFilterParams } from "@/lib/data/params";
 import { computePortfolioStats } from "@/lib/data/aggregates";
 import type { PortfolioStats, ApiError } from "@/lib/data/models";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 300; // 5 minutes
+export const dynamic = "force-static";
 
 export async function GET(request: NextRequest): Promise<NextResponse<PortfolioStats | ApiError>> {
   try {

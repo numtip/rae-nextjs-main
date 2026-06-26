@@ -12,6 +12,7 @@ _recovered-dev-scaffold/
 tsconfig.tsbuildinfo
 .next.d/
 data/
+!lib/data/
 exports/
 vendor/
 # RC4.8A — motion preview assets (generated media, not committed)
