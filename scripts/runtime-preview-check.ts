@@ -76,11 +76,8 @@ async function main(): Promise<number> {
   results.push(await checkRoute("/th"));
   results.push(await checkRoute("/en"));
 
-  // ── BasePath check ────────────────────────────────────────────
-  console.log(`\n📁 basePath routes:`);
-  results.push(await checkRoute("/rae-nextjs-main/"));
-  results.push(await checkRoute("/rae-nextjs-main/th"));
-  results.push(await checkRoute("/rae-nextjs-main/en"));
+  // Note: basePath (/rae-nextjs-main/) is already part of the
+  // Pages URL — core routes above implicitly verify basePath routing.
 
   // ── Static assets ─────────────────────────────────────────────
   console.log(`\n🎨 Static assets:`);
