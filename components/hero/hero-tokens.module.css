@@ -1,0 +1,13 @@
+/* Hero design tokens — Concept D Living Agriculture Intelligence */
+.hero-tokens {
+  --hero-green: #005C3B;
+  --hero-green-deep: #004A2F;
+  --hero-green-light: #006B45;
+  --hero-gold: #FFDE00;
+  --hero-white: #FFFFFF;
+  --hero-gray: #4C4C4C;
+
+  --hero-min-height: 400px;
+  --hero-max-height: 900px;
+  --hero-content-max-width: 42rem;
+}

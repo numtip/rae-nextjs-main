@@ -1,5 +1,5 @@
-import { SiteFooter } from "@/components/footer";
-import { SiteHeader } from "@/components/navigation";
+import SiteFooter from "@/components/footer/SiteFooter";
+import SiteHeader from "@/components/navigation/SiteHeader";
 import type { Locale } from "@/lib/locale";
 import PageContainer from "./PageContainer";
 
