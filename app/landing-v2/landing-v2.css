@@ -1,0 +1,70 @@
+/**
+ * Landing V2 — Brand tokens (Maejo/RAE institutional identity)
+ *
+ * These tokens are the minimal brand-aligned subset for the V2 scaffold.
+ * They intentionally mirror the V6 palette so both versions share the
+ * same institutional identity (#005C3B green, #FFDE00 gold).
+ *
+ * When the full Google Stitch Landing V2 export is provided, replace the
+ * scaffold styles with the V2-specific design tokens while keeping these
+ * brand colors locked.
+ */
+
+@theme {
+  /* ─── Brand colors (locked) ─────────────────────────────────────── */
+  --color-rae-green: #005c3b;
+  --color-rae-green-dark: #004229;
+  --color-rae-green-light: #8ad6ac;
+  --color-rae-gold: #ffde00;
+  --color-rae-gold-dark: #6d5e00;
+  --color-rae-neutral-bg: #fcf9f8;
+  --color-rae-neutral-surface: #f6f3f2;
+  --color-rae-neutral-border: #bfc9c0;
+  --color-rae-text: #1c1b1b;
+  --color-rae-text-muted: #3f4942;
+  --color-rae-inverse-surface: #313030;
+
+  /* ─── Typography ────────────────────────────────────────────────── */
+  --font-v2-display: "Hanken Grotesk", sans-serif;
+  --font-v2-body: "Inter", sans-serif;
+  --font-v2-mono: "JetBrains Mono", monospace;
+
+  /* ─── Spacing ───────────────────────────────────────────────────── */
+  --spacing-v2-section-y: 96px;
+  --spacing-v2-container-max: 1280px;
+  --spacing-v2-gutter: 24px;
+  --spacing-v2-margin-mobile: 20px;
+  --spacing-v2-margin-desktop: 64px;
+
+  /* ─── Radius ────────────────────────────────────────────────────── */
+  --radius-v2-card: 0.5rem;
+  --radius-v2-pill: 9999px;
+}
+
+@layer utilities {
+  /* Premium institutional shadow — calm, not flashy */
+  .v2-premium-shadow {
+    box-shadow:
+      0 4px 24px -6px rgba(0, 0, 0, 0.05),
+      0 12px 32px -12px rgba(0, 92, 59, 0.08);
+  }
+
+  /* Calm hover lift — content-supporting, not distracting */
+  .v2-card-lift {
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .v2-card-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Reduced-motion: disable all transitions */
+  @media (prefers-reduced-motion: reduce) {
+    .v2-card-lift,
+    .v2-card-lift:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+}
