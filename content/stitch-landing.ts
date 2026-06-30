@@ -167,7 +167,7 @@ export const stitchLanding: Record<Locale, StitchLandingContent> = {
     nav: {
       logoAlt: "RAE Logo",
       siteName: "RAE",
-      siteSubtitle: "สำนักงานวิจัยและส่งเสริมวิชาการการเกษตร\nมหาวิทยาลัยแม่โจ้",
+      siteSubtitle: "สำนักวิจัยและส่งเสริมวิชาการการเกษตร มหาวิทยาลัยแม่โจ้",
       links: [
         { label: "หน้าหลัก", href: "#", isActive: true },
         { label: "เกี่ยวกับเรา", href: "#" },
@@ -430,7 +430,7 @@ export const stitchLanding: Record<Locale, StitchLandingContent> = {
 
     footer: {
       logoAlt: "RAE Logo",
-      organizationName: "สำนักงานวิจัยและส่งเสริมวิชาการการเกษตร",
+      organizationName: "สำนักวิจัยและส่งเสริมวิชาการการเกษตร",
       universityName: "มหาวิทยาลัยแม่โจ้",
       address:
         "63 หมู่ 4 ตำบลหนองหาร อำเภอสันทราย จังหวัดเชียงใหม่ 50290",
@@ -488,7 +488,7 @@ export const stitchLanding: Record<Locale, StitchLandingContent> = {
     nav: {
       logoAlt: "RAE Logo",
       siteName: "RAE",
-      siteSubtitle: "Office of Agricultural Research and Extension\nMaejo University",
+      siteSubtitle: "Office of Agricultural Research and Extension Maejo University",
       links: [
         { label: "Home", href: "#", isActive: true },
         { label: "About Us", href: "#" },
