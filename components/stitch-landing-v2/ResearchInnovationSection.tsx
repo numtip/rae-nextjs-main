@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { assetPath } from "@/lib/assetPath";
 import {
   Compass,
   HandCoins,
@@ -53,7 +54,7 @@ export function ResearchInnovationSection() {
                 <div className="relative aspect-video overflow-hidden">
                   <Image
                     alt={card.imageAlt}
-                    src={card.image}
+                    src={assetPath(card.image)}
                     fill
                     unoptimized
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

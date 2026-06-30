@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import type { StitchLandingContent } from "@/content/stitch-landing";
+import { assetPath } from "@/lib/assetPath";
 import {
   Sprout,
   Leaf,
@@ -54,7 +55,7 @@ export function ServiceCards({ c }: Props) {
                 <div className="relative aspect-video overflow-hidden">
                   <Image
                     alt={card.imageAlt}
-                    src={card.image}
+                    src={assetPath(card.image)}
                     fill
                     unoptimized
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 20vw"

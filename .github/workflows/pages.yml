@@ -46,7 +46,7 @@ jobs:
         run: echo "date=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
 
       - name: Build static export for GitHub Pages
-        run: GITHUB_PAGES=true NEXT_PUBLIC_BUILD_DATE=${{ steps.build-date.outputs.date }} npm run build
+        run: GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/rae-nextjs-main NEXT_PUBLIC_BUILD_DATE=${{ steps.build-date.outputs.date }} npm run build
 
       - name: Generate .nojekyll
         run: touch out/.nojekyll
