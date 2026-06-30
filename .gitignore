@@ -11,7 +11,9 @@ _extract-from-maps.mjs
 _recovered-dev-scaffold/
 tsconfig.tsbuildinfo
 .next.d/
-data/
+data/*
+!data/kb/
+data/documents/
 !lib/data/
 exports/
 vendor/

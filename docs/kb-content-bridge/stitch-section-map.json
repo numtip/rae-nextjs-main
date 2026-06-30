@@ -1,0 +1,146 @@
+{
+  "phase": "ST1",
+  "bridge_version": "1.0.0",
+  "generated": "2026-06-29",
+  "status": "draft",
+  "needsHumanReview": true,
+  "description": "Section-to-source mapping for Stitch landing redesign content pack. All review status: draft.",
+
+  "sections": [
+    {
+      "section": "Hero",
+      "sectionId": "ST-SEC-001",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — hero section (page.tsx redesign)",
+      "kbIds": ["KB-0001", "KB-0002", "KB-0018"],
+      "bridgeIds": ["KB-BRIDGE-007", "KB-BRIDGE-001", "KB-BRIDGE-003"],
+      "sourceFile": "01_Identity_and_Mission.md",
+      "copyTH": "สำนักวิจัยและส่งเสริมวิชาการการเกษตร มหาวิทยาลัยแม่โจ้\nมุ่งพัฒนางานวิจัยและบริการวิชาการสู่สังคม โดยมีการเกษตรเป็นรากฐาน",
+      "copyEN": "The Office of Agricultural Research and Extension, Maejo University\nAdvancing research and academic services to society, grounded in agriculture.",
+      "designIntent": "Premium hero with full REE identity (TH first, EN second), mission tagline. Full-bleed Maejo agricultural/campus imagery. Maejo Green overlay. Subtle parallax on scroll.",
+      "ctaIntent": "\"Explore RAE\" / \"เรียนรู้เพิ่มเติม\" — smooth scroll to narrative sections below.",
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "RAE at a Glance",
+      "sectionId": "ST-SEC-002",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — stats/cards section, or standalone component at components/landing-v6/",
+      "kbIds": ["KB-0003", "KB-0009"],
+      "bridgeIds": ["KB-BRIDGE-005", "KB-BRIDGE-006"],
+      "sourceFile": "02_Governance_and_Architecture.md",
+      "copyTH": "RAE ประกอบด้วย 3 กองหลัก:\n• กองบริหารงานวิจัย — ดูแลทุนวิจัยและสนับสนุนนักวิจัย\n• กองบริหารงานสำนักวิจัยฯ — บริหารจัดการสำนัก\n• กองบริหารงานบริการวิชาการ — ฝึกอบรม ให้คำปรึกษา บริการห้องปฏิบัติการ",
+      "copyEN": "RAE consists of 3 core divisions:\n• Research Administration Division — manages grants and researcher support\n• RAE Office Administration Division — office management\n• Academic Service Administration Division — training, consulting, laboratory services",
+      "designIntent": "Clean cards layout with verified institutional facts only — no fake KPIs. Each division as an icon card. Maejo Gold accent dividers.",
+      "ctaIntent": "\"View Organization\" / \"ดูโครงสร้างองค์กร\" → link to About page.",
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Research to Community",
+      "sectionId": "ST-SEC-003",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — narrative journey section",
+      "kbIds": ["KB-0004", "KB-0005"],
+      "bridgeIds": ["KB-BRIDGE-008", "KB-BRIDGE-010"],
+      "sourceFile": "03_Research_and_Academic_Services.md",
+      "copyTH": "งานวิจัยเพื่อชุมชน\nRAE เชื่อมโยงงานวิจัยการเกษตรสู่การบริการวิชาการที่ตอบโจทย์ชุมชน\nจากห้องปฏิบัติการสู่แปลงนา — จากนักวิจัยสู่เกษตรกร",
+      "copyEN": "Research to Community\nRAE connects agricultural research to academic services that answer community needs.\nFrom laboratory to rice field — from researcher to farmer.",
+      "designIntent": "Narrative visual journey section: lab → field → community. Authentic RAE imagery. Soft reveal scroll animation.",
+      "ctaIntent": "\"See Our Research\" / \"ดูงานวิจัย\" → link to Research Services page.",
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Academic Services Hub",
+      "sectionId": "ST-SEC-004",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — service cards section",
+      "kbIds": ["KB-0005"],
+      "bridgeIds": ["KB-BRIDGE-009"],
+      "sourceFile": "03_Research_and_Academic_Services.md",
+      "copyTH": "บริการวิชาการ\nกองบริหารงานบริการวิชาการให้บริการ:\n• การฝึกอบรมและพัฒนาศักยภาพนักวิจัย\n• การให้คำปรึกษาทางวิชาการ\n• บริการห้องปฏิบัติการ\n• การบริการวิชาการแก่ชุมชนและถ่ายทอดเทคโนโลยี\n• การตรวจรับรองมาตรฐาน",
+      "copyEN": "Academic Services\nThe Academic Service Administration Division offers:\n• Training and researcher capacity building\n• Academic consulting services\n• Laboratory services\n• Community extension and technology transfer\n• Certification services",
+      "designIntent": "Interactive service showcase cards with icons. Grid layout. Maejo Green accent cards with subtle hover elevation.",
+      "ctaIntent": "\"Explore Services\" / \"ดูบริการทั้งหมด\" → link to Academic Services page.",
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Research Showcase",
+      "sectionId": "ST-SEC-005",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — research grid/carousel",
+      "kbIds": ["KB-0004", "KB-0025", "KB-0026", "KB-0027", "KB-0028", "KB-0029", "KB-0030", "KB-0031", "KB-0032", "KB-0033", "KB-0034", "KB-0035", "KB-0036", "KB-0037", "KB-0038", "KB-0039", "KB-0040"],
+      "bridgeIds": ["KB-BRIDGE-008"],
+      "sourceFile": "03_Research_and_Academic_Services.md",
+      "copyTH": "RAE บริหารงานวิจัยครอบคลุมหลายสาขาทางการเกษตร เชื่อมโยงนักวิจัยกับแหล่งทุน สวก. (ARDA) และสนับสนุนการดำเนินงานวิจัยตั้งแต่ต้นจนจบกระบวนการ",
+      "copyEN": "RAE administers research across multiple agricultural fields, connects researchers to ARDA funding sources, and supports research operations from start to finish.",
+      "designIntent": "Research area cards or masonry grid. Real research categories displayed. No fake metrics. Could use carousel for research detail pages.",
+      "ctaIntent": "\"View All Research\" / \"ดูงานวิจัยทั้งหมด\" → link to Research Services detail pages.",
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Document Center / Funding Access",
+      "sectionId": "ST-SEC-006",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — split-layout section with document cards + funding cards",
+      "kbIds": ["KB-0011", "KB-0041", "KB-0042"],
+      "bridgeIds": ["KB-BRIDGE-011", "KB-BRIDGE-012", "KB-BRIDGE-013"],
+      "sourceFile": "04_Documents_and_Funding.md",
+      "copyTH": "ศูนย์เอกสารและแหล่งทุน\nRAE ให้บริการดาวน์โหลดเอกสาร พร้อมเชื่อมโยงนักวิจัยกับแหล่งทุนจาก สวก. (ARDA) กองทุน Strategic Fund (SF) และ Research Utilization (RU) ปีงบประมาณ 2570\n\n⚠️ นโยบายการจัดเก็บเอกสาร:\nเว็บไซต์ RAE ไม่ใช่ระบบจัดเก็บเอกสาร เว็บไซต์ทำหน้าที่เป็น Document Registry / Discovery Layer เท่านั้น ไฟล์ต้นฉบับทั้งหมดจัดเก็บใน Microsoft 365 / SharePoint / OneDrive",
+      "copyEN": "Document Center & Funding Access\nRAE provides downloadable documents and connects researchers to ARDA funding: Strategic Fund (SF) and Research Utilization (RU) for fiscal year 2570.\n\n⚠️ Document Storage Policy:\nThe RAE website is NOT a document management system. It functions as a Document Registry / Discovery Layer only. All master files are stored in Microsoft 365 / SharePoint / OneDrive. No master files are stored on the VPS.",
+      "designIntent": "Split layout: left Document Registry cards, right Funding cards. Storage policy as prominent info banner at top. All download links → SharePoint/OneDrive, never VPS.",
+      "ctaIntent": "\"Access Documents\" → SharePoint link | \"View Funding\" → research-services page funding section.",
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Knowledge Ecosystem",
+      "sectionId": "ST-SEC-007",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — visual knowledge graph or ecosystem diagram",
+      "kbIds": ["GRAPH", "KB-0004", "KB-0005", "KB-0011"],
+      "bridgeIds": ["MAP-015"],
+      "sourceFile": "02_Governance_and_Architecture.md, 03_Research_and_Academic_Services.md",
+      "copyTH": "ระบบนิเวศองค์ความรู้\nRAE เชื่อมโยงงานวิจัย บริการวิชาการ เอกสาร และบุคลากร เข้าไว้ในระบบองค์ความรู้เดียวกัน เพื่อสนับสนุนการดำเนินงานอย่างมีประสิทธิภาพ",
+      "copyEN": "Knowledge Ecosystem\nRAE connects research, academic services, documents, and personnel into a unified knowledge system for efficient and effective operations.",
+      "designIntent": "Abstract network visualization showing RAE domain connections: Mission → Research → Services → Documents → Community. Maejo Green nodes, Gold connection lines.",
+      "ctaIntent": "\"Explore Knowledge Base\" / \"สำรวจองค์ความรู้\" → link to internal docs or About page.",
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Contact / CTA",
+      "sectionId": "ST-SEC-008",
+      "routeTarget": "app/landing-v6",
+      "componentSuggestion": "app/landing-v6/page.tsx — contact footer section",
+      "kbIds": ["KB-0008"],
+      "bridgeIds": ["KB-BRIDGE-014"],
+      "sourceFile": "05_AI_Assistant_FAQ.md",
+      "copyTH": "ติดต่อ RAE\nที่อยู่: ชั้น 3 อาคารเฉลิมพระเกียรติสมเด็จพระเทพรัตนราชสุดา 63 หมู่ 4 ตำบลหนองหาร อำเภอสันทราย จังหวัดเชียงใหม่ 50290\nโทรศัพท์: (+66) 0 5387 3400\nอีเมล: raemju@gmail.com, researchmju@mju.ac.th",
+      "copyEN": "Contact RAE\nAddress: 3rd Floor, Chalermprakiat Building, 63 Moo 4, Tambon Nong Han, Amphoe San Sai, Chiang Mai 50290, Thailand\nPhone: (+66) 0 5387 3400\nEmail: raemju@gmail.com, researchmju@mju.ac.th",
+      "designIntent": "Clean contact section with address, map placeholder, phone, email. Minimal design. Maejo Green accents.",
+      "ctaIntent": "\"Contact Us\" / \"ส่งข้อความ\" → link to Contact page or email compose.",
+      "reviewStatus": "draft"
+    }
+  ],
+
+  "route_summary": {
+    "app/landing-v6": "Hero, RAE at a Glance, Research→Community, Academic Services Hub, Research Showcase, Document Center/Funding, Knowledge Ecosystem, Contact"
+  },
+
+  "content_constraints": [
+    "No fake KPIs or invented research metrics",
+    "No old WTMS layout replication (hero slideshow, table-heavy pages)",
+    "No local VPS document links — all links → SharePoint/OneDrive",
+    "No master file storage on website",
+    "No 'Research Administration and Engagement' expansion",
+    "No stock photography — use authentic Maejo imagery",
+    "All content is draft — reviewStatus must remain 'draft' until human review",
+    "Thai copy preserved verbatim — no translation without explicit instruction",
+    "Document Storage Policy must appear in Document Center section"
+  ],
+
+  "brand_tokens": {
+    "primary": "#005C3B",
+    "accent": "#FFDE00",
+    "backgrounds": ["#FFFFFF", "#F7F8FA"],
+    "text": { "primary": "#1A1A2E", "muted": "#6B7280" }
+  }
+}

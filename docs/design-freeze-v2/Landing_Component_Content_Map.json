@@ -1,0 +1,499 @@
+{
+  "phase": "ST2",
+  "freeze_version": "V2",
+  "generated": "2026-06-29",
+  "status": "draft",
+  "needsHumanReview": true,
+  "description": "Landing Component → Content mapping for Design Freeze V2. Maps each landing section to its Next.js route, component, Knowledge OS source, and replacement status.",
+
+  "sections": [
+    {
+      "section": "Hero",
+      "route": "app/[locale]/page.tsx (TH) / app/landing-v6/page.tsx (EN preview)",
+      "component": "components/landing-v6/LandingRenderer.tsx — <header> hero block (lines ~60-105)",
+      "type": "Content Replacement",
+      "knowledgeSource": {
+        "kbIds": ["KB-0001", "KB-0002", "KB-0018"],
+        "bridgeIds": ["KB-BRIDGE-001", "KB-BRIDGE-002", "KB-BRIDGE-003", "KB-BRIDGE-007"],
+        "notebookLmFile": "01_Identity_and_Mission.md"
+      },
+      "contentChanges": {
+        "th": {
+          "dataSource": "content/landing.ts → landing[locale].hero",
+          "keysToReplace": ["titleLine2Italic", "paragraph", "primaryCta", "secondaryCta"],
+          "keysToKeep": ["kicker", "titleLine1"]
+        },
+        "en": {
+          "dataSource": "content/landing.ts → landing[locale].hero",
+          "keysToReplace": ["titleLine2Italic", "paragraph", "primaryCta", "secondaryCta"],
+          "keysToKeep": ["kicker", "titleLine1"]
+        }
+      },
+      "finalDraftTH": {
+        "kicker": "สำนักวิจัยและส่งเสริมวิชาการการเกษตร มหาวิทยาลัยแม่โจ้",
+        "titleLine1": "งานวิจัย องค์ความรู้",
+        "titleLine2Italic": "มุ่งพัฒนางานวิจัยและบริการวิชาการสู่สังคม",
+        "paragraph": "ขับเคลื่อนอนาคตเกษตรกรรมด้วยงานวิจัย บริการวิชาการ และการถ่ายทอดองค์ความรู้สู่ชุมชน โดยสำนักวิจัยและส่งเสริมวิชาการการเกษตร มหาวิทยาลัยแม่โจ้",
+        "primaryCta": "ดูผลงานวิจัย",
+        "secondaryCta": "เรียนรู้เพิ่มเติม"
+      },
+      "finalDraftEN": {
+        "kicker": "The Office of Agricultural Research and Extension Maejo University",
+        "titleLine1": "Research, Knowledge,",
+        "titleLine2Italic": "Advancing research and academic services to society",
+        "paragraph": "Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from the Office of Agricultural Research and Extension, Maejo University.",
+        "primaryCta": "Explore Our Research",
+        "secondaryCta": "Learn More About RAE"
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": true,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Impact Metrics Dashboard",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — metrics bar after hero (lines ~108-136)",
+      "type": "Partial — labels kept, values stay placeholder",
+      "knowledgeSource": {
+        "kbIds": [],
+        "bridgeIds": [],
+        "notebookLmFile": "N/A — metrics require live KPI data source"
+      },
+      "contentChanges": {
+        "th": {
+          "keysToKeep": ["all labels"],
+          "keysToReplace": ["(no replacement — values remain pending-live-source)"]
+        },
+        "en": {
+          "keysToKeep": ["all labels"],
+          "keysToReplace": ["(no replacement — values remain pending-live-source)"]
+        }
+      },
+      "finalDraftTH": {
+        "metrics": [
+          { "label": "โครงการวิจัย", "value": "—" },
+          { "label": "บริการวิชาการ", "value": "..." },
+          { "label": "แหล่งทรัพยากรความรู้", "value": "—" },
+          { "label": "โครงการชุมชน", "value": "..." },
+          { "label": "ความร่วมมือเชิงยุทธศาสตร์", "value": "—" }
+        ]
+      },
+      "finalDraftEN": {
+        "metrics": [
+          { "label": "Research Projects", "value": "—" },
+          { "label": "Academic Services", "value": "..." },
+          { "label": "Knowledge Resources", "value": "—" },
+          { "label": "Community Programs", "value": "..." },
+          { "label": "Strategic Partnerships", "value": "—" }
+        ]
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": false,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "RAE at a Glance",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — atAGlance pillar cards (lines ~138-170)",
+      "type": "Content Replacement — division-specific content from Knowledge OS",
+      "knowledgeSource": {
+        "kbIds": ["KB-0003", "KB-0005", "KB-0006", "KB-0009"],
+        "bridgeIds": ["KB-BRIDGE-005", "KB-BRIDGE-006", "KB-BRIDGE-008", "KB-BRIDGE-009"],
+        "notebookLmFile": "02_Governance_and_Architecture.md, 03_Research_and_Academic_Services.md"
+      },
+      "contentChanges": {
+        "th": {
+          "keysToReplace": ["kicker", "title", "pillars[0].title", "pillars[0].text", "pillars[1].title", "pillars[1].text", "pillars[2].title", "pillars[2].text"],
+          "keysToKeep": []
+        },
+        "en": {
+          "keysToReplace": ["kicker", "title", "pillars[0].title", "pillars[0].text", "pillars[1].title", "pillars[1].text", "pillars[2].title", "pillars[2].text"],
+          "keysToKeep": []
+        }
+      },
+      "finalDraftTH": {
+        "kicker": "กองหลักของ RAE",
+        "title": "RAE ประกอบด้วย 3 กองหลัก",
+        "pillars": [
+          { "title": "กองบริหารงานวิจัย", "text": "ดูแลทุนวิจัยและสนับสนุนนักวิจัย บริหารโครงการวิจัย และเชื่อมโยงแหล่งทุน" },
+          { "title": "กองบริหารงานบริการวิชาการ", "text": "ฝึกอบรม ให้คำปรึกษา บริการห้องปฏิบัติการ และบริการวิชาการแก่ชุมชน" },
+          { "title": "กองบริหารงานสำนักวิจัยฯ", "text": "บริหารจัดการสำนัก สนับสนุนการดำเนินงานของ RAE อย่างมีประสิทธิภาพ" }
+        ]
+      },
+      "finalDraftEN": {
+        "kicker": "RAE Core Divisions",
+        "title": "RAE at a Glance",
+        "pillars": [
+          { "title": "Research Administration Division", "text": "Manages grants, researcher support, project administration, and funding connections." },
+          { "title": "Academic Service Administration", "text": "Training, consulting, laboratory services, and community extension." },
+          { "title": "RAE Office Administration", "text": "Office management and administrative support for RAE operations." }
+        ]
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": false,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Research to Community",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — research to community narrative (lines ~172-213)",
+      "type": "Content Replacement",
+      "knowledgeSource": {
+        "kbIds": ["KB-0004", "KB-0005"],
+        "bridgeIds": ["KB-BRIDGE-008", "KB-BRIDGE-010"],
+        "notebookLmFile": "03_Research_and_Academic_Services.md"
+      },
+      "contentChanges": {
+        "th": {
+          "keysToReplace": ["paragraph", "steps"],
+          "keysToKeep": ["title"]
+        },
+        "en": {
+          "keysToReplace": ["paragraph", "steps"],
+          "keysToKeep": ["title"]
+        }
+      },
+      "finalDraftTH": {
+        "title": "จากงานวิจัยสู่ชุมชน",
+        "paragraph": "RAE เชื่อมโยงงานวิจัยการเกษตรสู่การบริการวิชาการที่ตอบโจทย์ชุมชน จากห้องปฏิบัติการสู่แปลงนา — จากนักวิจัยสู่เกษตรกร",
+        "steps": [
+          { "icon": "science", "label": "วิจัยเพื่อชุมชน" },
+          { "icon": "school", "label": "บริการวิชาการเพื่อสังคม" },
+          { "icon": "handshake", "label": "สร้างผลกระทบที่ยั่งยืน" }
+        ]
+      },
+      "finalDraftEN": {
+        "title": "From Research to Community",
+        "paragraph": "RAE connects agricultural research to academic services that answer community needs. From laboratory to rice field — from researcher to farmer.",
+        "steps": [
+          { "icon": "science", "label": "Research for Community" },
+          { "icon": "school", "label": "Academic Service for Society" },
+          { "icon": "handshake", "label": "Sustainable Impact" }
+        ]
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": false,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Academic Services Hub",
+      "route": "N/A — future section",
+      "component": "N/A — not in current landing layout",
+      "type": "New Section (Future Phase KB2/KB3)",
+      "knowledgeSource": {
+        "kbIds": ["KB-0005"],
+        "bridgeIds": ["KB-BRIDGE-009", "KB-BRIDGE-010"],
+        "notebookLmFile": "03_Research_and_Academic_Services.md"
+      },
+      "contentChanges": {
+        "th": {},
+        "en": {}
+      },
+      "finalDraftTH": {},
+      "finalDraftEN": {},
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": false,
+      "reviewStatus": "deferred"
+    },
+    {
+      "section": "Research Showcase",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — showcase grid (lines ~215-340)",
+      "type": "Content Replacement — all 5 features updated with Knowledge OS content",
+      "knowledgeSource": {
+        "kbIds": ["KB-0004", "KB-0005", "KB-0011", "KB-0041", "KB-0025 to KB-0040"],
+        "bridgeIds": ["KB-BRIDGE-008", "KB-BRIDGE-009", "KB-BRIDGE-011", "KB-BRIDGE-012", "KB-BRIDGE-013"],
+        "notebookLmFile": "03_Research_and_Academic_Services.md, 04_Documents_and_Funding.md"
+      },
+      "contentChanges": {
+        "th": {
+          "keysToReplace": ["kicker", "title", "viewAll", "features[0].text", "features[1].tag", "features[1].title", "features[2].title", "features[2].text", "features[3].tag", "features[3].title", "features[3].text", "features[4].tag", "features[4].title", "features[4].text"],
+          "keysToKeep": ["features[0].tag", "features[0].title", "features[1].layout", "features[2].tag"]
+        },
+        "en": {
+          "keysToReplace": ["kicker", "title", "viewAll", "features[0].text", "features[1].tag", "features[1].title", "features[2].title", "features[2].text", "features[3].tag", "features[3].title", "features[3].text", "features[4].tag", "features[4].title", "features[4].text"],
+          "keysToKeep": ["features[0].tag", "features[0].title", "features[1].layout", "features[2].tag"]
+        }
+      },
+      "finalDraftTH": {
+        "kicker": "สาขางานวิจัย",
+        "title": "งานวิจัยของ RAE",
+        "viewAll": "ดูงานวิจัยทั้งหมด",
+        "features": [
+          { "tag": "งานวิจัย", "title": "การวิจัยเกษตรกรรมแบบบูรณาการ", "text": "RAE บริหารงานวิจัยครอบคลุมหลายสาขาทางการเกษตร เชื่อมโยงนักวิจัยกับแหล่งทุน สวก. (ARDA) และสนับสนุนการดำเนินงานวิจัย" },
+          { "tag": "บริการวิชาการ", "title": "กองบริหารงานบริการวิชาการ" },
+          { "tag": "Extension", "title": "ฝึกอบรมและให้คำปรึกษา", "text": "RAE ให้บริการฝึกอบรม ให้คำปรึกษา บริการห้องปฏิบัติการ และการบริการวิชาการแก่ชุมชน" },
+          { "tag": "แหล่งทุน", "title": "ทุนวิจัย สวก. (ARDA)", "text": "RAE เชื่อมโยงนักวิจัยกับแหล่งทุน Strategic Fund (SF) และ Research Utilization (RU) สำหรับปีงบประมาณ 2570" },
+          { "tag": "เอกสาร", "title": "ศูนย์เอกสาร RAE", "text": "RAE ให้บริการดาวน์โหลดเอกสาร — เว็บไซต์เป็น Document Registry ไม่ใช่ระบบจัดเก็บเอกสาร ไฟล์ต้นฉบับทั้งหมดจัดเก็บใน SharePoint" }
+        ]
+      },
+      "finalDraftEN": {
+        "kicker": "Research Areas",
+        "title": "RAE Research",
+        "viewAll": "View All Research",
+        "features": [
+          { "tag": "Research", "title": "Integrated Agricultural Research", "text": "RAE administers research across multiple agricultural fields, connects researchers to ARDA funding sources." },
+          { "tag": "Academic Services", "title": "Academic Service Administration" },
+          { "tag": "Extension", "title": "Training & Consulting", "text": "RAE offers training, consulting, laboratory services, and community extension." },
+          { "tag": "Funding", "title": "ARDA Research Funding", "text": "RAE connects researchers to ARDA Strategic Fund (SF) and Research Utilization (RU) programs for FY 2570." },
+          { "tag": "Documents", "title": "RAE Document Center", "text": "RAE provides downloadable documents. Website is a Document Registry, not a DMS. All master files are stored in SharePoint/OneDrive." }
+        ]
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": true,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Document Center (dedicated)",
+      "route": "N/A — future section",
+      "component": "N/A — not in current landing layout",
+      "type": "New Section (Future Phase KB2/KB3)",
+      "knowledgeSource": {
+        "kbIds": ["KB-0011", "KB-0041", "KB-0042"],
+        "bridgeIds": ["KB-BRIDGE-011", "KB-BRIDGE-012", "KB-BRIDGE-013"],
+        "notebookLmFile": "04_Documents_and_Funding.md"
+      },
+      "contentChanges": {
+        "th": {},
+        "en": {}
+      },
+      "finalDraftTH": {},
+      "finalDraftEN": {},
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": false,
+      "reviewStatus": "deferred"
+    },
+    {
+      "section": "Knowledge Ecosystem",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — ecosystem dark section (lines ~342-390)",
+      "type": "Content Replacement",
+      "knowledgeSource": {
+        "kbIds": ["GRAPH", "KB-0004", "KB-0005", "KB-0011"],
+        "bridgeIds": ["MAP-015"],
+        "notebookLmFile": "02_Governance_and_Architecture.md, 03_Research_and_Academic_Services.md"
+      },
+      "contentChanges": {
+        "th": {
+          "keysToReplace": ["kicker", "paragraph", "items", "cta"],
+          "keysToKeep": ["title"]
+        },
+        "en": {
+          "keysToReplace": ["kicker", "paragraph", "items", "cta"],
+          "keysToKeep": ["title"]
+        }
+      },
+      "finalDraftTH": {
+        "kicker": "ระบบนิเวศองค์ความรู้",
+        "title": "ระบบนิเวศองค์ความรู้",
+        "paragraph": "RAE เชื่อมโยงงานวิจัย บริการวิชาการ เอกสาร และบุคลากร เข้าไว้ในระบบองค์ความรู้เดียวกัน เพื่อสนับสนุนการดำเนินงานอย่างมีประสิทธิภาพ",
+        "items": [
+          { "icon": "menu_book", "label": "วิจัยและบริการวิชาการ" },
+          { "icon": "school", "label": "เอกสารและแหล่งทุน" },
+          { "icon": "eco", "label": "เครือข่ายชุมชน" }
+        ],
+        "cta": "สำรวจองค์ความรู้"
+      },
+      "finalDraftEN": {
+        "kicker": "Knowledge Ecosystem",
+        "title": "Knowledge Ecosystem",
+        "paragraph": "RAE connects research, academic services, documents, and personnel into a unified knowledge system for efficient and effective operations.",
+        "items": [
+          { "icon": "menu_book", "label": "Research & Academic Services" },
+          { "icon": "school", "label": "Documents & Funding" },
+          { "icon": "eco", "label": "Community Network" }
+        ],
+        "cta": "Explore Knowledge Base"
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": true,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Signature Experience",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — signature dark section (lines ~392-430)",
+      "type": "Content Replacement",
+      "knowledgeSource": {
+        "kbIds": ["KB-0001", "KB-0004", "KB-0005"],
+        "bridgeIds": ["KB-BRIDGE-001", "KB-BRIDGE-008", "KB-BRIDGE-009"],
+        "notebookLmFile": "01_Identity_and_Mission.md, 03_Research_and_Academic_Services.md"
+      },
+      "contentChanges": {
+        "th": {
+          "keysToReplace": ["kicker", "titleLine1", "titleLine2Italic", "paragraph", "badges"],
+          "keysToKeep": []
+        },
+        "en": {
+          "keysToReplace": ["kicker", "titleLine1", "titleLine2Italic", "paragraph", "badges"],
+          "keysToKeep": []
+        }
+      },
+      "finalDraftTH": {
+        "kicker": "พันธกิจของ RAE",
+        "titleLine1": "มุ่งพัฒนางานวิจัยและบริการวิชาการ",
+        "titleLine2Italic": "สู่สังคม โดยมีการเกษตรเป็นรากฐาน",
+        "paragraph": "มุ่งพัฒนางานวิจัยและบริการวิชาการสู่สังคม โดยมีการเกษตรเป็นรากฐาน",
+        "badges": ["วิจัยเพื่อสังคม", "บริการวิชาการเพื่อชุมชน"]
+      },
+      "finalDraftEN": {
+        "kicker": "RAE Mission",
+        "titleLine1": "Advancing Research and Academic Services",
+        "titleLine2Italic": "to Society, Grounded in Agriculture",
+        "paragraph": "Advance research and academic services to society, grounded in agriculture.",
+        "badges": ["Research for Society", "Academic Service for Community"]
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": false,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "News & Insights",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — news section (lines ~432-520)",
+      "type": "Content Replacement — real event data from KB",
+      "knowledgeSource": {
+        "kbIds": ["KB-0007", "KB-0041", "KB-0005"],
+        "bridgeIds": ["KB-BRIDGE-017", "KB-BRIDGE-013", "KB-BRIDGE-009"],
+        "notebookLmFile": "04_Documents_and_Funding.md, 03_Research_and_Academic_Services.md"
+      },
+      "contentChanges": {
+        "th": {
+          "keysToReplace": ["paragraph", "featured.tag", "featured.date", "featured.title", "featured.text", "featured.cta", "dispatches"],
+          "keysToKeep": ["title"]
+        },
+        "en": {
+          "keysToReplace": ["paragraph", "featured.tag", "featured.date", "featured.title", "featured.text", "featured.cta", "dispatches"],
+          "keysToKeep": ["title"]
+        }
+      },
+      "finalDraftTH": {
+        "title": "ข่าวสารและข้อมูลเชิงลึก",
+        "paragraph": "ข่าวสาร กิจกรรม และประกาศจาก RAE",
+        "featured": {
+          "tag": "กิจกรรม",
+          "date": "16 มิ.ย. 2569",
+          "title": "Research Forum: นักวิจัยพบแหล่งทุน สวก. (ARDA)",
+          "text": "เมื่อวันที่ 16 มิถุนายน 2569 RAE จัดโครงการ Research Forum การอบรม 'นักวิจัยพบแหล่งทุน สวก.' โดยมี ผศ.ดร.สุริยจรัส เตชะตันมีนสกุล รองอธิการบดี เป็นประธาน",
+          "cta": "อ่านเพิ่มเติม"
+        },
+        "dispatches": [
+          {
+            "tag": "ทุนวิจัย",
+            "date": "2569",
+            "title": "ทุน Strategic Fund (SF) และ Research Utilization (RU) ปี 2570",
+            "text": "RAE เชื่อมโยงนักวิจัยกับแหล่งทุนจากสำนักงานพัฒนาการวิจัยการเกษตร (สวก./ARDA) ทั้งกองทุน Strategic Fund (SF) และ Research Utilization (RU)",
+            "tagColor": "secondary-container"
+          },
+          {
+            "tag": "บริการวิชาการ",
+            "date": "2569",
+            "title": "กองบริหารงานบริการวิชาการ — ฝึกอบรมและให้คำปรึกษา",
+            "text": "RAE ให้บริการฝึกอบรม ให้คำปรึกษา บริการห้องปฏิบัติการ และการบริการวิชาการแก่ชุมชน",
+            "tagColor": "primary"
+          }
+        ]
+      },
+      "finalDraftEN": {
+        "title": "News & Insights",
+        "paragraph": "News, events, and announcements from RAE",
+        "featured": {
+          "tag": "Event",
+          "date": "June 16, 2026",
+          "title": "Research Forum: Researchers Meet ARDA Funding",
+          "text": "On 16 June 2026, RAE held a Research Forum on 'Researchers Meet ARDA Funding' chaired by Asst. Prof. Dr. Suriyajaras Techatanmeinsakul, Vice President of MJU.",
+          "cta": "Read More"
+        },
+        "dispatches": [
+          {
+            "tag": "Funding",
+            "date": "2026",
+            "title": "ARDA Strategic Fund (SF) & Research Utilization (RU) FY 2570",
+            "text": "RAE connects researchers to ARDA (Agricultural Research Development Agency) funding, including Strategic Fund (SF) and Research Utilization (RU) programs.",
+            "tagColor": "secondary-container"
+          },
+          {
+            "tag": "Academic Services",
+            "date": "2026",
+            "title": "Academic Service Administration — Training & Consulting",
+            "text": "RAE offers training, consulting, laboratory services, and community extension.",
+            "tagColor": "primary"
+          }
+        ]
+      },
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": true,
+      "reviewStatus": "draft"
+    },
+    {
+      "section": "Footer",
+      "route": "app/[locale]/page.tsx / app/landing-v6/page.tsx",
+      "component": "components/landing-v6/LandingRenderer.tsx — footer (lines ~522-550)",
+      "type": "No Change",
+      "knowledgeSource": {
+        "kbIds": [],
+        "bridgeIds": [],
+        "notebookLmFile": ""
+      },
+      "contentChanges": {
+        "th": {},
+        "en": {}
+      },
+      "finalDraftTH": {},
+      "finalDraftEN": {},
+      "layoutChange": false,
+      "motionChange": false,
+      "typographyChange": false,
+      "illustrationChange": false,
+      "CTAChange": false,
+      "reviewStatus": "draft"
+    }
+  ],
+
+  "summary": {
+    "totalSections": 11,
+    "contentReplacements": 47,
+    "keptFields": 47,
+    "futurePhaseSections": 2,
+    "noChangeSections": 2,
+    "kbSourcesUsed": ["KB-0001", "KB-0002", "KB-0003", "KB-0004", "KB-0005", "KB-0006", "KB-0007", "KB-0008", "KB-0009", "KB-0011", "KB-0018", "KB-0041", "GRAPH"],
+    "notebookLmFilesUsed": ["01_Identity_and_Mission.md", "02_Governance_and_Architecture.md", "03_Research_and_Academic_Services.md", "04_Documents_and_Funding.md", "05_AI_Assistant_FAQ.md"],
+    "bridgeItemsUsed": ["KB-BRIDGE-001", "KB-BRIDGE-002", "KB-BRIDGE-003", "KB-BRIDGE-005", "KB-BRIDGE-006", "KB-BRIDGE-007", "KB-BRIDGE-008", "KB-BRIDGE-009", "KB-BRIDGE-010", "KB-BRIDGE-011", "KB-BRIDGE-012", "KB-BRIDGE-013", "KB-BRIDGE-017", "MAP-015"],
+    "designTokens": {
+      "primary": "#005C3B",
+      "accent": "#FFDE00",
+      "background": "#FFFFFF",
+      "text": "#1A1A2E"
+    }
+  }
+}

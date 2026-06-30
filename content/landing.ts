@@ -138,11 +138,12 @@ export const landing: Record<Locale, LandingContent> = {
     hero: {
       kicker: ORG_NAME_TH,
       titleLine1: "งานวิจัย องค์ความรู้",
-      titleLine2Italic: "และผลกระทบเพื่อสังคม",
+      titleLine2Italic:
+        "มุ่งพัฒนางานวิจัยและบริการวิชาการสู่สังคม",
       paragraph:
         `ขับเคลื่อนอนาคตเกษตรกรรมด้วยงานวิจัย บริการวิชาการ และการถ่ายทอดองค์ความรู้สู่ชุมชน โดย${ORG_NAME_TH}`,
-      primaryCta: "ดูผลงานของเรา",
-      secondaryCta: "บริการวิชาการ",
+      primaryCta: "ดูผลงานวิจัย",
+      secondaryCta: "เรียนรู้เพิ่มเติม",
     },
 
     /* ─── Impact Metrics ──────────────────────────────────────────── */
@@ -156,20 +157,20 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── RAE at a Glance ────────────────────────────────────────── */
     atAGlance: {
-      kicker: "เสาหลักของสถาบัน",
-      title: "ภาพรวมหน่วยงาน",
+      kicker: "กองหลักของ RAE",
+      title: "RAE ประกอบด้วย 3 กองหลัก",
       pillars: [
         {
-          title: "ความเป็นเลิศด้านงานวิจัย",
-          text: "ขับเคลื่อนวิทยาศาสตร์เกษตรทั้งขั้นพื้นฐานและประยุกต์เพื่อแก้ปัญหาความท้าทายระดับโลก ด้วยระเบียบวิธีวิจัยที่เข้มงวดและสิ่งอำนวยความสะดวกระดับ前沿",
+          title: "กองบริหารงานวิจัย",
+          text: "ดูแลทุนวิจัยและสนับสนุนนักวิจัย บริหารโครงการวิจัย และเชื่อมโยงแหล่งทุน",
         },
         {
-          title: "บริการวิชาการ",
-          text: "แปลผลงานวิจัยที่ซับซ้อนสู่องค์ความรู้ที่เข้าถึงได้ การฝึกอบรมทางเทคนิค และบริการให้คำปรึกษาสำหรับภาคการเกษตร",
+          title: "กองบริหารงานบริการวิชาการ",
+          text: "ฝึกอบรม ให้คำปรึกษา บริการห้องปฏิบัติการ และบริการวิชาการแก่ชุมชน",
         },
         {
-          title: "ผลกระทบต่อชุมชน",
-          text: "สร้างพลังให้เกษตรกรและสหกรณ์ในพื้นที่ผ่านโครงการextension ที่เข้มแข็ง เพื่อให้มั่นใจว่านวัตกรรมทางวิชาการไปถึงไร่นาอย่างแท้จริง",
+          title: "กองบริหารงานสำนักวิจัยฯ",
+          text: "บริหารจัดการสำนัก สนับสนุนการดำเนินงานของ RAE อย่างมีประสิทธิภาพ",
         },
       ],
     },
@@ -178,54 +179,54 @@ export const landing: Record<Locale, LandingContent> = {
     researchToCommunity: {
       title: "จากงานวิจัยสู่ชุมชน",
       paragraph:
-        "พันธกิจของเราไปไกลกว่าการค้นพบ เรามุ่งมั่นให้ทุกความก้าวหน้าในห้องปฏิบัติการแปรเปลี่ยนเป็นแนวทางปฏิบัติที่ยั่งยืนบนพื้นที่จริง นี่คือปรัชญาการส่งเสริมและถ่ายทอดองค์ความรู้ของสำนักวิจัยและส่งเสริมวิชาการการเกษตร",
+        "RAE เชื่อมโยงงานวิจัยการเกษตรสู่การบริการวิชาการที่ตอบโจทย์ชุมชน จากห้องปฏิบัติการสู่แปลงนา — จากนักวิจัยสู่เกษตรกร",
       steps: [
-        { icon: "science", label: "การค้นพบจากงานวิจัย" },
-        { icon: "school", label: "การสังเคราะห์องค์ความรู้" },
-        { icon: "handshake", label: "การถ่ายทอดสู่ชุมชน" },
+        { icon: "science", label: "วิจัยเพื่อชุมชน" },
+        { icon: "school", label: "บริการวิชาการเพื่อสังคม" },
+        { icon: "handshake", label: "สร้างผลกระทบที่ยั่งยืน" },
       ],
     },
 
     /* ─── Research Showcase ───────────────────────────────────────── */
     showcase: {
-      kicker: "การนำเสนอเชิงบรรณาธิการ",
-      title: "สาขาวิชาที่บุกเบิก",
-      viewAll: "ดูทั้งหมด",
+      kicker: "สาขางานวิจัย",
+      title: "งานวิจัยของ RAE",
+      viewAll: "ดูงานวิจัยทั้งหมด",
       features: [
         {
           tag: "งานวิจัย",
           tagStyle: "secondary-container",
           title: "การวิจัยเกษตรกรรมแบบบูรณาการ",
-          text: "ขับเคลื่อนวิทยาศาสตร์เกษตรทั้งขั้นพื้นฐานและประยุกต์เพื่อแก้ปัญหาความท้าทายระดับโลก ด้วยระเบียบวิธีวิจัยที่เข้มงวดและสิ่งอำนวยความสะดวกระดับ前沿",
+          text: "RAE บริหารงานวิจัยครอบคลุมหลายสาขาทางการเกษตร เชื่อมโยงนักวิจัยกับแหล่งทุน สวก. (ARDA) และสนับสนุนการดำเนินงานวิจัย",
           layout: "overlay",
         },
         {
-          tag: "บริการ",
+          tag: "บริการวิชาการ",
           tagStyle: "primary",
-          title: "บริการวิชาการมืออาชีพ",
+          title: "กองบริหารงานบริการวิชาการ",
           layout: "overlay",
         },
         {
           tag: "Extension",
           tagStyle: "default",
-          title: "การถ่ายทอดความรู้และบริการวิชาการ",
-          text: "สร้างพลังให้เกษตรกรและสหกรณ์ในพื้นที่ผ่านโครงการextension ที่เข้มแข็ง",
+          title: "ฝึกอบรมและให้คำปรึกษา",
+          text: "RAE ให้บริการฝึกอบรม ให้คำปรึกษา บริการห้องปฏิบัติการ และการบริการวิชาการแก่ชุมชน",
           cta: "อ่านเพิ่มเติม",
           layout: "card",
         },
         {
-          tag: "ชุมชน",
+          tag: "แหล่งทุน",
           tagStyle: "default",
-          title: "โครงการส่งเสริมเกษตรกร",
-          text: "แปลโมเดลทางวิชาการสู่ข้อมูลเชิงลึกที่เข้าถึงได้บนมือถือสำหรับสหกรณ์ระดับภูมิภาค",
+          title: "ทุนวิจัย สวก. (ARDA)",
+          text: "RAE เชื่อมโยงนักวิจัยกับแหล่งทุน Strategic Fund (SF) และ Research Utilization (RU) สำหรับปีงบประมาณ 2570",
           cta: "อ่านเพิ่มเติม",
           layout: "card",
         },
         {
-          tag: "พัฒนา",
+          tag: "เอกสาร",
           tagStyle: "default",
-          title: "โครงการพัฒนาชุมชน",
-          text: "บูรณาการเซนเซอร์ฮาร์ดแวร์กับแบบจำลองพยากรณ์อากาศเพื่อการใช้น้ำอย่างมีประสิทธิภาพสูง",
+          title: "ศูนย์เอกสาร RAE",
+          text: "RAE ให้บริการดาวน์โหลดเอกสาร — เว็บไซต์เป็น Document Registry ไม่ใช่ระบบจัดเก็บเอกสาร ไฟล์ต้นฉบับทั้งหมดจัดเก็บใน SharePoint",
           cta: "อ่านเพิ่มเติม",
           bgStyle: "primary",
           layout: "card",
@@ -235,62 +236,60 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── Knowledge Ecosystem ─────────────────────────────────────── */
     ecosystem: {
-      kicker: "แพลตฟอร์มบูรณาการ",
+      kicker: "ระบบนิเวศองค์ความรู้",
       title: "ระบบนิเวศองค์ความรู้",
       paragraph:
-        "เข้าถึงโครงสร้างพื้นฐานดิจิทัลส่วนกลางของเรา ที่เชื่อมต่องานวิจัย เอกสารการส่งเสริม สื่อการเรียนรู้ และโครงการของสถาบันในประสบการณ์เดียว เพื่อเสริมสร้างเรื่องราวจากงานวิจัยสู่ผลกระทบ",
+        "RAE เชื่อมโยงงานวิจัย บริการวิชาการ เอกสาร และบุคลากร เข้าไว้ในระบบองค์ความรู้เดียวกัน เพื่อสนับสนุนการดำเนินงานอย่างมีประสิทธิภาพ",
       items: [
-        { icon: "menu_book", label: "พอร์ทัลวิจัยและศูนย์เอกสาร" },
-        { icon: "school", label: "ศูนย์การเรียนรู้" },
-        { icon: "eco", label: "โครงการสำนักงานสีเขียว" },
+        { icon: "menu_book", label: "วิจัยและบริการวิชาการ" },
+        { icon: "school", label: "เอกสารและแหล่งทุน" },
+        { icon: "eco", label: "เครือข่ายชุมชน" },
       ],
-      cta: "เข้าสู่ระบบนิเวศ",
+      cta: "สำรวจองค์ความรู้",
     },
 
     /* ─── Signature Experience ────────────────────────────────────── */
     signature: {
-      kicker: "จังหวะแห่งนวัตกรรม",
-      titleLine1: "จากการค้นพบ",
-      titleLine2Italic: "สู่การเปลี่ยนแปลงในชุมชน",
+      kicker: "พันธกิจของ RAE",
+      titleLine1: "มุ่งพัฒนางานวิจัยและบริการวิชาการ",
+      titleLine2Italic:
+        "สู่สังคม โดยมีการเกษตรเป็นรากฐาน",
       paragraph:
-        `ขับเคลื่อนอนาคตเกษตรกรรมด้วยงานวิจัย บริการวิชาการ และการถ่ายทอดองค์ความรู้สู่ชุมชน โดย${ORG_NAME_TH}`,
-      badges: ["การมีส่วนร่วมระดับชาติ", "ผลกระทบที่ขับเคลื่อนด้วยข้อมูล"],
+        `มุ่งพัฒนางานวิจัยและบริการวิชาการสู่สังคม โดยมีการเกษตรเป็นรากฐาน`,
+      badges: ["วิจัยเพื่อสังคม", "บริการวิชาการเพื่อชุมชน"],
     },
 
     /* ─── News & Insights ────────────────────────────────────────── */
     news: {
       title: "ข่าวสารและข้อมูลเชิงลึก",
       paragraph:
-        "สิ่งพิมพ์ล่าสุด ความก้าวหน้าทางระเบียบวิธี และประกาศของสถาบันจากทีมวิจัยของเรา",
+        "ข่าวสาร กิจกรรม และประกาศจาก RAE",
       goToNewsroom: "ไปที่ห้องข่าว",
       featured: {
-        tag: "กิจกรรมส่งเสริม",
-        date: "24 ต.ค. 2567",
-        title: "อบรมภาคสนามล่าสุดสำหรับเกษตรกรอินทรีย์ท้องถิ่น",
-        text: "การศึกษาระยะทศวรรษเผยให้เห็นกลุ่มแบคทีเรียใหม่ที่สามารถเสริมความต้านทานของระบบรากต่อการสัมผัสอุณหภูมิสูงเป็นเวลานานในสภาพอากาศเขตร้อน",
-        cta: "อ่านรายงานฉบับเต็ม",
+        tag: "กิจกรรม",
+        date: "16 มิ.ย. 2569",
+        title: "Research Forum: นักวิจัยพบแหล่งทุน สวก. (ARDA)",
+        text: "เมื่อวันที่ 16 มิถุนายน 2569 RAE จัดโครงการ Research Forum การอบรม 'นักวิจัยพบแหล่งทุน สวก.' โดยมี ผศ.ดร.สุริยจรัส เตชะตันมีนสกุล รองอธิการบดี เป็นประธาน",
+        cta: "อ่านเพิ่มเติม",
       },
       dispatches: [
         {
-          tag: "ไฮไลท์งานวิจัย",
+          tag: "ทุนวิจัย",
           tagColor: "secondary-container",
-          date: "18 ต.ค. 2567",
-          title: "ระบบปลูกข้าวยั่งยืนเพื่อความเข้มแข็งของภูมิภาค",
-          text: "ได้รับทุน 4 ล้านเหรียญเพื่อขยายการทดสอบหลายพื้นที่ของเทคนิคการปลูกข้าวที่ปล่อยมีเทนต่ำ",
+          date: "2569",
+          title:
+            "ทุน Strategic Fund (SF) และ Research Utilization (RU) ปี 2570",
+          text:
+            "RAE เชื่อมโยงนักวิจัยกับแหล่งทุนจากสำนักงานพัฒนาการวิจัยการเกษตร (สวก./ARDA) ทั้งกองทุน Strategic Fund (SF) และ Research Utilization (RU)",
         },
         {
-          tag: "โครงการอบรม",
+          tag: "บริการวิชาการ",
           tagColor: "primary",
-          date: "12 ต.ค. 2567",
-          title: "ประกาศนียบัตรวิชาชีพด้านการเกษตรแม่นยำสูง",
-          text: "ปล่อยไลบรารี Python ใหม่สำหรับนักวิจัยเพื่อประมวลผล Point Cloud LiDAR ของระบบสวนผลไม้",
-        },
-        {
-          tag: "โครงการชุมชน",
-          tagColor: "secondary-container",
-          date: "5 ต.ค. 2567",
-          title: `${ORG_NAME_TH} ร่วมมือกับสหกรณ์ภูมิภาคเพื่อการผลิตที่เพิ่มมูลค่า`,
-          text: `ร่วมกับผู้เชี่ยวชาญระดับโลก ณ ${ORG_NAV_SECONDARY_TH} ในการประชุมสุดยอดสามวันว่าด้วยการเกษตรที่ปรับตัวต่อสภาพภูมิอากาศ`,
+          date: "2569",
+          title:
+            "กองบริหารงานบริการวิชาการ — ฝึกอบรมและให้คำปรึกษา",
+          text:
+            "RAE ให้บริการฝึกอบรม ให้คำปรึกษา บริการห้องปฏิบัติการ และการบริการวิชาการแก่ชุมชน",
         },
       ],
     },
@@ -329,11 +328,11 @@ export const landing: Record<Locale, LandingContent> = {
     hero: {
       kicker: ORG_NAME_EN,
       titleLine1: "Research, Knowledge,",
-      titleLine2Italic: "and Impact for Society",
+      titleLine2Italic: "Advancing research and academic services to society",
       paragraph:
         `Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from ${ORG_NAME_EN}.`,
-      primaryCta: "Explore Our Work",
-      secondaryCta: "Academic Services",
+      primaryCta: "Explore Our Research",
+      secondaryCta: "Learn More About RAE",
     },
 
     /* ─── Impact Metrics ──────────────────────────────────────────── */
@@ -347,20 +346,20 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── RAE at a Glance ────────────────────────────────────────── */
     atAGlance: {
-      kicker: "Institutional Pillars",
-      title: "At a Glance",
+      kicker: "RAE Core Divisions",
+      title: "RAE at a Glance",
       pillars: [
         {
-          title: "Research Excellence",
-          text: "Driving fundamental and applied agricultural science to solve global challenges through rigorous methodologies and state-of-the-art facilities.",
+          title: "Research Administration Division",
+          text: "Manages grants, researcher support, project administration, and funding connections.",
         },
         {
-          title: "Academic Services",
-          text: "Translating complex research data into accessible knowledge, technical training, and advisory services for the agricultural sector.",
+          title: "Academic Service Administration",
+          text: "Training, consulting, laboratory services, and community extension.",
         },
         {
-          title: "Community Impact",
-          text: "Empowering local farmers and cooperatives through active extension programs, ensuring academic innovation reaches the fields.",
+          title: "RAE Office Administration",
+          text: "Office management and administrative support for RAE operations.",
         },
       ],
     },
@@ -369,54 +368,54 @@ export const landing: Record<Locale, LandingContent> = {
     researchToCommunity: {
       title: "From Research to Community",
       paragraph:
-        "Our mandate goes beyond discovery. We ensure that every breakthrough in the lab translates into tangible, sustainable practices on the ground. This is the extension philosophy of the Office of Agricultural Research and Extension.",
+        "RAE connects agricultural research to academic services that answer community needs. From laboratory to rice field — from researcher to farmer.",
       steps: [
-        { icon: "science", label: "Research Discovery" },
-        { icon: "school", label: "Knowledge Synthesis" },
-        { icon: "handshake", label: "Community Extension" },
+        { icon: "science", label: "Research for Community" },
+        { icon: "school", label: "Academic Service for Society" },
+        { icon: "handshake", label: "Sustainable Impact" },
       ],
     },
 
     /* ─── Research Showcase ───────────────────────────────────────── */
     showcase: {
-      kicker: "Editorial Showcase",
-      title: "Pioneering Fields of Study",
-      viewAll: "View All Disciplines",
+      kicker: "Research Areas",
+      title: "RAE Research",
+      viewAll: "View All Research",
       features: [
         {
           tag: "Research",
           tagStyle: "secondary-container",
           title: "Integrated Agricultural Research",
-          text: "Driving fundamental and applied agricultural science to solve global challenges through rigorous methodologies and state-of-the-art facilities.",
+          text: "RAE administers research across multiple agricultural fields, connects researchers to ARDA funding sources.",
           layout: "overlay",
         },
         {
-          tag: "Services",
+          tag: "Academic Services",
           tagStyle: "primary",
-          title: "Professional Academic Services",
+          title: "Academic Service Administration",
           layout: "overlay",
         },
         {
           tag: "Extension",
           tagStyle: "default",
-          title: "Knowledge Transfer & Extension",
-          text: "Empowering local farmers and cooperatives through active extension programs, ensuring academic innovation reaches the fields.",
+          title: "Training & Consulting",
+          text: "RAE offers training, consulting, laboratory services, and community extension.",
           cta: "Read More",
           layout: "card",
         },
         {
-          tag: "Community",
+          tag: "Funding",
           tagStyle: "default",
-          title: "Farmer Engagement Programs",
-          text: "Translating academic models into mobile-accessible insights for regional cooperatives.",
+          title: "ARDA Research Funding",
+          text: "RAE connects researchers to ARDA Strategic Fund (SF) and Research Utilization (RU) programs for FY 2570.",
           cta: "Read More",
           layout: "card",
         },
         {
-          tag: "Development",
+          tag: "Documents",
           tagStyle: "default",
-          title: "Community Development Initiatives",
-          text: "Integrating hardware sensors with predictive weather models for hyper-efficient water use.",
+          title: "RAE Document Center",
+          text: "RAE provides downloadable documents. Website is a Document Registry, not a DMS. All master files are stored in SharePoint/OneDrive.",
           cta: "Read More",
           bgStyle: "primary",
           layout: "card",
@@ -426,62 +425,60 @@ export const landing: Record<Locale, LandingContent> = {
 
     /* ─── Knowledge Ecosystem ─────────────────────────────────────── */
     ecosystem: {
-      kicker: "Integrated Platform",
+      kicker: "Knowledge Ecosystem",
       title: "Knowledge Ecosystem",
       paragraph:
-        "Access our centralized digital infrastructure connecting academic research, extension documents, learning modules, and institutional initiatives in one seamless experience to reinforce our Research to Impact narrative.",
+        "RAE connects research, academic services, documents, and personnel into a unified knowledge system for efficient and effective operations.",
       items: [
-        { icon: "menu_book", label: "Research Portal & Document Center" },
-        { icon: "school", label: "Learning Center" },
-        { icon: "eco", label: "Green Office Initiative" },
+        { icon: "menu_book", label: "Research & Academic Services" },
+        { icon: "school", label: "Documents & Funding" },
+        { icon: "eco", label: "Community Network" },
       ],
-      cta: "Enter Ecosystem",
+      cta: "Explore Knowledge Base",
     },
 
     /* ─── Signature Experience ────────────────────────────────────── */
     signature: {
-      kicker: "The Pulse of Innovation",
-      titleLine1: "From Discovery",
-      titleLine2Italic: "to Community",
+      kicker: "RAE Mission",
+      titleLine1: "Advancing Research and Academic Services",
+      titleLine2Italic:
+        "to Society, Grounded in Agriculture",
       paragraph:
-        `Empowering the future of agriculture through research excellence, academic services, and dedicated community extension from ${ORG_NAME_EN}.`,
-      badges: ["National-Level Contribution", "Data-Driven Impact"],
+        "Advance research and academic services to society, grounded in agriculture.",
+      badges: ["Research for Society", "Academic Service for Community"],
     },
 
     /* ─── News & Insights ────────────────────────────────────────── */
     news: {
       title: "News & Insights",
       paragraph:
-        "Latest publications, methodological breakthroughs, and institutional announcements from our research teams.",
+        "News, events, and announcements from RAE",
       goToNewsroom: "Go to Newsroom",
       featured: {
-        tag: "Extension Activity",
-        date: "Oct 24, 2024",
-        title: "Latest Field Training Workshop for Local Organic Farmers",
-        text: "A decade-long study reveals novel bacterial consortia capable of significantly buffering root systems against prolonged high-temperature exposure in tropical climates.",
-        cta: "Read Full Paper",
+        tag: "Event",
+        date: "June 16, 2026",
+        title: "Research Forum: Researchers Meet ARDA Funding",
+        text: "On 16 June 2026, RAE held a Research Forum on 'Researchers Meet ARDA Funding' chaired by Asst. Prof. Dr. Suriyajaras Techatanmeinsakul, Vice President of MJU.",
+        cta: "Read More",
       },
       dispatches: [
         {
-          tag: "Research Highlight",
+          tag: "Funding",
           tagColor: "secondary-container",
-          date: "Oct 18, 2024",
-          title: "Sustainable Rice Cultivation Systems for Regional Resilience",
-          text: "Securing $4M to expand multi-site testing of low-methane emitting paddy cultivation techniques.",
+          date: "2026",
+          title:
+            "ARDA Strategic Fund (SF) & Research Utilization (RU) FY 2570",
+          text:
+            "RAE connects researchers to ARDA (Agricultural Research Development Agency) funding, including Strategic Fund (SF) and Research Utilization (RU) programs.",
         },
         {
-          tag: "Training Program",
+          tag: "Academic Services",
           tagColor: "primary",
-          date: "Oct 12, 2024",
-          title: "Upcoming Professional Certification in Precision Agriculture",
-          text: "New Python library released for researchers to streamline LiDAR point cloud processing of orchard systems.",
-        },
-        {
-          tag: "Community Project",
-          tagColor: "secondary-container",
-          date: "Oct 05, 2024",
-          title: `${ORG_NAME_EN} Partners with Regional Cooperatives for Value-Added Production`,
-          text: `Join global experts at ${ORG_NAV_SECONDARY_EN} for a three-day summit on climate-adaptive agriculture.`,
+          date: "2026",
+          title:
+            "Academic Service Administration — Training & Consulting",
+          text:
+            "RAE offers training, consulting, laboratory services, and community extension.",
         },
       ],
     },

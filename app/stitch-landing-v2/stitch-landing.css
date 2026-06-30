@@ -1,0 +1,43 @@
+/** Stitch Landing V2 — Brand tokens & custom utilities */
+@theme {
+  --color-brand-primary: #005c3b;
+  --color-brand-dark: #003f2a;
+  --color-brand-forest: #014d35;
+  --color-brand-gold: #d8a01a;
+  --color-brand-goldhover: #c79318;
+  --color-brand-ivory: #f7f3ea;
+  --color-brand-light: #f8f9fa;
+  --font-sans: "Sarabun", sans-serif;
+
+  /* Stitch global color tokens */
+  --color-stitch-bg: #ffffff;
+  --color-stitch-text: #1f2937;
+  --color-stitch-muted: #6b7280;
+  --color-stitch-green: #005c3b;
+  --color-stitch-green-dark: #003f2a;
+  --color-stitch-gold: #d8a01a;
+  --color-stitch-border: #e5e7eb;
+  --color-stitch-placeholder: #9ca3af;
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Hide scrollbar for horizontal scroll containers */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
