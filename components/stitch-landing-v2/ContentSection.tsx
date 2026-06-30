@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { StitchLandingContent } from "@/content/stitch-landing";
 import { ArrowIcon } from "./icons/index";
+import { assetPath } from "@/lib/assetPath";
 
 type Props = { c: StitchLandingContent };
 
@@ -28,7 +29,7 @@ export function ContentSection({ c }: Props) {
             <div className="md:row-span-3">
               <img
                 alt={c.researchList.featuredImageAlt}
-                src={c.researchList.featuredImage}
+                src={assetPath(c.researchList.featuredImage)}
                 className="w-full h-full object-cover rounded-lg shadow-sm min-h-[300px]"
               />
             </div>
@@ -41,7 +42,7 @@ export function ContentSection({ c }: Props) {
               >
                 <img
                   alt={item.thumbnailAlt}
-                  src={item.thumbnail}
+                  src={assetPath(item.thumbnail)}
                   className="w-24 h-24 object-cover rounded-md flex-shrink-0"
                 />
                 <div className="flex-1 min-w-0">
@@ -77,7 +78,7 @@ export function ContentSection({ c }: Props) {
             <div className="flex flex-col md:flex-row gap-4 bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
               <img
                 alt={c.newsList.featured.imageAlt}
-                src={c.newsList.featured.image}
+                src={assetPath(c.newsList.featured.image)}
                 className="w-full md:w-48 h-32 object-cover rounded-md flex-shrink-0"
               />
               <div className="flex flex-col justify-center flex-1 min-w-0">
@@ -111,7 +112,7 @@ export function ContentSection({ c }: Props) {
               >
                 <img
                   alt={item.thumbnailAlt}
-                  src={item.thumbnail}
+                  src={assetPath(item.thumbnail)}
                   className="w-24 h-20 object-cover rounded-md flex-shrink-0"
                 />
                 <div className="flex-1 min-w-0">

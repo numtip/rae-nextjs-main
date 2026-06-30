@@ -3,6 +3,7 @@
 
 import type { StitchLandingContent } from "@/content/stitch-landing";
 import type { Locale } from "@/lib/locale";
+import { assetPath } from "@/lib/assetPath";
 import { FacebookIcon, LineIcon, YouTubeIcon } from "./icons/index";
 
 type Props = { c: StitchLandingContent; locale: Locale };
@@ -33,7 +34,7 @@ export function SiteFooter({ c, locale }: Props) {
                 <div className="w-14 h-14 flex-shrink-0 overflow-hidden">
                   <img
                     alt={c.footer.logoAlt}
-                    src="/images/logorae.png"
+                    src={assetPath("/images/logorae.png")}
                     className="w-full h-full object-contain"
                   />
                 </div>

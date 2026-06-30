@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import type { StitchLandingContent } from "@/content/stitch-landing";
+import { assetPath } from "@/lib/assetPath";
 
 type Props = { c: StitchLandingContent };
 
@@ -11,7 +12,7 @@ export function HeroSection({ c }: Props) {
       <div className="absolute inset-0 w-full h-full">
         <img
           alt=""
-          src={c.hero.backgroundImage}
+          src={assetPath(c.hero.backgroundImage)}
           className="w-full h-full object-cover absolute inset-0"
         />
         <div className="w-full h-full bg-gradient-to-r from-brand-dark/90 via-brand-dark/60 to-transparent absolute inset-0 z-[1]" />

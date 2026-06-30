@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { StitchLandingContent } from "@/content/stitch-landing";
 import { useState, useRef, useEffect } from "react";
+import { assetPath } from "@/lib/assetPath";
 
 type Props = { c: StitchLandingContent };
 
@@ -112,7 +113,7 @@ export function PartnersSection({ c }: Props) {
                     <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white overflow-hidden mb-3 ring-2 ring-gray-100 shadow-sm">
                       <img
                         alt={partner.nameEn}
-                        src={partner.logo}
+                        src={assetPath(partner.logo)}
                         className="w-full h-full object-contain p-1.5"
                       />
                     </div>

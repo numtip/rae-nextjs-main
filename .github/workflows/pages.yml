@@ -20,6 +20,7 @@ env:
   NEXT_PUBLIC_BUILD_SHA: ${{ github.sha }}
   NEXT_PUBLIC_BUILD_DATE: ${{ github.event.head_commit.timestamp || '' }}
   NEXT_PUBLIC_BUILD_BRANCH: ${{ github.ref_name }}
+  NEXT_PUBLIC_BASE_PATH: /rae-nextjs-main
 
 jobs:
   build-and-deploy:
