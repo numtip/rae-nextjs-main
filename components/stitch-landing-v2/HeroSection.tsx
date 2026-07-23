@@ -6,6 +6,8 @@ import { assetPath } from "@/lib/assetPath";
 type Props = { c: StitchLandingContent };
 
 export function HeroSection({ c }: Props) {
+  const isTh = c.lang === "th";
+
   return (
     <section className="relative min-h-[600px] flex items-center">
       {/* Background with gradient overlay */}
@@ -20,8 +22,18 @@ export function HeroSection({ c }: Props) {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className="max-w-2xl text-white">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+        <div className={isTh ? "max-w-2xl text-white" : "max-w-[720px] text-white"}>
+          <h1 className={`font-bold mb-4 ${
+            isTh
+              ? "text-4xl md:text-5xl lg:text-6xl leading-tight"
+              : "text-4xl md:text-5xl lg:text-6xl xl:text-[72px] leading-[1.02]"
+          }`}
+        <div className={isTh ? "max-w-2xl text-white" : "max-w-[720px] text-white"}>
+          <h1 className={`font-bold mb-4 ${
+            isTh
+              ? "text-4xl md:text-5xl lg:text-6xl leading-tight"
+              : "text-4xl md:text-5xl lg:text-6xl xl:text-[72px] leading-[1.02]"
+          }`}>
             {c.hero.headlineBeforeGold}{" "}
             <span className="text-brand-gold">{c.hero.headlineGold}</span>{" "}
             {c.hero.headlineAfterGold}

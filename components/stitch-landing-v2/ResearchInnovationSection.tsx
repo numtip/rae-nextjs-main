@@ -21,8 +21,14 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Handshake,
 };
 
-export function ResearchInnovationSection() {
+type Props = { locale?: "th" | "en" };
+
+export function ResearchInnovationSection({ locale = "th" }: Props) {
   const data = researchInnovation;
+  const isTh = locale === "th"
+export function ResearchInnovationSection({ locale = "th" }: Props) {
+  const data = researchInnovation;
+  const isTh = locale === "th";
   const sorted = [...data.cards].sort((a, b) => a.order - b.order);
 
   return (
@@ -31,7 +37,7 @@ export function ResearchInnovationSection() {
         {/* ─── Section Header ─────────────────────────────── */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#005C3B]">
-            {data.titleTh}
+            {isTh ? data.titleTh : data.titleEntitleTh : data.titleEn}
           </h2>
           <div className="w-12 h-1 bg-[#D8A01A] rounded-full mx-auto mt-3 mb-3" />
           <p className="text-[#6B7280] text-sm max-w-2xl mx-auto">
