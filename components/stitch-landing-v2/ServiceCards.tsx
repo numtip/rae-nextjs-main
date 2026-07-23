@@ -22,6 +22,7 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 };
 
 export function ServiceCards({ c }: Props) {
+  const isTh = c.lang === "th";
   const sorted = [...c.services.cards].sort((a, b) => a.order - b.order);
 
   return (
@@ -31,7 +32,7 @@ export function ServiceCards({ c }: Props) {
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#005C3B]">
             {c.services.kicker === "OUR SERVICES"
-              ? "บริการของเรา"
+              ? isTh ? "บริการของเรา" : "Our Services"
               : c.services.kicker}
           </h2>
           <div className="w-12 h-1 bg-[#D8A01A] rounded-full mx-auto mt-3 mb-3" />
@@ -41,7 +42,7 @@ export function ServiceCards({ c }: Props) {
         </div>
 
         {/* ─── Cards Grid ─────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sorted.map((card) => {
             const Icon = iconMap[card.icon];
             return (
@@ -100,9 +101,9 @@ export function ServiceCards({ c }: Props) {
           <a
             href={c.services.viewAllHref}
             className="inline-flex items-center gap-2 bg-[#005C3B] text-white px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#003F2A] transition-colors shadow-md hover:shadow-lg"
-            aria-label="สำรวจงานบริการวิชาการทั้งหมด"
+            aria-label={isTh ? "สำรวจงานบริการวิชาการทั้งหมด" : "Explore All Academic Services"}
           >
-            สำรวจงานบริการวิชาการทั้งหมด
+            {isTh ? "สำรวจงานบริการวิชาการทั้งหมด" : "Explore All Academic Services"}
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

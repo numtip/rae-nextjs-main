@@ -9,6 +9,7 @@ export type ResearchCard = {
   title: string;
   titleEn: string;
   description: string;
+  descriptionEn: string;
   icon: string;
   image: string;
   imageAlt: string;
@@ -40,6 +41,7 @@ export const researchInnovation: ResearchInnovationData = {
       title: "ยุทธศาสตร์และแผนวิจัย",
       titleEn: "Research Strategy",
       description: "กำหนดทิศทางและยุทธศาสตร์งานวิจัยให้สอดคล้องกับมหาวิทยาลัยและประเทศ",
+      descriptionEn: "Define research direction and strategy aligned with university and national goals",
       icon: "Compass",
       image: "/images/stitch-v6/knowledge-ecosystem.jpg",
       imageAlt: "ยุทธศาสตร์และแผนวิจัย",
@@ -51,6 +53,7 @@ export const researchInnovation: ResearchInnovationData = {
       title: "ทุนวิจัย",
       titleEn: "Research Funding",
       description: "สนับสนุนการบริหารทุนวิจัยและการพัฒนาโครงการวิจัยทุกระดับ",
+      descriptionEn: "Support research fund management and project development at all levels",
       icon: "HandCoins",
       image: "/images/stitch-v6/community-impact.jpg",
       imageAlt: "ทุนวิจัย",
@@ -62,6 +65,7 @@ export const researchInnovation: ResearchInnovationData = {
       title: "ศูนย์วิจัยและความเป็นเลิศ",
       titleEn: "Research Centers",
       description: "เชื่อมโยงศูนย์วิจัย หน่วยวิจัย และศูนย์ความเป็นเลิศของมหาวิทยาลัย",
+      descriptionEn: "Connect research centers, units, and excellence centers of the university",
       icon: "Building2",
       image: "/images/stitch-v6/integrated-research.jpg",
       imageAlt: "ศูนย์วิจัยและความเป็นเลิศ",
@@ -73,6 +77,7 @@ export const researchInnovation: ResearchInnovationData = {
       title: "พัฒนาศักยภาพนักวิจัย",
       titleEn: "Research Capacity",
       description: "อบรม พัฒนา และสร้างเครือข่ายนักวิจัยสู่ระดับสากล",
+      descriptionEn: "Train, develop, and build researcher networks to international standards",
       icon: "GraduationCap",
       image: "/images/stitch-v6/knowledge-transfer.jpg",
       imageAlt: "พัฒนาศักยภาพนักวิจัย",
@@ -84,6 +89,7 @@ export const researchInnovation: ResearchInnovationData = {
       title: "นวัตกรรมและการใช้ประโยชน์",
       titleEn: "Innovation",
       description: "ผลักดันผลงานวิจัยสู่การใช้ประโยชน์ เชิงพาณิชย์ และสังคม",
+      descriptionEn: "Drive research outputs toward commercial and social utilization",
       icon: "Lightbulb",
       image: "/images/stitch-v6/research-excellence.jpg",
       imageAlt: "นวัตกรรมและการใช้ประโยชน์",
@@ -95,6 +101,7 @@ export const researchInnovation: ResearchInnovationData = {
       title: "เครือข่ายความร่วมมือ",
       titleEn: "Collaboration",
       description: "สร้างความร่วมมือกับหน่วยงานทั้งในประเทศและต่างประเทศ",
+      descriptionEn: "Build partnerships with organizations both domestically and internationally",
       icon: "Handshake",
       image: "/images/stitch-v6/farmer-engagement.jpg",
       imageAlt: "เครือข่ายความร่วมมือ",

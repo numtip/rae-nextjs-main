@@ -27,17 +27,11 @@ export function HeroSection({ c }: Props) {
             isTh
               ? "text-4xl md:text-5xl lg:text-6xl leading-tight"
               : "text-4xl md:text-5xl lg:text-6xl xl:text-[72px] leading-[1.02]"
-          }`}
-        <div className={isTh ? "max-w-2xl text-white" : "max-w-[720px] text-white"}>
-          <h1 className={`font-bold mb-4 ${
-            isTh
-              ? "text-4xl md:text-5xl lg:text-6xl leading-tight"
-              : "text-4xl md:text-5xl lg:text-6xl xl:text-[72px] leading-[1.02]"
           }`}>
             {c.hero.headlineBeforeGold}{" "}
             <span className="text-brand-gold">{c.hero.headlineGold}</span>{" "}
             {c.hero.headlineAfterGold}
-          </h2>
+          </h1>
           <p className="text-lg md:text-xl mb-8 text-gray-200">
             {c.hero.paragraph}
           </p>

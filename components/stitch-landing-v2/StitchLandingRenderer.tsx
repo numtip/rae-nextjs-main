@@ -155,7 +155,7 @@ export default function StitchLandingRenderer({ locale }: Props) {
         <HeroSection c={c} />
 
         {/* ─── Research & Innovation ─────────────────────────── */}
-        <ResearchInnovationSection />
+        <ResearchInnovationSection locale={locale} />
 
         {/* ─── Services ─────────────────────────────────────── */}
         <ServiceCards c={c} />

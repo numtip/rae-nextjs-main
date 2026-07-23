@@ -25,9 +25,6 @@ type Props = { locale?: "th" | "en" };
 
 export function ResearchInnovationSection({ locale = "th" }: Props) {
   const data = researchInnovation;
-  const isTh = locale === "th"
-export function ResearchInnovationSection({ locale = "th" }: Props) {
-  const data = researchInnovation;
   const isTh = locale === "th";
   const sorted = [...data.cards].sort((a, b) => a.order - b.order);
 
@@ -37,7 +34,7 @@ export function ResearchInnovationSection({ locale = "th" }: Props) {
         {/* ─── Section Header ─────────────────────────────── */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#005C3B]">
-            {isTh ? data.titleTh : data.titleEntitleTh : data.titleEn}
+            {isTh ? data.titleTh : data.titleEn}
           </h2>
           <div className="w-12 h-1 bg-[#D8A01A] rounded-full mx-auto mt-3 mb-3" />
           <p className="text-[#6B7280] text-sm max-w-2xl mx-auto">
@@ -79,19 +76,19 @@ export function ResearchInnovationSection({ locale = "th" }: Props) {
                 {/* Card body */}
                 <div className="px-5 pb-6 pt-2 flex flex-col flex-1 text-center items-center">
                   <h3 className="text-lg font-bold text-[#005C3B] mb-2 leading-snug">
-                    {card.title}
+                    {isTh ? card.title : card.titleEn}
                   </h3>
 
                   {/* Gold divider */}
                   <div className="w-8 h-0.5 bg-[#D8A01A]/70 rounded-full mb-3" />
 
                   <p className="text-sm text-[#6B7280] leading-relaxed line-clamp-2 flex-1">
-                    {card.description}
+                    {isTh ? card.description : card.descriptionEn}
                   </p>
 
                   {/* CTA */}
                   <span className="mt-4 inline-flex items-center gap-1.5 text-[#005C3B] font-semibold text-sm group-hover:text-[#D8A01A] transition-colors">
-                    เรียนรู้เพิ่มเติม
+                    {isTh ? "เรียนรู้เพิ่มเติม" : "Learn More"}
                     <ArrowRight className="w-3.5 h-3.5 transition-all duration-300 group-hover:translate-x-1" />
                   </span>
                 </div>
